@@ -1,0 +1,75 @@
+.btn {
+
+  &.btn__search {
+    @include transition_all(color .3s);
+    float: left;
+    min-height: 40px;
+    min-width: 40px;
+    font-size: 25px;
+    line-height: 40px;
+    text-align: center;
+    border-radius: 6px;
+    color: $gl_gray_light;
+
+    &:hover {
+      color: $gl_red;
+    }
+
+    .b-header__search & {
+      position: absolute;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      width: 53px;
+      line-height: 53px;
+      border-radius: 0;
+      background: none;
+    }
+  }
+
+  &.btn_v1 {
+    display: inline-block;
+    vertical-align: top;
+    height: 45px;
+    border-radius: 34px;
+    padding: 0 32px;
+    font: 16px/40px $ClearSansMedium;
+  }
+
+  &.btn_v2 {
+    display: inline-block;
+    vertical-align: top;
+    height: 50px;
+    border-radius: 34px;
+    padding: 0 35px;
+    font: 16px/46px $ClearSansMedium;
+  }
+
+  &-red_white {
+    @include transition_all(background .3s, color .3s);
+    background: #fff;
+    color: $gl_red;
+    border: 2px solid $gl_red;
+
+    &:hover {
+      background: $gl_red;
+      color: #fff;
+    }
+  }
+
+  &-red {
+    @include transition_all(background .3s);
+    background: $gl_red;
+    color: #fff;
+
+    &:hover {
+      background: darken($gl_red, 5%);
+    }
+  }
+
+  &-gray {
+    background: $dirty_white;
+  }
+
+}
+

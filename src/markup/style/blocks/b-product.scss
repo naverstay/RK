@@ -1,0 +1,354 @@
+.b-product {
+
+  &__list {
+    @extend %global_flex_block_row_wrap_flex-start_stretch;
+    margin: 0 -15px 25px;
+
+    @include small-desktop() {
+      margin: 0 -12px;
+    }
+
+    li {
+      max-width: 317px;
+      padding: 0 15px;
+      margin-bottom: 30px;
+
+      @include wide-desktop() {
+        max-width: 287px;
+      }
+
+      @include small-desktop() {
+        max-width: 468px;
+        padding: 0 12px;
+      }
+
+      @include tablet() {
+        max-width: 381px;
+        margin-bottom: 15px;
+      }
+
+      @include phone() {
+        max-width: 348px;
+      }
+    }
+  }
+
+  &__unit {
+    height: 100%;
+    border-radius: 5px;
+    overflow: hidden;
+    background: #fff;
+  }
+
+  &__img {
+    overflow: hidden;
+    text-align: center;
+    margin: 0 -200px;
+    height: 170px;
+
+    img {
+      display: inline-block;
+      vertical-align: top;
+      min-height: 100%;
+    }
+  }
+
+  &__info {
+    padding: 21px 25px;
+    background: #fff;
+
+    p {
+      color: $gl_gray_light;
+      margin-bottom: 10px;
+      line-height: 1.5;
+      overflow: hidden;
+      letter-spacing: .015em;
+      max-height: 3em;
+
+      @include phone() {
+        line-height: 1.2;
+        max-height: 2.4em;
+        margin-bottom: 14px;
+      }
+    }
+
+    .gl-link {
+      font: 13px $ClearSansMedium;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+
+      @include phone() {
+        letter-spacing: .07em;
+      }
+    }
+  }
+
+  &__caption {
+    color: #2a2c36;
+    font: 22px $ClearSansMedium;
+    margin-bottom: 5px;
+    letter-spacing: -.01em;
+
+    @include phone() {
+      margin-bottom: 8px;
+    }
+  }
+
+  &__range {
+    margin-left: 370px;
+    margin-bottom: 20px;
+
+    @include small-desktop() {
+      margin-left: 0;
+      margin-bottom: 10px;
+    }
+
+    @include tablet() {
+      margin-bottom: 0;
+    }
+
+    &-group {
+      position: relative;
+      padding-bottom: 30px;
+      margin-bottom: 28px;
+
+      @include small-desktop-min() {
+        &:after {
+          content: '';
+          position: absolute;
+          bottom: 0;
+          right: -40px;
+          left: -40px;
+          height: 1px;
+          background: transparentize($gl_gray_light, .8);
+        }
+      }
+
+      @include small-desktop() {
+        margin-bottom: 0;
+        padding-bottom: 14px;
+
+        &:first-child {
+          width: 33%;
+        }
+
+        &._group-price {
+          padding-left: 20px;
+          width: 34%;
+        }
+
+        &:last-child {
+          min-width: 20%;
+          margin-left: auto;
+        }
+      }
+
+      .b-product__range-form & {
+        @include phone() {
+          width: 100%;
+          padding: 0 0 15px;
+        }
+      }
+    }
+
+    &-title {
+      font-size: 30px;
+      letter-spacing: .055em;
+      margin-bottom: 22px;
+
+      @include small-desktop() {
+        margin-bottom: 17px;
+      }
+
+      @include phone() {
+        letter-spacing: -.035em;
+      }
+    }
+
+    &-label {
+      color: $gl_gray_light;
+      font-size: 22px;
+      letter-spacing: .03em;
+      margin-bottom: 17px;
+
+      .i-chevron_down {
+        font-size: 14px;
+      }
+
+      @include small-desktop() {
+        letter-spacing: 0;
+        margin: 0 0 20px;
+      }
+    }
+
+    &-filter {
+      float: left;
+      width: 340px;
+      background: #fff;
+      border-radius: 5px;
+      padding: 45px 40px 30px;
+      margin-bottom: 50px;
+      box-shadow: 0 6px 26px transparentize($gl_gray_light, .9);
+
+      @include small-desktop() {
+        float: none;
+        width: auto;
+        margin-bottom: 30px;
+      }
+
+      @include tablet() {
+        padding-top: 30px;
+        padding-bottom: 3px;
+        margin-bottom: 15px;
+      }
+
+      @include phone() {
+        padding-left: 30px;
+        padding-right: 30px;
+      }
+    }
+
+    &-list {
+      @extend %global_flex_block_row_wrap_flex-start_stretch;
+      margin: 0 -15px;
+
+      @include tablet() {
+        margin: 0 -8px;
+      }
+
+      li {
+        max-width: 300px;
+        padding: 0 15px;
+        margin-bottom: 30px;
+
+        @include wide-desktop() {
+          max-width: 260px;
+        }
+
+        @include small-desktop() {
+          max-width: 314px;
+        }
+
+        @include tablet() {
+          padding: 0 8px;
+          max-width: 251px;
+          margin-bottom: 20px;
+        }
+
+        @include phone() {
+          max-width: 320px;
+          margin-bottom: 18px;
+        }
+      }
+    }
+
+    &-item {
+      background: #fff;
+      border-radius: 5px;
+      overflow: hidden;
+      box-shadow: 0 3px 26px transparentize($gl_gray_light, .9);
+    }
+
+    &-info {
+      padding: 30px;
+
+      @include tablet() {
+        padding: 28px 18px 30px;
+      }
+    }
+
+    &-name {
+      font: 18px $ClearSansMedium;
+      margin-bottom: 20px;
+      letter-spacing: .018em;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+
+      @include tablet() {
+        margin-bottom: 16px;
+      }
+      
+      @include phone() {
+        margin-bottom: 20px;
+        font-size: 16px;
+      }
+    }
+
+    &-img {
+      text-align: center;
+      margin: 0 -200px;
+      padding-top: 15px;
+      height: 200px;
+      line-height: 180px;
+
+      img {
+        display: inline-block;
+        vertical-align: middle;
+        line-height: 1;
+
+        @include wide-desktop() {
+          max-height: 155px;
+          margin-bottom: 20px;
+        }
+
+        @include small-desktop() {
+          max-height: none;
+          margin: 10px 0 0;
+        }
+
+        @include tablet() {
+          max-height: 145px;
+          margin: 0 0 30px;
+        }
+
+        @include phone() {
+          max-height: none;
+        }
+
+      }
+
+      @include tablet() {
+        height: 145px;
+        line-height: 145px;
+      }
+
+      @include phone() {
+        height: 185px;
+        line-height: 185px;
+      }
+    }
+
+    &-w {
+      @extend %clearfix;
+      margin-top: -30px;
+
+      @include tablet() {
+        margin-top: -37px;
+      }
+    }
+
+    &-form {
+
+      @include small-desktop() {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: normal;
+        -ms-flex-flow: row wrap;
+        flex-flow: row wrap;
+        -ms-flex-pack: justify;
+        justify-content: flex-start;
+        -ms-flex-align: start;
+        align-items: flex-start;
+        -webkit-box-pack: justify;
+        -webkit-box-align: start;
+      }
+
+      @include phone() {
+        display: block;
+      }
+    }
+  }
+}

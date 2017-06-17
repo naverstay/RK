@@ -1,0 +1,49 @@
+@mixin wide-desktop {
+  @media only screen and (max-width: #{$wide-desktop-width - 1px}) {
+    @content;
+  }
+}
+
+@mixin small-desktop {
+  @media only screen and (max-width: #{$desktop-width - 1px}) {
+    @content;
+  }
+}
+
+@mixin small-desktop-min {
+  @media only screen and (min-width: #{$desktop-width}) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media only screen and (max-width: #{$small-desktop-width - 1px}) {
+    @content;
+  }
+}
+
+@mixin phone {
+  @media only screen and (max-width: #{$tablet-width - 1px}) {
+    @content;
+  }
+}
+
+@mixin phone-min {
+  @media only screen and (min-width: #{$tablet-width}) {
+    @content;
+  }
+}
+
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+  -ms-border-radius: $radius;
+  border-radius: $radius;
+}
+
+@mixin box-shadow($radius) {
+  -webkit-box-shadow: $radius;
+  -moz-box-shadow: $radius;
+  -ms-box-shadow: $radius;
+  border-radius: $radius;
+}

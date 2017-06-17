@@ -1,0 +1,37 @@
+@import "constants";
+
+@import "includes/global_var";
+@import "reset";
+@import "fonts";
+@import "font_icons";
+@import "../rk_icons/style.scss";
+
+@import "mixins";
+@import "sprite";
+
+// @import "libs/_vendor"; // - подключение всех стилей bower компонентов "как есть". Часто - не требуется
+@import "libs/vendor";
+@import "libs/jquery.fancybox";
+@import "libs/jquery.formstyler";
+@import "libs/swiper";
+
+@import "global";
+@import "elements/forms";
+@import "elements/texts";
+
+//elems
+@import "elements/btn";
+
+//blocks
+@import "blocks/b-header";
+@import "blocks/b-hero";
+@import "blocks/b-product";
+@import "blocks/b-client";
+@import "blocks/b-delivery";
+@import "blocks/b-article";
+
+
+
+@import "blocks/b-footer";
+
+

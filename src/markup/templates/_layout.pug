@@ -1,0 +1,20 @@
+include _mixins.pug
+
+block variables
+  
+doctype html
+html(lang='ru')
+  +dev_head(page_title || '')
+
+  body
+    .wrapper
+      .base
+        +header()
+        
+        main.main__content
+          block content
+            
+      +footer()
+      +popups(true)
+      
+    +scripts(true)

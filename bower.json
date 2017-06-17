@@ -1,0 +1,22 @@
+{
+  "name": "default-bower",
+  "version": "0.0.1",
+  "author": "Digital Spectr <man@digital-spectr.ru> (http://digital-spectr.ru)",
+  "moduleType": [
+    "node"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components"
+  ],
+  "dependencies": {
+    "jquery": "3.*",
+    "swiper": "*",
+    "matchHeight": "*",
+    "fancybox": "master",
+    "jquery.form-styler": "*",
+    "jquery-ui": "^1.12.1"
+  }
+}

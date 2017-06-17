@@ -1,0 +1,68 @@
+@font-face {
+  font-family: 'rk_icons';
+  src:  url('fonts/rk_icons.eot?5zptee');
+  src:  url('fonts/rk_icons.eot?5zptee#iefix') format('embedded-opentype'),
+    url('fonts/rk_icons.ttf?5zptee') format('truetype'),
+    url('fonts/rk_icons.woff?5zptee') format('woff'),
+    url('fonts/rk_icons.svg?5zptee#rk_icons') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="i-"], [class*=" i-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'rk_icons' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.i-phone2:before {
+  content: "\e90b";
+}
+.i-play-button:before {
+  content: "\e90c";
+}
+.i-arrow_left:before {
+  content: "\e902";
+}
+.i-arrow_right:before {
+  content: "\e903";
+}
+.i-chevron_down:before {
+  content: "\e904";
+}
+.i-chevron_up:before {
+  content: "\e90d";
+}
+.i-chevron_left:before {
+  content: "\e905";
+}
+.i-chevron_right:before {
+  content: "\e906";
+}
+.i-close:before {
+  content: "\e907";
+}
+.i-humburger:before {
+  content: "\e908";
+}
+.i-search:before {
+  content: "\e909";
+}
+.i-user:before {
+  content: "\e90a";
+}
+.i-cart:before {
+  content: "\e900";
+}
+.i-phone:before {
+  content: "\e901";
+}

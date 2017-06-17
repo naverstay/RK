@@ -1,0 +1,99 @@
+@import "variables";
+
+@font-face {
+  font-family: 'rk_icons';
+  src:  url('#{$icomoon-font-path}/rk_icons.eot?5zptee');
+  src:  url('#{$icomoon-font-path}/rk_icons.eot?5zptee#iefix') format('embedded-opentype'),
+    url('#{$icomoon-font-path}/rk_icons.ttf?5zptee') format('truetype'),
+    url('#{$icomoon-font-path}/rk_icons.woff?5zptee') format('woff'),
+    url('#{$icomoon-font-path}/rk_icons.svg?5zptee#rk_icons') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="i-"], [class*=" i-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'rk_icons' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.i-phone2 {
+  &:before {
+    content: $i-phone2;
+  }
+}
+.i-play-button {
+  &:before {
+    content: $i-play-button;
+  }
+}
+.i-arrow_left {
+  &:before {
+    content: $i-arrow_left;
+  }
+}
+.i-arrow_right {
+  &:before {
+    content: $i-arrow_right;
+  }
+}
+.i-chevron_down {
+  &:before {
+    content: $i-chevron_down;
+  }
+}
+.i-chevron_up {
+  &:before {
+    content: $i-chevron_up;
+  }
+}
+.i-chevron_left {
+  &:before {
+    content: $i-chevron_left;
+  }
+}
+.i-chevron_right {
+  &:before {
+    content: $i-chevron_right;
+  }
+}
+.i-close {
+  &:before {
+    content: $i-close;
+  }
+}
+.i-humburger {
+  &:before {
+    content: $i-humburger;
+  }
+}
+.i-search {
+  &:before {
+    content: $i-search;
+  }
+}
+.i-user {
+  &:before {
+    content: $i-user;
+  }
+}
+.i-cart {
+  &:before {
+    content: $i-cart;
+  }
+}
+.i-phone {
+  &:before {
+    content: $i-phone;
+  }
+}
+

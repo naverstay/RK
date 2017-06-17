@@ -1,0 +1,141 @@
+extends _layout.pug
+include _mixins.pug
+
+block variables
+  - var page_title = 'RK главная'
+  - var map_active = 0
+  - var nav_active = 0
+  - var dropdown_active = 0
+
+block content
+  .section
+    .section__inner
+      .b-hero
+        .b-hero__slider.heroSlider
+          .swiper-container
+            .swiper-wrapper
+              +loop_while(4)
+                .swiper-slide
+                  .b-hero__slide
+                    img(src='images/slide_1.png')
+                    .b-hero__slide-content
+                      .b-hero__slide-caption Заголовок слайда
+                      p Lorem ipsum dolor sit amet, consectetur<br>adipiscing elit, sed do eiusmod tempor
+                      .b-hero__slide-more
+                        a.btn.btn-red.btn_v1(href='#')
+                          span.dm Подробнее
+          
+          .b-hero__slider-controls
+            .b-hero__slider-btn.b-hero__slider-next
+            .b-hero__slider-btn.b-hero__slider-prev
+            .b-hero__slider-pagination
+                  
+  .section
+    .section__inner
+      ul.b-product__list
+        +loop_while(4)
+          li
+            .b-product__unit
+              .b-product__img
+                img(src='images/prod_1.png')
+              .b-product__info
+                .b-product__caption Gates Corporation
+                  
+                p Ремни промышленные любых типоразмеров, шкивы для ременных передач…
+                
+                p 
+                  a._clr-red.gl-link(href='#') ПОДРОБНЕЕ >
+      
+  .section.section__title._title-red
+    .section__inner
+      .section__title-text Ассортимент выпускаемых изделий
+        
+  .section
+    .section__inner
+      .b-product__range-w
+        .b-product__range-filter
+          .b-product__range-title Фильтр
+          //- tag FORM could be replaced with DIV, BUT it's class should be still b-product__range-form
+          form(action='#' class='b-product__range-form')
+            .b-product__range-group
+              .b-product__range-label.dt_hidden
+                span Производители
+                span.i-chevron_down 
+              .b-product__range-select.select__v2
+                select
+                  option(disabled selected) Производители
+                  option Amma 
+                  option Anatomico 
+                  option Gess 
+                  option Casada 
+                  option Ceragem 
+                  option Docstor 
+                  option Ego
+              
+            .b-product__range-group._group-price
+              .b-product__range-label Стоимость
+                
+              .f-row._half
+                .f-cell
+                  input.f-input.t-center.input__v2
+                .f-cell
+                  input.f-input.t-center.input__v2
+              
+            .b-product__range-group
+              .b-product__range-label.dt_hidden
+                span Наличие товара
+                span.i-chevron_down
+              .b-product__range-select.select__v2
+                select
+                  option(disabled selected) Наличие товара
+                  option Все товары 
+                  option Только в наличии
+                  
+          button.btn.btn-red_white.btn_v2.dt_hidden
+            span Показать товары
+          
+        .b-product__range
+          ul.b-product__range-list
+            +loop_while(6)
+              li
+                .b-product__range-item
+                  .b-product__range-img
+                    img(src='images/range_1.png')
+                  .b-product__range-info
+                    .b-product__range-name Лента конвейерная GR
+                    a.btn.btn-red.btn_v1(href='#')
+                      span.dm Подробнее
+              
+  .section.section__title._title-black
+    .section__inner
+      .section__title-text Наши клиенты
+            
+      ul.b-client__list
+        +loop_while(8)
+          li
+            .b-client__item
+              img(src='images/client_1.png')
+              
+  .section
+    .section__inner
+      .b-delivery
+        ul.b-delivery__list
+          +loop_while(3)
+            li
+              .b-delivery__item
+                .b-delivery__img
+                  img(src='images/delivery.svg' width=78 height=65)
+              
+                .b-delivery__caption Бесплатная доставка
+                p
+                  span По всей России при сумме 
+                  span.dt_hidden <br>
+                  span заказа от 50 000 Р.-
+                  
+      .b-article
+        .b-article__list
+          +loop_while(4)
+            .b-article__box
+              h2 Продажа РТИ в Москве, Люберцах, Подольске и по всей России
+              p Компания «Хольцер» специализируется на производстве и продаже качественных РТИ изделий в Москве и по всей России. Такие комплектующие отличаются высокой прочностью и имеют длительный срок эксплуатации. Особое место в товарном ассортименте завода занимают неформовые РТИ, которые нашли широкое применение и востребованы в различных сферах промышленности и хозяйственной деятельности. На нашем сайте представлена продукция производителей РТИ с мировым именем, таких как Holzer Flexo, Rubber and Plastic и Gates Corporation по доступным ценам. А так же резиновые изделия под заказ собственного производства.
+              

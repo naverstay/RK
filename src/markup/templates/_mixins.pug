@@ -1,0 +1,251 @@
+mixin dev_head(page_title)
+  head
+    title=page_title
+    | <!-- saved from url=(0014)about:internet -->
+    meta(charset='utf-8')
+    meta(name='viewport', content="width=device-width, initial-scale=1.0")
+    meta(name="SKYPE_TOOLBAR", content="SKYPE_TOOLBAR_PARSER_COMPATIBLE")
+    meta(name="apple-mobile-web-app-capable", content="yes")
+    meta(name="format-detection", content="telephone=no")
+    link(rel='stylesheet', href='css/style.css', media='all')
+
+    script(src='js/_vendor.js')
+    script(src='js/_main.js')
+
+mixin loop_while(counter)
+  -i=0;
+  while i < counter
+    -i++;
+    block
+
+mixin menu(nav_active, panel_active)
+  .menu_holder
+    ul.main_menu
+      +link_or_span((panel_active == 1), 'panels.html' , 'Ламинированные панели', 'menu_link', '')
+      +link_or_span((panel_active == 2), 'panels.html' , 'Окрашенные панели', 'menu_link', '')
+      +link_or_span((panel_active == 3), 'panels.html' , 'Панели с виниловым покрытием', 'menu_link', '')
+      +link_or_span((panel_active == 4), 'other_panels.html' , 'Другие панели', 'menu_link', '')
+      +link_or_span((panel_active == 5), 'other_panels.html' , 'Профиль для монтажа ', 'menu_link clr_black', '_last')
+
+mixin header(nav_active, panel_active)
+  header.b-header
+    .b-header__menu
+      .section__inner
+        ul.b-header__menu-map
+          +link_or_span((map_active == 1), 'service.html' , 'Сервисный центр', 'b-header__link', 'dm')
+          +link_or_span((map_active == 2), 'delivery.html' , 'Оплата и доставка', 'b-header__link', 'dm')
+          +link_or_span((map_active == 3), 'about.html' , 'О компании', 'b-header__link', 'dm')
+          +link_or_span((map_active == 4), 'contacts.html' , 'Контакты', 'b-header__link', 'dm')
+
+        ul.b-header__menu-info
+          li.dm.dt_hidden.b-header__worktime Пн-Чт: с 09-00 до 18-00, Пт: с 09-00 до 17-00
+          li.dm
+            a.gl-link._clr-red(href='#')
+              span.i-phone2
+              span.gl-link__text Заказать звонок
+
+    .b-header__toolbar
+      .section__inner
+        .b-header__logo-w
+          a.b-header__logo-link(href='index.html'): img(src='images/logo.png')
+        .b-header__location.select__v1
+          select
+            option Пермь
+            option Москва
+            option СПб
+            option Новоархангельск
+
+        ul.b-header__user
+          li.dm
+            a.b-header__user-link(href='#')
+              span.b-header__user-icon.i-user._clr-gray_light
+              span.b-header__user-text.dm Личный кабинет<br>и статус заказа
+          li.dm
+            a.b-header__user-link(href='#')
+              span.b-header__user-icon.i-cart._clr-red
+              span.b-header__user-text.dm В корзине<br>нет товаров
+              
+        .b-header__search-w.headerSearch
+          a.btn.btn__search.btn-gray.phone_vis(href='search.html')
+            span.i-search
+          form.f-input__w.b-header__search(action='#')
+            input.f-input.input__v1.autocomplete(placeholder='Что Вы ищете?')
+            button.btn.btn__search
+              span.i-search
+
+    .b-header__nav-w
+      .section__inner
+        .b-header__nav-btn.mobMenuBtn.phone_vis
+          span.i-humburger.b-header__link-icon
+
+        .b-header__nav.mainNav
+          .b-header__nav-header.phone_vis
+            span Главное меню
+            span.b-header__nav-close.i-close.mobMenuBtn
+            
+          ul.b-header__nav-list
+            li.b-header__nav-dropdown-w.always_opened
+              a.b-header__link.dropdownBtn.b-header__link-dropdown(href='#')
+                span.i-humburger.b-header__link-icon.phone_hidden
+                span.dm Каталог продукции
+                
+              ul.b-header__nav-dropdown
+                li
+                  a.b-header__link.b-header__link-dropdown.openSubmenu(href="stripe_1.html")
+                    span.dm Лента конвейерная GR
+                    
+                  ul.b-header__nav-dropdown
+                    +link_or_span((dropdown_active == 12), 'stripe_2.html' , 'Конвейерная лента GR', 'b-header__link', '')
+                    +link_or_span((dropdown_active == 12), 'stripe_2.html' , 'Лента резинотканевая Сибирь', 'b-header__link', '')
+                    +link_or_span((dropdown_active == 12), 'stripe_2.html' , 'Шевронная лента GR', 'b-header__link', '')
+                    +link_or_span((dropdown_active == 12), 'stripe_2.html' , 'Лента теплостойкая GR', 'b-header__link', '')
+                    +link_or_span((dropdown_active == 12), 'stripe_2.html' , 'Лента морозостойкая GR', 'b-header__link', '')
+                    +link_or_span((dropdown_active == 12), 'stripe_2.html' , 'Плоские ремни из полиамида', 'b-header__link', '')
+                    +link_or_span((dropdown_active == 12), 'stripe_2.html' , 'Электроизоляция GR', 'b-header__link', '')
+                    +link_or_span((dropdown_active == 12), 'stripe_2.html' , 'Полимерная продукция GR', 'b-header__link', '')
+                    
+                +link_or_span((dropdown_active == 2), 'stripe_2.html' , 'Конвейерная лента ПВХ', 'b-header__link', '')
+                +link_or_span((dropdown_active == 3), 'stripe_3.html' , 'Резинотехнические изделия', 'b-header__link', '')
+                +link_or_span((dropdown_active == 4), 'stripe_4.html' , 'Асбестовые изделия', 'b-header__link', '')
+                +link_or_span((dropdown_active == 5), 'stripe_5.html' , 'Стыковка конвейерной ленты', 'b-header__link', '')
+                +link_or_span((dropdown_active == 6), 'stripe_6.html' , 'Плоские ремни из полиамида', 'b-header__link', '')
+                +link_or_span((dropdown_active == 7), 'stripe_7.html' , 'Электроизоляция GR', 'b-header__link', '')
+                +link_or_span((dropdown_active == 8), 'stripe_8.html' , 'Полимерная продукция GR', 'b-header__link', '')
+                
+                
+            +link_or_span((nav_active == 1), 'calc.html' , 'Калькуляторы', 'b-header__link', '')
+            +link_or_span((nav_active == 2), 'filter.html' , 'Подбор продукции', 'b-header__link', '')
+            +link_or_span((nav_active == 3), 'stripes.html' , 'ПВХ и ПУ ленты', 'b-header__link', '')
+            +link_or_span((nav_active == 4), 'tenders.html' , 'Тендеры', 'b-header__link', '')
+            +link_or_span((nav_active == 5), 'news.html' , 'Новости', 'b-header__link', '')
+
+        .b-header__nav.subNav.phone_vis
+          .b-header__nav-header.closeSubNav
+            span.i-chevron_left.dm
+            span.subNavCaption Главное меню
+            span.b-header__nav-close.i-close
+
+          ul.b-header__nav-list
+            li.b-header__nav-dropdown-w.always_opened
+              ul.b-header__nav-dropdown
+                li
+                  ul.b-header__nav-dropdown.subNavMenu
+
+        .b-header__nav-contacts
+          .dm: a.b-header__nav-phone(href='tel:88007072263')
+            span.i-phone.dm
+            span.b-header__nav-text.dm 8 800 707 22 63
+            
+mixin footer()
+  footer.b-footer
+    .section__inner
+      .b-footer__container
+        .b-footer__contacts
+          dl.b-footer__contacts-list
+            dd 8 (495) 505-65-43
+            dt Для звонков по Москве 
+          dl.b-footer__contacts-list
+            dd 8 (383) 363-32-14
+            dt Для звонков по Новосибирску
+          dl.b-footer__contacts-list
+            dt Режим работы:
+            dd с 9:00 до 18:00
+          dl.b-footer__contacts-list
+            dt г. Москва
+            dd 5056543@mail.ru
+          dl.b-footer__contacts-list
+            dt г. Новосибирск
+            dd 3633214@mail.ru
+            
+          ul.b-footer__payments
+            li
+              img(src='images/visa.png')
+            li
+              img(src='images/mastercard_2.png')
+              
+        .b-footer__menu.phone_hidden
+          .b-footer__menu-col
+            .b-footer__menu-caption Главное меню
+            ul.b-footer__menu-list
+              li: a.gl-link(href='#') Главная
+              li: a.gl-link(href='#') Каталог продукции
+              li: a.gl-link(href='#') Калькуляторы
+              li: a.gl-link(href='#') ПВХ и ПУ ленты
+              li: a.gl-link(href='#') Статьи
+              li: a.gl-link(href='#') Новости
+              li: a.gl-link(href='#') О компании
+              li: a.gl-link(href='#') Тендеры
+              li: a.gl-link(href='#') Контакты
+              li: a.gl-link(href='#') Карта сайта
+              
+          .b-footer__menu-col
+            .b-footer__menu-caption Каталог продукции
+            ul.b-footer__menu-list
+              li: a.gl-link(href='#') Главная
+              li: a.gl-link(href='#') Каталог продукции
+              li: a.gl-link(href='#') Калькуляторы
+              li: a.gl-link(href='#') ПВХ и ПУ ленты
+              li: a.gl-link(href='#') Статьи
+              li: a.gl-link(href='#') Новости
+              li: a.gl-link(href='#') О компании
+              li: a.gl-link(href='#') Тендеры
+              li: a.gl-link(href='#') Контакты
+              li: a.gl-link(href='#') Карта сайта
+              
+          .b-footer__menu-col
+            .b-footer__menu-caption &nbsp;
+            ul.b-footer__menu-list
+              li: a.gl-link(href='#') Главная
+              li: a.gl-link(href='#') Каталог продукции
+              li: a.gl-link(href='#') Калькуляторы
+              li: a.gl-link(href='#') ПВХ и ПУ ленты
+              li: a.gl-link(href='#') Статьи
+              li: a.gl-link(href='#') Новости
+              li: a.gl-link(href='#') О компании
+              li: a.gl-link(href='#') Тендеры
+              li: a.gl-link(href='#') Контакты
+              li: a.gl-link(href='#') Карта сайта
+              
+        .b-footer__copyright-w
+          ul.b-footer__dev-list
+            li
+              a.gl-link(href='#') 
+                span Дизайн сайта 
+                b KOLBINS
+            li
+              a.gl-link(href='#')
+                span Верстка и программирование 
+                b Digital Spectr
+
+          .b-footer__copyright © 2017 www.rk-rti.ru. Все права защищены
+            
+mixin popups(index)
+  #callback_popup.popup.popup_v1(style='display:none;')
+    .calc_info
+      .caption_v1 Обратный звонок
+      form.validateMe(action='#')
+        input(type='hidden' autofocus='autofocus')
+        .form_cell.cell_v3
+          input.f_input.f_input_v1(placeholder='Как к Вам обращаться?' class='validate[required]')
+
+        .form_cell.cell_v3
+          input.f_input.f_input_v1(placeholder='Телефон' data-inputmask="'mask': '[+7] (999)-999-99-99', 'clearIncomplete' : true" class='validate[required]')
+
+        .form_cell.cell_v3
+          button.btn_green.calc_btn.callbackBtn
+            span.mb Отправить
+            
+mixin link_or_span(active, link, link_text, link_class, li_class)
+  li(class= active ? 'active' : '' class= li_class || '')
+    - if (active)
+      span(class= link_class): span.dm= link_text
+    - else
+      a(class= link_class href= link): span.dm= link_text
+
+mixin scripts(index, about, dealers, panels, article, contacts)
+  //-script(src='js/jquery1.10.js')
+  //-script(src='js/jquery.inputmask.bundle.js')
+  //-script(src='js/jquery.validationEngine.js')
+  //-script(src='js/jquery.validationEngine-ru.js')
+  //-script(src='js/jquery-ui-1.10.2.custom.min.js')
+    

@@ -1,0 +1,371 @@
+/*
+SCSS variables are information about icon's compiled state, stored under its original file name
+
+.icon-home {
+  width: $icon-home-width;
+}
+
+The large array-like variables contain all information about a single icon
+$icon-home: x y offset_x offset_y width height total_width total_height image_path;
+
+At the bottom of this section, we provide information about the spritesheet itself
+$spritesheet: width height image $spritesheet-sprites;
+*/
+$cat-name: 'cat';
+$cat-x: 64px;
+$cat-y: 104px;
+$cat-offset-x: -64px;
+$cat-offset-y: -104px;
+$cat-width: 32px;
+$cat-height: 29px;
+$cat-total-width: 170px;
+$cat-total-height: 163px;
+$cat-image: '../img/sprite.png';
+$cat: (64px, 104px, -64px, -104px, 32px, 29px, 170px, 163px, '../img/sprite.png', 'cat', );
+$cat1-name: 'cat1';
+$cat1-x: 32px;
+$cat1-y: 134px;
+$cat1-offset-x: -32px;
+$cat1-offset-y: -134px;
+$cat1-width: 32px;
+$cat1-height: 29px;
+$cat1-total-width: 170px;
+$cat1-total-height: 163px;
+$cat1-image: '../img/sprite.png';
+$cat1: (32px, 134px, -32px, -134px, 32px, 29px, 170px, 163px, '../img/sprite.png', 'cat1', );
+$cat10-name: 'cat10';
+$cat10-x: 32px;
+$cat10-y: 72px;
+$cat10-offset-x: -32px;
+$cat10-offset-y: -72px;
+$cat10-width: 32px;
+$cat10-height: 32px;
+$cat10-total-width: 170px;
+$cat10-total-height: 163px;
+$cat10-image: '../img/sprite.png';
+$cat10: (32px, 72px, -32px, -72px, 32px, 32px, 170px, 163px, '../img/sprite.png', 'cat10', );
+$cat11-name: 'cat11';
+$cat11-x: 96px;
+$cat11-y: 134px;
+$cat11-offset-x: -96px;
+$cat11-offset-y: -134px;
+$cat11-width: 32px;
+$cat11-height: 26px;
+$cat11-total-width: 170px;
+$cat11-total-height: 163px;
+$cat11-image: '../img/sprite.png';
+$cat11: (96px, 134px, -96px, -134px, 32px, 26px, 170px, 163px, '../img/sprite.png', 'cat11', );
+$cat12-name: 'cat12';
+$cat12-x: 140px;
+$cat12-y: 0px;
+$cat12-offset-x: -140px;
+$cat12-offset-y: 0px;
+$cat12-width: 30px;
+$cat12-height: 32px;
+$cat12-total-width: 170px;
+$cat12-total-height: 163px;
+$cat12-image: '../img/sprite.png';
+$cat12: (140px, 0px, -140px, 0px, 30px, 32px, 170px, 163px, '../img/sprite.png', 'cat12', );
+$cat13-name: 'cat13';
+$cat13-x: 64px;
+$cat13-y: 134px;
+$cat13-offset-x: -64px;
+$cat13-offset-y: -134px;
+$cat13-width: 32px;
+$cat13-height: 28px;
+$cat13-total-width: 170px;
+$cat13-total-height: 163px;
+$cat13-image: '../img/sprite.png';
+$cat13: (64px, 134px, -64px, -134px, 32px, 28px, 170px, 163px, '../img/sprite.png', 'cat13', );
+$cat14-name: 'cat14';
+$cat14-x: 0px;
+$cat14-y: 72px;
+$cat14-offset-x: 0px;
+$cat14-offset-y: -72px;
+$cat14-width: 32px;
+$cat14-height: 32px;
+$cat14-total-width: 170px;
+$cat14-total-height: 163px;
+$cat14-image: '../img/sprite.png';
+$cat14: (0px, 72px, 0px, -72px, 32px, 32px, 170px, 163px, '../img/sprite.png', 'cat14', );
+$cat15-name: 'cat15';
+$cat15-x: 140px;
+$cat15-y: 32px;
+$cat15-offset-x: -140px;
+$cat15-offset-y: -32px;
+$cat15-width: 25px;
+$cat15-height: 32px;
+$cat15-total-width: 170px;
+$cat15-total-height: 163px;
+$cat15-image: '../img/sprite.png';
+$cat15: (140px, 32px, -140px, -32px, 25px, 32px, 170px, 163px, '../img/sprite.png', 'cat15', );
+$cat16-name: 'cat16';
+$cat16-x: 108px;
+$cat16-y: 32px;
+$cat16-offset-x: -108px;
+$cat16-offset-y: -32px;
+$cat16-width: 32px;
+$cat16-height: 31px;
+$cat16-total-width: 170px;
+$cat16-total-height: 163px;
+$cat16-image: '../img/sprite.png';
+$cat16: (108px, 32px, -108px, -32px, 32px, 31px, 170px, 163px, '../img/sprite.png', 'cat16', );
+$cat2-name: 'cat2';
+$cat2-x: 32px;
+$cat2-y: 104px;
+$cat2-offset-x: -32px;
+$cat2-offset-y: -104px;
+$cat2-width: 32px;
+$cat2-height: 29px;
+$cat2-total-width: 170px;
+$cat2-total-height: 163px;
+$cat2-image: '../img/sprite.png';
+$cat2: (32px, 104px, -32px, -104px, 32px, 29px, 170px, 163px, '../img/sprite.png', 'cat2', );
+$cat3-name: 'cat3';
+$cat3-x: 108px;
+$cat3-y: 63px;
+$cat3-offset-x: -108px;
+$cat3-offset-y: -63px;
+$cat3-width: 32px;
+$cat3-height: 30px;
+$cat3-total-width: 170px;
+$cat3-total-height: 163px;
+$cat3-image: '../img/sprite.png';
+$cat3: (108px, 63px, -108px, -63px, 32px, 30px, 170px, 163px, '../img/sprite.png', 'cat3', );
+$cat4-name: 'cat4';
+$cat4-x: 96px;
+$cat4-y: 104px;
+$cat4-offset-x: -96px;
+$cat4-offset-y: -104px;
+$cat4-width: 32px;
+$cat4-height: 29px;
+$cat4-total-width: 170px;
+$cat4-total-height: 163px;
+$cat4-image: '../img/sprite.png';
+$cat4: (96px, 104px, -96px, -104px, 32px, 29px, 170px, 163px, '../img/sprite.png', 'cat4', );
+$cat5-name: 'cat5';
+$cat5-x: 0px;
+$cat5-y: 134px;
+$cat5-offset-x: 0px;
+$cat5-offset-y: -134px;
+$cat5-width: 32px;
+$cat5-height: 29px;
+$cat5-total-width: 170px;
+$cat5-total-height: 163px;
+$cat5-image: '../img/sprite.png';
+$cat5: (0px, 134px, 0px, -134px, 32px, 29px, 170px, 163px, '../img/sprite.png', 'cat5', );
+$cat6-name: 'cat6';
+$cat6-x: 140px;
+$cat6-y: 64px;
+$cat6-offset-x: -140px;
+$cat6-offset-y: -64px;
+$cat6-width: 28px;
+$cat6-height: 28px;
+$cat6-total-width: 170px;
+$cat6-total-height: 163px;
+$cat6-image: '../img/sprite.png';
+$cat6: (140px, 64px, -140px, -64px, 28px, 28px, 170px, 163px, '../img/sprite.png', 'cat6', );
+$cat7-name: 'cat7';
+$cat7-x: 64px;
+$cat7-y: 72px;
+$cat7-offset-x: -64px;
+$cat7-offset-y: -72px;
+$cat7-width: 32px;
+$cat7-height: 32px;
+$cat7-total-width: 170px;
+$cat7-total-height: 163px;
+$cat7-image: '../img/sprite.png';
+$cat7: (64px, 72px, -64px, -72px, 32px, 32px, 170px, 163px, '../img/sprite.png', 'cat7', );
+$cat8-name: 'cat8';
+$cat8-x: 0px;
+$cat8-y: 104px;
+$cat8-offset-x: 0px;
+$cat8-offset-y: -104px;
+$cat8-width: 32px;
+$cat8-height: 30px;
+$cat8-total-width: 170px;
+$cat8-total-height: 163px;
+$cat8-image: '../img/sprite.png';
+$cat8: (0px, 104px, 0px, -104px, 32px, 30px, 170px, 163px, '../img/sprite.png', 'cat8', );
+$cat9-name: 'cat9';
+$cat9-x: 108px;
+$cat9-y: 0px;
+$cat9-offset-x: -108px;
+$cat9-offset-y: 0px;
+$cat9-width: 32px;
+$cat9-height: 32px;
+$cat9-total-width: 170px;
+$cat9-total-height: 163px;
+$cat9-image: '../img/sprite.png';
+$cat9: (108px, 0px, -108px, 0px, 32px, 32px, 170px, 163px, '../img/sprite.png', 'cat9', );
+$close-name: 'close';
+$close-x: 128px;
+$close-y: 134px;
+$close-offset-x: -128px;
+$close-offset-y: -134px;
+$close-width: 20px;
+$close-height: 20px;
+$close-total-width: 170px;
+$close-total-height: 163px;
+$close-image: '../img/sprite.png';
+$close: (128px, 134px, -128px, -134px, 20px, 20px, 170px, 163px, '../img/sprite.png', 'close', );
+$fb-name: 'fb';
+$fb-x: 36px;
+$fb-y: 0px;
+$fb-offset-x: -36px;
+$fb-offset-y: 0px;
+$fb-width: 36px;
+$fb-height: 36px;
+$fb-total-width: 170px;
+$fb-total-height: 163px;
+$fb-image: '../img/sprite.png';
+$fb: (36px, 0px, -36px, 0px, 36px, 36px, 170px, 163px, '../img/sprite.png', 'fb', );
+$gp-name: 'gp';
+$gp-x: 36px;
+$gp-y: 36px;
+$gp-offset-x: -36px;
+$gp-offset-y: -36px;
+$gp-width: 36px;
+$gp-height: 36px;
+$gp-total-width: 170px;
+$gp-total-height: 163px;
+$gp-image: '../img/sprite.png';
+$gp: (36px, 36px, -36px, -36px, 36px, 36px, 170px, 163px, '../img/sprite.png', 'gp', );
+$in-name: 'in';
+$in-x: 72px;
+$in-y: 36px;
+$in-offset-x: -72px;
+$in-offset-y: -36px;
+$in-width: 36px;
+$in-height: 36px;
+$in-total-width: 170px;
+$in-total-height: 163px;
+$in-image: '../img/sprite.png';
+$in: (72px, 36px, -72px, -36px, 36px, 36px, 170px, 163px, '../img/sprite.png', 'in', );
+$menu-lines-name: 'menu-lines';
+$menu-lines-x: 140px;
+$menu-lines-y: 115px;
+$menu-lines-offset-x: -140px;
+$menu-lines-offset-y: -115px;
+$menu-lines-width: 24px;
+$menu-lines-height: 19px;
+$menu-lines-total-width: 170px;
+$menu-lines-total-height: 163px;
+$menu-lines-image: '../img/sprite.png';
+$menu-lines: (140px, 115px, -140px, -115px, 24px, 19px, 170px, 163px, '../img/sprite.png', 'menu-lines', );
+$od-name: 'od';
+$od-x: 72px;
+$od-y: 0px;
+$od-offset-x: -72px;
+$od-offset-y: 0px;
+$od-width: 36px;
+$od-height: 36px;
+$od-total-width: 170px;
+$od-total-height: 163px;
+$od-image: '../img/sprite.png';
+$od: (72px, 0px, -72px, 0px, 36px, 36px, 170px, 163px, '../img/sprite.png', 'od', );
+$phone-name: 'phone';
+$phone-x: 140px;
+$phone-y: 92px;
+$phone-offset-x: -140px;
+$phone-offset-y: -92px;
+$phone-width: 24px;
+$phone-height: 23px;
+$phone-total-width: 170px;
+$phone-total-height: 163px;
+$phone-image: '../img/sprite.png';
+$phone: (140px, 92px, -140px, -92px, 24px, 23px, 170px, 163px, '../img/sprite.png', 'phone', );
+$vk-name: 'vk';
+$vk-x: 0px;
+$vk-y: 36px;
+$vk-offset-x: 0px;
+$vk-offset-y: -36px;
+$vk-width: 36px;
+$vk-height: 36px;
+$vk-total-width: 170px;
+$vk-total-height: 163px;
+$vk-image: '../img/sprite.png';
+$vk: (0px, 36px, 0px, -36px, 36px, 36px, 170px, 163px, '../img/sprite.png', 'vk', );
+$yt-name: 'yt';
+$yt-x: 0px;
+$yt-y: 0px;
+$yt-offset-x: 0px;
+$yt-offset-y: 0px;
+$yt-width: 36px;
+$yt-height: 36px;
+$yt-total-width: 170px;
+$yt-total-height: 163px;
+$yt-image: '../img/sprite.png';
+$yt: (0px, 0px, 0px, 0px, 36px, 36px, 170px, 163px, '../img/sprite.png', 'yt', );
+$spritesheet-width: 170px;
+$spritesheet-height: 163px;
+$spritesheet-image: '../img/sprite.png';
+$spritesheet-sprites: ($cat, $cat1, $cat10, $cat11, $cat12, $cat13, $cat14, $cat15, $cat16, $cat2, $cat3, $cat4, $cat5, $cat6, $cat7, $cat8, $cat9, $close, $fb, $gp, $in, $menu-lines, $od, $phone, $vk, $yt, );
+$spritesheet: (170px, 163px, '../img/sprite.png', $spritesheet-sprites, );
+
+/*
+The provided mixins are intended to be used with the array-like variables
+
+.icon-home {
+  @include sprite-width($icon-home);
+}
+
+.icon-email {
+  @include sprite($icon-email);
+}
+
+Example usage in HTML:
+
+`display: block` sprite:
+<div class="icon-home"></div>
+
+To change `display` (e.g. `display: inline-block;`), we suggest using a common CSS class:
+
+// CSS
+.icon {
+  display: inline-block;
+}
+
+// HTML
+<i class="icon icon-home"></i>
+*/
+@mixin sprite-width($sprite) {
+  width: nth($sprite, 5);
+}
+
+@mixin sprite-height($sprite) {
+  height: nth($sprite, 6);
+}
+
+@mixin sprite-position($sprite) {
+  $sprite-offset-x: nth($sprite, 3);
+  $sprite-offset-y: nth($sprite, 4);
+  background-position: $sprite-offset-x  $sprite-offset-y;
+}
+
+@mixin sprite-image($sprite) {
+  $sprite-image: nth($sprite, 9);
+  background-image: url(#{$sprite-image});
+}
+
+@mixin sprite($sprite) {
+  @include sprite-image($sprite);
+  @include sprite-position($sprite);
+  @include sprite-width($sprite);
+  @include sprite-height($sprite);
+}
+
+/*
+The `sprites` mixin generates identical output to the CSS template
+  but can be overridden inside of SCSS
+
+@include sprites($spritesheet-sprites);
+*/
+@mixin sprites($sprites) {
+  @each $sprite in $sprites {
+    $sprite-name: nth($sprite, 10);
+    .#{$sprite-name} {
+      @include sprite($sprite);
+    }
+  }
+}

@@ -1,0 +1,58 @@
+.b-client {
+
+  &__list {
+    @extend %global_flex_block_row_nowrap_space_between_center;
+    overflow: hidden;
+    margin: 0 -8px;
+    text-align: center;
+
+    li {
+      display: inline-block;
+      vertical-align: top;
+      margin-bottom: 30px;
+    }
+
+    @include tablet() {
+      margin-top: -5px;
+
+      li {
+        max-width: 12%;
+        margin-bottom: 0;
+      }
+    }
+
+    @include phone() {
+      margin-top: -10px;
+      flex-flow: row wrap;
+
+      li {
+        max-width: 29%;
+        margin-bottom: 5px;
+
+        &:nth-child(n + 7) {
+          display: none;
+        }
+      }
+    }
+  }
+
+  &__item {
+    text-align: center;
+    padding: 0 8px;
+    height: 70px;
+    line-height: 70px;
+
+    img {
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+      max-width: 100%;
+    }
+
+    @include tablet() {
+      line-height: 1;
+      height: auto;
+    }
+  }
+
+}

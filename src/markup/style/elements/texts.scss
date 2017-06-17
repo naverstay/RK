@@ -1,0 +1,22 @@
+.gl-link {
+
+  &__text {
+    text-decoration: underline;
+
+    .gl-link:hover & {
+      text-decoration: none;
+    }
+  }
+}
+
+._clr-red {
+  color: $gl_red;
+}
+
+._clr-gray_light {
+  color: $gl_gray_light;
+}
+
+.t-center {
+  text-align: center;
+}

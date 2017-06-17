@@ -1,0 +1,198 @@
+.b-hero {
+  margin: 30px 0 50px 295px;
+
+  @include small-desktop() {
+    //margin-left: 0;
+    //margin-top: 0;
+    margin: 0 (-$padding-t) 30px;
+  }
+
+  @include tablet() {
+    margin: 0 (-$padding-m) 15px;
+  }
+
+  @include phone() {
+    margin: 0 (-$padding-s) 15px;
+  }
+
+  &__slider {
+    position: relative;
+
+    &-pagination {
+      margin-right: 80px;
+
+      .swiper-pagination-bullet {
+        width: 12px;
+        height: 12px;
+        background: none;
+        border: 2px solid #fff;
+        margin-right: 6px;
+        margin-top: 7px;
+        opacity: 1;
+
+        &.swiper-pagination-bullet-active {
+          background: #fff;
+        }
+
+        @include phone() {
+          margin-top: 4px;
+        }
+      }
+    }
+
+    &-btn {
+      @extend %icon_pseudo;
+      float: right;
+      color: #fff;
+      font-size: 25px;
+      margin-left: 17px;
+      cursor: pointer;
+    }
+
+    &-prev {
+      &:before {
+        content: $i-arrow_left;
+      }
+    }
+
+    &-next {
+      &:before {
+        content: $i-arrow_right;
+      }
+    }
+
+    &-controls {
+      position: absolute;
+      bottom: 40px;
+      left: 80px;
+      right: 80px;
+      z-index: 2;
+
+      @include wide-desktop() {
+        left: 70px;
+        right: 70px;
+        bottom: 42px;
+      }
+
+      @include small-desktop() {
+        left: 40px;
+        right: 40px;
+        bottom: 42px;
+      }
+
+      @include tablet() {
+        bottom: 42px;
+      }
+
+      @include tablet() {
+        bottom: 52px;
+      }
+
+      @include phone() {
+        bottom: 2px;
+        left: $padding-s;
+        right: $padding-s;
+      }
+    }
+  }
+
+  &__slide {
+    position: relative;
+    height: 457px;
+    overflow: hidden;
+    border-radius: 5px;
+
+    img {
+      display: block;
+      min-width: 100%;
+    }
+
+    &-caption {
+      font: 48px $ClearSansMedium;
+      margin-bottom: 10px;
+      letter-spacing: .01em;
+
+      @include tablet() {
+        font-size: 38px;
+        margin-bottom: 17px;
+      }
+
+      @include phone() {
+        font-size: 22px;
+        margin-bottom: 12px;
+      }
+    }
+
+    &-more {
+      .btn_v1 {
+        @include phone() {
+          font-size: 12px;
+          text-align: center;
+          min-width: 150px;
+        }
+      }
+    }
+
+    &-content {
+      position: absolute;
+      bottom: 102px;
+      left: 80px;
+      right: 80px;
+      color: #fff;
+
+      p {
+        opacity: .7;
+        font: 18px/1.3 $ClearSansLight;
+        margin-bottom: 30px;
+      }
+
+      @include wide-desktop() {
+        left: 70px;
+        right: 70px;
+        bottom: 106px;
+      }
+
+      @include small-desktop() {
+        left: 40px;
+        right: 40px;
+      }
+
+      @include tablet() {
+        bottom: 125px;
+
+        p {
+          font-size: 16px;
+          line-height: 1.2;
+          margin-bottom: 25px;
+        }
+      }
+
+      @include phone() {
+        bottom: auto;
+        top: 35px;
+        left: $padding-s;
+        right: $padding-s;
+
+        p {
+          font-size: 11px;
+        }
+      }
+    }
+
+    @include small-desktop() {
+      height: 460px;
+    }
+
+    @include tablet() {
+      height: 350px;
+      border-radius: 0;
+    }
+
+    @include phone() {
+      height: 300px;
+    }
+  }
+
+}
+
+
