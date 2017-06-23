@@ -2,11 +2,11 @@
 
 @font-face {
   font-family: 'rk_icons';
-  src:  url('#{$icomoon-font-path}/rk_icons.eot?5zptee');
-  src:  url('#{$icomoon-font-path}/rk_icons.eot?5zptee#iefix') format('embedded-opentype'),
-    url('#{$icomoon-font-path}/rk_icons.ttf?5zptee') format('truetype'),
-    url('#{$icomoon-font-path}/rk_icons.woff?5zptee') format('woff'),
-    url('#{$icomoon-font-path}/rk_icons.svg?5zptee#rk_icons') format('svg');
+  src:  url('#{$icomoon-font-path}/rk_icons.eot?8awdon');
+  src:  url('#{$icomoon-font-path}/rk_icons.eot?8awdon#iefix') format('embedded-opentype'),
+    url('#{$icomoon-font-path}/rk_icons.ttf?8awdon') format('truetype'),
+    url('#{$icomoon-font-path}/rk_icons.woff?8awdon') format('woff'),
+    url('#{$icomoon-font-path}/rk_icons.svg?8awdon#rk_icons') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -22,10 +22,20 @@
   line-height: 1;
 
   /* Better Font Rendering =========== */
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  //-webkit-font-smoothing: antialiased;
+  //-moz-osx-font-smoothing: grayscale;
 }
 
+.i-minus {
+  &:before {
+    content: $i-minus;
+  }
+}
+.i-plus {
+  &:before {
+    content: $i-plus;
+  }
+}
 .i-phone2 {
   &:before {
     content: $i-phone2;

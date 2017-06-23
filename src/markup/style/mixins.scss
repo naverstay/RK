@@ -4,6 +4,12 @@
   }
 }
 
+@mixin wide-desktop-min {
+  @media only screen and (min-width: #{$wide-desktop-width}) {
+    @content;
+  }
+}
+
 @mixin small-desktop {
   @media only screen and (max-width: #{$desktop-width - 1px}) {
     @content;
@@ -18,6 +24,12 @@
 
 @mixin tablet {
   @media only screen and (max-width: #{$small-desktop-width - 1px}) {
+    @content;
+  }
+}
+
+@mixin tablet-min {
+  @media only screen and (min-width: #{$small-desktop-width}) {
     @content;
   }
 }

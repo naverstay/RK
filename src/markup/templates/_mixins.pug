@@ -8,6 +8,7 @@ mixin dev_head(page_title)
     meta(name="apple-mobile-web-app-capable", content="yes")
     meta(name="format-detection", content="telephone=no")
     link(rel='stylesheet', href='css/style.css', media='all')
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans&amp;subset=cyrillic" rel="stylesheet"> 
 
     script(src='js/_vendor.js')
     script(src='js/_main.js')
@@ -18,31 +19,27 @@ mixin loop_while(counter)
     -i++;
     block
 
-mixin menu(nav_active, panel_active)
-  .menu_holder
-    ul.main_menu
-      +link_or_span((panel_active == 1), 'panels.html' , 'Ламинированные панели', 'menu_link', '')
-      +link_or_span((panel_active == 2), 'panels.html' , 'Окрашенные панели', 'menu_link', '')
-      +link_or_span((panel_active == 3), 'panels.html' , 'Панели с виниловым покрытием', 'menu_link', '')
-      +link_or_span((panel_active == 4), 'other_panels.html' , 'Другие панели', 'menu_link', '')
-      +link_or_span((panel_active == 5), 'other_panels.html' , 'Профиль для монтажа ', 'menu_link clr_black', '_last')
-
 mixin header(nav_active, panel_active)
   header.b-header
     .b-header__menu
       .section__inner
-        ul.b-header__menu-map
-          +link_or_span((map_active == 1), 'service.html' , 'Сервисный центр', 'b-header__link', 'dm')
-          +link_or_span((map_active == 2), 'delivery.html' , 'Оплата и доставка', 'b-header__link', 'dm')
-          +link_or_span((map_active == 3), 'about.html' , 'О компании', 'b-header__link', 'dm')
-          +link_or_span((map_active == 4), 'contacts.html' , 'Контакты', 'b-header__link', 'dm')
-
         ul.b-header__menu-info
           li.dm.dt_hidden.b-header__worktime Пн-Чт: с 09-00 до 18-00, Пт: с 09-00 до 17-00
           li.dm
             a.gl-link._clr-red(href='#')
-              span.i-phone2
-              span.gl-link__text Заказать звонок
+              span.i-phone2.dm
+              span.gl-link__text.dm Заказать звонок
+              
+        .b-header__menu-map.menuSlider
+          .swiper-container
+            ul.b-header__menu-list.swiper-wrapper
+              +link_or_span((map_active == 1), 'service.html' , 'Сервисный центр', 'b-header__link', 'dm swiper-slide')
+              +link_or_span((map_active == 2), 'delivery.html' , 'Оплата и доставка', 'b-header__link', 'dm swiper-slide')
+              +link_or_span((map_active == 3), 'about.html' , 'О компании', 'b-header__link', 'dm swiper-slide')
+              +link_or_span((map_active == 4), 'contacts.html' , 'Контакты', 'b-header__link', 'dm swiper-slide')
+          
+            .b-header__menu-butt._prev
+            .b-header__menu-butt._next
 
     .b-header__toolbar
       .section__inner
@@ -66,15 +63,15 @@ mixin header(nav_active, panel_active)
               span.b-header__user-text.dm В корзине<br>нет товаров
               
         .b-header__search-w.headerSearch
-          a.btn.btn__search.btn-gray.phone_vis(href='search.html')
+          a.butt.butt__search.butt-gray.phone_vis(href='search.html')
             span.i-search
-          form.f-input__w.b-header__search(action='#')
+          form.f-input__w.b-header__search.phone_hidden(action='#')
             input.f-input.input__v1.autocomplete(placeholder='Что Вы ищете?')
-            button.btn.btn__search
+            button.butt.butt__search
               span.i-search
 
     .b-header__nav-w
-      .section__inner
+      .section__inner._menu_section
         .b-header__nav-btn.mobMenuBtn.phone_vis
           span.i-humburger.b-header__link-icon
 
@@ -84,7 +81,7 @@ mixin header(nav_active, panel_active)
             span.b-header__nav-close.i-close.mobMenuBtn
             
           ul.b-header__nav-list
-            li.b-header__nav-dropdown-w.always_opened
+            li.b-header__nav-dropdown-w(class= menu_open_dt ? 'always_opened' : '')
               a.b-header__link.dropdownBtn.b-header__link-dropdown(href='#')
                 span.i-humburger.b-header__link-icon.phone_hidden
                 span.dm Каталог продукции
@@ -95,9 +92,9 @@ mixin header(nav_active, panel_active)
                     span.dm Лента конвейерная GR
                     
                   ul.b-header__nav-dropdown
-                    +link_or_span((dropdown_active == 12), 'stripe_2.html' , 'Конвейерная лента GR', 'b-header__link', '')
-                    +link_or_span((dropdown_active == 12), 'stripe_2.html' , 'Лента резинотканевая Сибирь', 'b-header__link', '')
-                    +link_or_span((dropdown_active == 12), 'stripe_2.html' , 'Шевронная лента GR', 'b-header__link', '')
+                    +link_or_span((dropdown_active == 12), 'catalog.html' , 'Конвейерная лента GR', 'b-header__link', '')
+                    +link_or_span((dropdown_active == 12), 'category.html' , 'Лента резинотканевая Сибирь', 'b-header__link', '')
+                    +link_or_span((dropdown_active == 12), 'product.html' , 'Шевронная лента GR', 'b-header__link', '')
                     +link_or_span((dropdown_active == 12), 'stripe_2.html' , 'Лента теплостойкая GR', 'b-header__link', '')
                     +link_or_span((dropdown_active == 12), 'stripe_2.html' , 'Лента морозостойкая GR', 'b-header__link', '')
                     +link_or_span((dropdown_active == 12), 'stripe_2.html' , 'Плоские ремни из полиамида', 'b-header__link', '')
@@ -117,7 +114,7 @@ mixin header(nav_active, panel_active)
             +link_or_span((nav_active == 2), 'filter.html' , 'Подбор продукции', 'b-header__link', '')
             +link_or_span((nav_active == 3), 'stripes.html' , 'ПВХ и ПУ ленты', 'b-header__link', '')
             +link_or_span((nav_active == 4), 'tenders.html' , 'Тендеры', 'b-header__link', '')
-            +link_or_span((nav_active == 5), 'news.html' , 'Новости', 'b-header__link', '')
+            +link_or_span((nav_active == 5), 'news.html' , 'Новости', 'b-header__link _active', '')
 
         .b-header__nav.subNav.phone_vis
           .b-header__nav-header.closeSubNav
@@ -126,16 +123,51 @@ mixin header(nav_active, panel_active)
             span.b-header__nav-close.i-close
 
           ul.b-header__nav-list
-            li.b-header__nav-dropdown-w.always_opened
+            li.b-header__nav-dropdown-w
               ul.b-header__nav-dropdown
                 li
                   ul.b-header__nav-dropdown.subNavMenu
 
         .b-header__nav-contacts
-          .dm: a.b-header__nav-phone(href='tel:88007072263')
+          .dm: a.b-header__nav-phone._wnw(href='tel:88007072263')
             span.i-phone.dm
             span.b-header__nav-text.dm 8 800 707 22 63
             
+mixin client_section()
+  .section.section__title._title-black
+    .section__inner
+      .section__title-text Наши клиенты
+
+      ul.b-client__list
+        +loop_while(8)
+          li
+            .b-client__item
+              img(src='images/client_1.png')
+
+mixin delivery_section()
+  .section
+    .section__inner
+      .b-delivery
+        ul.b-delivery__list
+          +loop_while(3)
+            li
+              .b-delivery__item
+                .b-delivery__img
+                  img(src='images/delivery.svg' width=78 height=65)
+
+                .b-delivery__caption Бесплатная доставка
+                p
+                  span По всей России при сумме 
+                  span.dt_hidden <br>
+                  span заказа от 50 000 Р.-
+
+      .b-article
+        .b-article__list
+          +loop_while(4)
+            .b-article__box
+              h2 Продажа РТИ в Москве, Люберцах, Подольске и по всей России
+              p Компания «Хольцер» специализируется на производстве и продаже качественных РТИ изделий в Москве и по всей России. Такие комплектующие отличаются высокой прочностью и имеют длительный срок эксплуатации. Особое место в товарном ассортименте завода занимают неформовые РТИ, которые нашли широкое применение и востребованы в различных сферах промышленности и хозяйственной деятельности. На нашем сайте представлена продукция производителей РТИ с мировым именем, таких как Holzer Flexo, Rubber and Plastic и Gates Corporation по доступным ценам. А так же резиновые изделия под заказ собственного производства.
+
 mixin footer()
   footer.b-footer
     .section__inner
@@ -232,7 +264,7 @@ mixin popups(index)
           input.f_input.f_input_v1(placeholder='Телефон' data-inputmask="'mask': '[+7] (999)-999-99-99', 'clearIncomplete' : true" class='validate[required]')
 
         .form_cell.cell_v3
-          button.btn_green.calc_btn.callbackBtn
+          button.butt_green.calc_butt.callbackBtn
             span.mb Отправить
             
 mixin link_or_span(active, link, link_text, link_class, li_class)

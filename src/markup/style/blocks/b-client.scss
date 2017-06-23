@@ -28,6 +28,7 @@
       li {
         max-width: 29%;
         margin-bottom: 5px;
+        flex: 1 0 33%;
 
         &:nth-child(n + 7) {
           display: none;

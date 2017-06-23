@@ -1,19 +1,19 @@
 .b-article {
   background: #fff;
-  padding: 40px 40px 10px;
+  padding: 40px 40px 5px;
   position: relative;
   z-index: 2;
   border-radius: 5px;
   box-shadow: 0 26px 56px transparentize(#1f2024, .9);
 
   h2 {
-    font: 30px $ClearSansMedium;
-    margin-bottom: 20px;
+    font: 30px/1.2 $ClearSansMedium;
+    margin-bottom: 24px;
     letter-spacing: .012em;
 
     @include wide-desktop() {
       margin-bottom: 18px;
-      letter-spacing: .01em;
+      letter-spacing: .002em;
       line-height: 1.3;
     }
   }
@@ -44,6 +44,7 @@
     @include tablet() {
       float: none;
       width: auto;
+      margin-bottom: 38px;
     }
 
     @include phone() {
@@ -62,6 +63,7 @@
     h2 {
       font-size: 26px;
       margin-bottom: 26px;
+      max-width: 500px;
     }
   }
 
@@ -70,10 +72,63 @@
 
     h2 {
       font-size: 16px;
-      margin-bottom: 10px;
+      margin-bottom: 7px;
     }
   }
 
+  &__video {
+    position: absolute;
+    top: 0;
+    height: 0;
+    padding-bottom: 56.75%;
+    min-height: 100%;
+    left: 0;
+    right: 0;
+    text-align: center;
+
+    video,
+    img {
+      min-height: 100%;
+      min-width: 100%;
+      position: absolute;
+      @extend %hor_vert_centr;
+    }
+
+    &-holder {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      overflow: hidden;
+    }
+
+    &-btn {
+      @extend %icon_pseudo;
+      cursor: pointer;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 100px;
+      height: 80px;
+      padding-top: 60px;
+      margin: -40px 0 0 -50px;
+      text-align: center;
+      font-size: 16px;
+      z-index: 1;
+      color: #fff;
+      letter-spacing: .05em;
+
+      &:before {
+        content: $i-play-button;
+        position: absolute;
+        top: 0;
+        right: 0;
+        left: 0;
+        font-size: 50px;
+      }
+    }
+  }
 }
 
 

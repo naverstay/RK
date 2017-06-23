@@ -1,0 +1,68 @@
+.b-pagination {
+  margin-top: -20px;
+  letter-spacing: .05em;
+
+  @include small-desktop() {
+    margin-top: -14px;
+  }
+
+  @include tablet() {
+    margin-top: -12px;
+  }
+
+  @include phone() {
+    margin-top: 12px;
+    letter-spacing: .02em;
+  }
+
+  &__list {
+    @extend %clearfix;
+    color: #fff;
+    font-size: 16px;
+
+    @include tablet() {
+      font-size: 14px;
+    }
+
+    @include phone() {
+      font-size: 10px;
+    }
+
+    li {
+      float: left;
+      margin-bottom: 17px;
+
+      &:after {
+        content: '\2192';
+        padding: 0 4px;
+      }
+
+      &:last-child {
+        &:after {
+          display: none;
+        }
+      }
+
+      @include phone() {
+        margin-bottom: 12px;
+      }
+    }
+
+    span {
+      cursor: default;
+      opacity: .49;
+    }
+  }
+
+  &__link {
+    color: #fff;
+  }
+
+  + .section__title-text {
+    margin-bottom: 45px;
+    
+    @include phone() {
+      margin-bottom: 70px;
+    }
+  }
+}

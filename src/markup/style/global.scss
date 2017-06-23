@@ -12,6 +12,38 @@ body {
 
 .section {
 
+  &__caption {
+    font-size: 30px;
+    margin-bottom: 17px;
+
+    .b-product__category & {
+      letter-spacing: .035em;
+    }
+
+    .b-product__range-w > & {
+      letter-spacing: .02em;
+      margin: 50px 0 55px;
+
+      @include small-desktop() {
+        margin: 45px 0 50px;
+      }
+
+      @include phone() {
+        margin: 55px 0 40px;
+        letter-spacing: .03em;
+      }
+    }
+
+    @include small-desktop() {
+      margin-bottom: 20px;
+    }
+
+    @include phone() {
+      font-size: 22px;
+      margin-bottom: 15px;
+    }
+  }
+
   &__title {
     padding: 50px 0 53px;
 
@@ -21,6 +53,35 @@ body {
 
     &._title-black {
       background: $gl_black;
+
+      @include tablet() {
+        padding-top: 40px;
+      }
+
+      @include phone() {
+        //padding-top: 25px;
+        padding-top: 47px;
+      }
+    }
+
+    &._similar {
+      padding: 65px 0 75px;
+
+      @include wide-desktop() {
+        padding: 60px 0 80px;
+      }
+
+      @include small-desktop() {
+        padding: 55px 0 88px;
+      }
+
+      @include tablet() {
+        padding: 57px 40px 85px;
+      }
+
+      @include phone() {
+        padding: 65px 0 90px;
+      }
     }
 
     &-text {
@@ -44,6 +105,10 @@ body {
 
     @include phone() {
       padding: 25px 0 42px;
+
+      &._card {
+        padding: 25px 0 17px;
+      }
     }
   }
 
@@ -51,6 +116,16 @@ body {
     @extend %clearfix;
     width: 100%;
     padding: 0 $padding-w;
+    margin: 0 auto;
+    max-width: 1400px;
+
+    &._menu_section {
+      @extend %global_flex_block_row_nowrap_space_between_center;
+
+      @include phone() {
+        display: block;
+      }
+    }
 
     @include wide-desktop() {
       padding: 0 $padding-d;
@@ -76,8 +151,32 @@ body {
   }
 }
 
+.dt_vis {
+  @include small-desktop-min() {
+    display: none !important;
+  }
+}
+
 .tab_hidden {
   @include tablet() {
+    display: none !important;
+  }
+}
+
+.tab_vis {
+  @include tablet-min() {
+    display: none !important;
+  }
+}
+
+.wide_hidden {
+  @include wide-desktop() {
+    display: none !important;
+  }
+}
+
+.wide_vis {
+  @include wide-desktop-min() {
     display: none !important;
   }
 }
@@ -130,3 +229,6 @@ body {
   }
 }
 
+._wnw {
+  white-space: nowrap;
+}

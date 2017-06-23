@@ -1,6 +1,39 @@
-.btn {
+.butt {
+  padding: 0;
+  line-height: normal;
+  
+  &.counter_butt {
+    width: 25px;
+    height: 25px;
+    line-height: 25px;
+    text-align: center;
+    border-radius: 12px;
+    font-size: 12px;
+    padding: 0;
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    margin-top: -12px;
 
-  &.btn__search {
+    &._minus {
+      left: 0;
+    }
+
+    &._plus {
+      right: 0;
+    }
+  }
+
+  &.cart_butt {
+    height: 40px;
+    display: block;
+    border-radius: 20px;
+    padding: 0 17px;
+    text-align: center;
+    font: 16px/38px $ClearSansRegular;
+  }
+
+  &.butt__search {
     @include transition_all(color .3s);
     float: left;
     min-height: 40px;
@@ -21,13 +54,13 @@
       top: 0;
       bottom: 0;
       width: 53px;
-      line-height: 53px;
+      //line-height: 53px;
       border-radius: 0;
       background: none;
     }
   }
 
-  &.btn_v1 {
+  &.butt_v1 {
     display: inline-block;
     vertical-align: top;
     height: 45px;
@@ -36,13 +69,22 @@
     font: 16px/40px $ClearSansMedium;
   }
 
-  &.btn_v2 {
+  &.butt_v2 {
     display: inline-block;
     vertical-align: top;
     height: 50px;
     border-radius: 34px;
     padding: 0 35px;
     font: 16px/46px $ClearSansMedium;
+  }
+
+  &.butt_v3 {
+    display: inline-block;
+    vertical-align: top;
+    height: 45px;
+    border-radius: 34px;
+    padding: 0 37px;
+    font: 16px/40px $ClearSansMedium;
   }
 
   &-red_white {
@@ -69,6 +111,21 @@
 
   &-gray {
     background: $dirty_white;
+  }
+
+  &-gray_2 {
+    background: $gl_gray_light;
+    color: #fff;
+
+    &:hover {
+      background: darken($gl_gray_light, 5%);
+    }
+  }
+
+  &-white {
+    color: $gl_black;
+    background: #fff;
+    box-shadow: 0 3px 8px #c6c8ce;
   }
 
 }

@@ -42,6 +42,10 @@
   @include flex_block(row wrap, flex-start, stretch);
 }
 
+%global_flex_block_row_wrap_center_stretch {
+  @include flex_block(row wrap, center, stretch);
+}
+
 %global_flex_block_row_wrap_flex-end_stretch {
   @include flex_block(row nowrap, flex-end, stretch);
 }

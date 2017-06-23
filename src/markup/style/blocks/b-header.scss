@@ -1,6 +1,6 @@
 .b-header {
   position: relative;
-  z-index: 5;
+  z-index: 11;
 
   &__worktime {
     letter-spacing: -.015em;
@@ -14,13 +14,89 @@
     padding-bottom: 6px;
     white-space: nowrap;
 
+    &-butt {
+      @extend %icon_pseudo;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 45px;
+
+      &:before {
+        position: absolute;
+        z-index: 2;
+        top: 50%;
+        height: 12px;
+        margin-top: -3px;
+      }
+
+      &:after {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: 1;
+        content: '';
+        pointer-events: none;
+      }
+
+      &._prev {
+        left: 0;
+
+        &:before {
+          left: -2px;
+          content: $i-chevron_left;
+        }
+
+        &:after {
+          left: 0;
+          background: -moz-linear-gradient(left, rgba(242, 243, 247, 1) 0%, rgba(242, 243, 247, 0) 100%);
+          background: -webkit-linear-gradient(left, rgba(242, 243, 247, 1) 0%, rgba(242, 243, 247, 0) 100%);
+          background: linear-gradient(to right, rgba(242, 243, 247, 1) 0%, rgba(242, 243, 247, 0) 100%);
+          filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00f2f3f7', endColorstr='#f2f3f7', GradientType=1);
+        }
+      }
+
+      &._next {
+        right: 0;
+
+        &:before {
+          right: -2px;
+          content: $i-chevron_right;
+        }
+
+        &:after {
+          right: 0;
+          background: -moz-linear-gradient(left, rgba(242, 243, 247, 0) 0%, rgba(242, 243, 247, 1) 100%);
+          background: -webkit-linear-gradient(left, rgba(242, 243, 247, 0) 0%, rgba(242, 243, 247, 1) 100%);
+          background: linear-gradient(to right, rgba(242, 243, 247, 0) 0%, rgba(242, 243, 247, 1) 100%);
+          filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00f2f3f7', endColorstr='#f2f3f7', GradientType=1);
+        }
+      }
+
+      @include phone-min() {
+        display: none !important;
+      }
+
+    }
+
+    &-list {
+      @include phone-min() {
+        transform: translate3d(0, 0, 0) !important;
+      }
+    }
+
     &-map {
       @extend %icon_pseudo;
-      float: left;
+      display: inline-block;
+      vertical-align: middle;
+      position: relative;
       letter-spacing: .015em;
 
       li {
         padding-right: 35px;
+        width: auto;
+        line-height: 34px;
       }
 
       .b-header__link {
@@ -34,26 +110,10 @@
       }
 
       @include phone() {
-        max-width: 47%;
+        width: 100%;
+        padding-right: 160px;
         overflow: hidden;
         position: relative;
-
-        &:before {
-          position: absolute;
-          z-index: 1;
-          content: $i-chevron_right;
-          top: 0;
-          bottom: 0;
-          right: 0;
-          width: 25%;
-          line-height: 42px;
-          text-align: right;
-          background: -moz-linear-gradient(left, rgba(242, 243, 247, 0) 0%, rgba(242, 243, 247, 1) 100%);
-          background: -webkit-linear-gradient(left, rgba(242, 243, 247, 0) 0%, rgba(242, 243, 247, 1) 100%);
-          background: linear-gradient(to right, rgba(242, 243, 247, 0) 0%, rgba(242, 243, 247, 1) 100%);
-          filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00f2f3f7', endColorstr='#f2f3f7', GradientType=1);
-
-        }
 
         li {
           padding-right: 10px;
@@ -66,8 +126,15 @@
     }
 
     &-info {
+      position: relative;
+      z-index: 1;
       float: right;
       letter-spacing: .025em;
+
+      .i-phone2 {
+        padding-right: 5px;
+        padding-top: 2px;
+      }
 
       li {
         padding-left: 28px;
@@ -171,6 +238,12 @@
         .b-header__nav & {
           position: relative;
           padding-left: 0;
+          text-align: left;
+
+          @include small-desktop-min() {
+            max-width: 264px;
+            min-width: 264px;
+          }
 
           > .b-header__link {
             position: relative;
@@ -178,13 +251,13 @@
 
             @include phone-min() {
               background: $gl_red;
-              padding: 0 48px;
+              //padding: 0 48px;
               letter-spacing: .08em;
               font-family: $ClearSansMedium;
             }
 
             @include small-desktop() {
-              padding: 0 28px;
+              padding: 0 26px;
 
               .dm {
                 display: none;
@@ -192,7 +265,8 @@
             }
 
             @include tablet() {
-              padding: 0 21px;
+              //padding: 0 21px;
+              padding: 0 19px;
             }
 
             @include phone() {
@@ -224,10 +298,14 @@
         position: absolute;
         left: 0;
         top: 100%;
-        min-width: 265px;
+        width: 100%;
         z-index: 13;
         background: #fff;
         box-shadow: 0 3px 26px transparentize($gl_gray_light, .9);
+      }
+
+      @include small-desktop() {
+        min-width: 265px;
       }
 
       @include phone() {
@@ -251,7 +329,7 @@
       .b-header__nav-text {
         font: 18px $ClearSansMedium;
         color: #fff;
-        padding-left: 16px;
+        padding-left: 14px;
         letter-spacing: -.025em;
 
         @include tablet() {
@@ -268,6 +346,19 @@
 
     &-contacts {
       float: right;
+      padding-left: 95px;
+
+      @include wide-desktop() {
+        padding-left: 33px;
+      }
+
+      @include small-desktop() {
+        padding-left: 15px;
+      }
+      
+      @include tablet() {
+        padding-left: 38px;
+      }
 
       @include phone() {
         line-height: 35px;
@@ -304,9 +395,12 @@
     }
 
     &-list {
+      @extend %global_flex_block_row_wrap_space_between_center;
 
       > li {
-        padding-left: 16px;
+        //padding-left: 16px;
+        flex: 1 0 auto;
+        padding-left: 10px;
 
         > .b-header__link {
           @include transition_all(background .3s);
@@ -314,9 +408,14 @@
           color: #fff;
           line-height: 60px;
           height: 60px;
-          padding: 0 16px;
+          text-align: center;
           letter-spacing: .07em;
 
+          &._active {
+            cursor: default;
+          }
+
+          &._active,
           &:hover {
             @include phone-min() {
               background: $gl_red;
@@ -335,17 +434,20 @@
           @include phone() {
             line-height: 46px;
             height: 54px;
+            text-align: left;
             padding: 0 $padding-s;
             letter-spacing: .015em;
           }
         }
 
         @include wide-desktop() {
-          padding-left: 8px;
+          //padding-left: 8px;
+          padding-left: 25px;
         }
 
         @include small-desktop() {
-          padding-left: 14px;
+          //padding-left: 14px;
+          padding-left: 10px;
         }
 
         @include tablet() {
@@ -354,6 +456,7 @@
 
         @include phone() {
           padding-left: 0;
+          display: block;
         }
 
         @include phone-min() {
@@ -381,6 +484,10 @@
 
     @include tablet() {
       margin-left: -$padding-m;
+    }
+
+    @include phone-min() {
+      flex: 1 0 auto;
     }
 
     @include phone() {
@@ -493,6 +600,7 @@
 
         .jq-selectbox__trigger {
           width: 14px;
+          line-height: 30px;
         }
       }
     }
@@ -512,10 +620,6 @@
 
     @include small-desktop() {
       clear: both;
-    }
-
-    @include phone() {
-      display: none;
     }
 
     &-w {
@@ -542,7 +646,7 @@
       @include phone() {
         position: absolute;
         top: 10px;
-        right: 8px;
+        right: 15px;
         z-index: 1;
       }
     }

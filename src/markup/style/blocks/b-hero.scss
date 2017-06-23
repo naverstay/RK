@@ -71,7 +71,7 @@
       @include wide-desktop() {
         left: 70px;
         right: 70px;
-        bottom: 42px;
+        bottom: 38px;
       }
 
       @include small-desktop() {
@@ -124,7 +124,7 @@
     }
 
     &-more {
-      .btn_v1 {
+      .butt_v1 {
         @include phone() {
           font-size: 12px;
           text-align: center;
@@ -149,7 +149,7 @@
       @include wide-desktop() {
         left: 70px;
         right: 70px;
-        bottom: 106px;
+        bottom: 102px;
       }
 
       @include small-desktop() {
@@ -181,6 +181,7 @@
 
     @include small-desktop() {
       height: 460px;
+      border-radius: 0;
     }
 
     @include tablet() {
