@@ -143,6 +143,7 @@
     text-align: center;
     margin: 0 -200px;
     height: 170px;
+    display: block;
 
     img {
       display: inline-block;
@@ -431,7 +432,9 @@
       }
 
       @include tablet() {
-        margin-bottom: 16px;
+        margin-bottom: 18px;
+        font-size: 16px;
+        letter-spacing: .01em;
       }
 
       @include phone() {
@@ -457,6 +460,7 @@
     }
 
     &-img {
+      display: block;
       text-align: center;
       margin: 0 -200px;
       padding-top: 15px;
@@ -523,16 +527,29 @@
       @extend %clearfix;
       margin-top: -30px;
 
-      &._similar:first-child {
-        margin-top: -40px;
+      &._similar {
+        &:first-child {
+          margin-top: -40px;
 
-        @include small-desktop() {
-          margin-top: -60px;
+          @include small-desktop() {
+            margin-top: -60px;
+          }
         }
+
       }
 
       @include tablet() {
         margin-top: -37px;
+
+        &._similar {
+          margin-top: 10px;
+        }
+      }
+
+      @include phone() {
+        &._similar {
+          margin-top: -37px;
+        }
       }
 
       &._mod-1 {
@@ -623,12 +640,12 @@
 
     @include small-desktop() {
       width: 50%;
-      padding-bottom: 40px;
+      padding-bottom: 35px;
     }
 
     @include tablet() {
       margin-bottom: 30px;
-      padding-bottom: 48px;
+      padding-bottom: 42px;
       float: none;
       width: auto;
     }
@@ -649,6 +666,7 @@
 
       @include small-desktop() {
         margin-top: -10px;
+
       }
 
       @include tablet() {
@@ -657,10 +675,18 @@
         min-height: 0;
         box-shadow: none;
         border-radius: 0;
+
+        &._mod-1 {
+          margin-top: 5px;
+        }
       }
 
       @include phone() {
         margin: -5px 0 15px;
+
+        &._mod-1 {
+          margin-top: -5px;
+        }
       }
     }
 
@@ -668,11 +694,11 @@
       box-shadow: none;
 
       h2 {
-        line-height: 1.2;
+        line-height: 1.35;
+        margin-bottom: 18px;
 
         @include small-desktop() {
-          line-height: 1.25;
-          margin-bottom: 30px;
+          margin-bottom: 20px;
         }
 
         @include small-desktop-min() {
@@ -700,6 +726,15 @@
         }
       }
 
+      p {
+        letter-spacing: 0;
+
+        @include phone() {
+          line-height: 1.7;
+          font-size: 12px;
+          max-height: none;
+        }
+      }
     }
   }
 
@@ -722,6 +757,7 @@
       float: none;
       width: auto;
       position: relative;
+      padding-bottom: 56.75%;
     }
 
     @include phone() {
@@ -755,6 +791,7 @@
       left: 40px;
       color: #fff;
       font-size: 30px;
+      text-align: left;
       letter-spacing: .015em;
 
       @include phone() {
@@ -771,6 +808,7 @@
       overflow: hidden;
       position: relative;
       text-align: center;
+      display: block;
 
       ._card & {
         line-height: 340px;
@@ -807,6 +845,11 @@
       @include small-desktop() {
         width: 340px;
         float: left;
+        max-height: 340px;
+      }
+
+      @include tablet() {
+        max-height: none;
       }
 
       @include phone() {
@@ -848,7 +891,11 @@
         margin-top: 25px;
         padding: 0 23px;
 
-        @include phone() {
+        @include small-desktop() {
+          margin-top: 18px;
+        }
+
+        @include tablet() {
           margin-top: 5px;
         }
       }
@@ -861,6 +908,10 @@
         @include phone() {
           margin-left: 0;
         }
+      }
+
+      @include small-desktop() {
+        padding-top: 40px;
       }
 
       @include tablet() {
@@ -969,6 +1020,9 @@
 
           @include tablet() {
             width: 100%;
+          }
+
+          @include phone() {
             padding: 15px;
             border-radius: 6px;
             background: #f0f2f8;
@@ -996,9 +1050,18 @@
       li {
 
       }
+
+      @include tablet() {
+        justify-content: flex-start;
+
+        li {
+          padding-right: 12px;
+        }
+      }
     }
 
     &-trigger {
+      @extend %no-user-select;
       cursor: pointer;
       line-height: 18px;
 
@@ -1064,7 +1127,7 @@
       }
 
       .b-product__range-item & {
-        @include phone() {
+        @include tablet() {
           float: left;
           clear: both;
         }
@@ -1072,14 +1135,40 @@
     }
 
     &-counter {
+      .b-product__category-item-controls & {
+        @include wide-desktop() {
+          float: none;
+          display: inline-block;
+          vertical-align: middle;
+        }
+
+        @include small-desktop() {
+          float: left;
+        }
+      }
+
+      @include tablet() {
+        .b-product__range-item & {
+          float: right;
+          margin-top: -7px;
+          margin-bottom: 9px;
+
+          .b-product__counter {
+            float: right;
+            margin-right: 0;
+          }
+        }
+      }
+
       @include phone() {
-        float: right;
-        margin-top: -7px;
-        margin-bottom: 9px;
 
         .b-product__counter {
           float: right;
           margin-right: 0;
+        }
+
+        .b-product__category-item & {
+          margin: 0;
         }
       }
     }
@@ -1170,17 +1259,18 @@
 
       &-price {
         font-size: 16px;
+        white-space: nowrap;
 
         .b-product__range-item & {
           font-size: 30px;
           margin-bottom: 7px;
           letter-spacing: -.015em;
 
-          @include tablet() {
-            font-size: 24px;
+          @include small-desktop() {
+            //font-size: 24px;
           }
 
-          @include phone() {
+          @include tablet() {
             font-size: 22px;
             float: left;
             max-width: 50%;
@@ -1206,16 +1296,17 @@
           @include phone() {
             margin-top: 5px;
           }
-
         }
 
         .b-product__category-item & {
           width: 16%;
-          padding-right: 30px;
+          padding-right: 33px;
+          text-align: right;
 
           @include wide-desktop() {
-            padding-right: 15px;
-            width: 13.5%;
+            padding-right: 25px;
+            width: 11.5%;
+            text-align: left;
           }
 
           @include small-desktop() {
@@ -1225,6 +1316,7 @@
           @include tablet() {
             width: 19%;
             padding-right: 35px;
+            text-align: right;
           }
 
           @include phone() {
@@ -1244,7 +1336,9 @@
 
           @include small-desktop-min() {
             padding-right: 10px;
-            margin-bottom: 78px;
+            padding-bottom: 39px;
+            margin-bottom: 39px;
+            border-bottom: 1px solid #edeff5;
           }
         }
 
@@ -1282,11 +1376,13 @@
           text-align: right;
 
           @include wide-desktop() {
-            width: 37.5%;
+            width: 39.5%;
+            text-align: center;
           }
 
           @include small-desktop() {
             width: 30.5%;
+            text-align: left;
           }
 
           @include tablet() {
@@ -1297,6 +1393,7 @@
             width: 50%;
             float: left;
             text-align: left;
+            margin-top: 2px;
           }
         }
       }
@@ -1337,6 +1434,11 @@
 
         &._next,
         &._prev {
+
+          @include tablet-min() {
+            font-size: 14px;
+          }
+
           @include phone-min() {
             position: relative;
           }
@@ -1390,15 +1492,27 @@
     position: relative;
     width: 110px;
 
+    .f-input_label {
+      position: absolute;
+      right: 30px;
+      bottom: 8px;
+      width: 25px;
+      text-align: left;
+      font: 12px $ClearSansMedium;
+    }
+
     .b-product__category-item & {
       margin-right: 30px;
+
+      @include phone() {
+        margin-right: 0;
+      }
     }
 
     input.f-input {
-      padding-right: 30px;
+      padding-right: 56px;
       padding-left: 30px;
-      text-align: center;
+      text-align: right;
     }
   }
-
 }

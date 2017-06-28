@@ -43,15 +43,15 @@ $(function () {
     .delegate('.triggerBtn', 'click', function () {
       var btn = $(this), list = btn.closest('.triggerList');
 
-      if (btn.hasClass('_asc')) {
-        btn.removeClass('_asc').addClass('_desc');
-      } else if (btn.hasClass('_desc')) {
+      if (btn.hasClass('_desc')) {
         btn.removeClass('_desc').addClass('_asc');
+      } else if (btn.hasClass('_asc')) {
+        btn.removeClass('_asc');
       } else {
         btn.addClass('_desc');
       }
 
-      list.find('.triggerBtn').not(btn).removeClass('_desc').removeClass('_ssc');
+      list.find('.triggerBtn').not(btn).removeClass('_desc').removeClass('_asc');
 
       return false;
     })

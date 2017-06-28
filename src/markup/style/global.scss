@@ -28,9 +28,15 @@ body {
         margin: 45px 0 50px;
       }
 
+      @include tablet() {
+        padding: 0 40px;
+        letter-spacing: -.02em;
+      }
+
       @include phone() {
-        margin: 55px 0 40px;
-        letter-spacing: .03em;
+        margin: 55px 0 35px;
+        padding: 0;
+        letter-spacing: -.01em;
       }
     }
 
@@ -90,6 +96,16 @@ body {
       letter-spacing: .02em;
       margin-bottom: 22px;
 
+      ._title-red._mod-1 & {
+        @include small-desktop() {
+          letter-spacing: -.01em;
+        }
+
+        @include phone() {
+          letter-spacing: .02em;
+        }
+      }
+
       @include phone() {
         font-size: 22px;
       }
@@ -101,10 +117,18 @@ body {
 
     @include tablet() {
       padding-bottom: 56px;
+
+      &._mod-1 {
+        padding-bottom: 50px;
+      }
     }
 
     @include phone() {
       padding: 25px 0 42px;
+
+      &._mod-1 {
+        padding-bottom: 42px;
+      }
 
       &._card {
         padding: 25px 0 17px;
@@ -231,4 +255,8 @@ body {
 
 ._wnw {
   white-space: nowrap;
+}
+
+._rub {
+  font-family: $PTRoubleSans;
 }

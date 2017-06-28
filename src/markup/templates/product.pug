@@ -1,0 +1,271 @@
+extends _layout.pug
+include _mixins.pug
+
+block variables
+  - var page_title = 'RK карточка товара';
+  - var map_active = 0;
+  - var nav_active = 0;
+  - var dropdown_active = 0;
+
+block content
+  .section.section__title._title-red._card
+    .section__inner
+      .b-pagination
+        ul.b-pagination__list
+          li: a.b-pagination__link(href='index.html') Главная
+          li: a.b-pagination__link(href='catalog.html') Каталог
+          li: span.b-pagination__link Лента конвейерная GR
+  
+      .section__title-text Лента конвейерная 2.2- 600-4-ТК-200-2-5-2 GR
+        
+  .section
+    .section__inner
+      .b-product__range-w._mod-2
+        .b-product__category-info._card
+          .b-product__category-img
+            img(src='images/card_1.png')
+
+          .b-product__category-description
+            p Минимальная партия продажи, вес одного места, объем и полные технические и физические характеристики продукции, указаны в каждой позиции. Выберите необходимый Вам размер и нажмите на позицию в таблице.
+            
+            
+            .b-product__category-item-caption Розничная цена
+            .b-product__category-item-price
+              span 3 196 
+              span._rub &#x443;
+            .b-product__category-item-controls.clearfix
+              .fl.b-product__category-counter
+                .b-product__counter.f-input__w.valCell
+                  input.f-input.input__v3(value='0' data-min='0' data-max='1000' data-step='1' data-inputmask="'alias': 'numeric', 'rightAlign': false, 'allowMinus': false, 'allowPlus': false, 'autoGroup': false, 'groupSeparator': '', 'autoUnmask': true, 'digits': 0, 'placeholder': '0', 'digitsOptional': false" )
+                  span.f-input_label шт
+                  span.butt.butt-white.counter_butt._minus.valMinus.i-minus
+                  span.butt.butt-white.counter_butt._plus.valPlus.i-plus
+              .fr.b-product__category-footer
+                a.butt.cart_butt.butt-red(href='#') В корзину
+            
+            .b-product__category-item-caption.dt_hidden Здесь информация<br>по доставке и оплате
+              
+        .b-product__range
+          .b-product__category
+            .section__caption Характеристики
+            
+            dl.b-product__features
+              dt: span Производитель
+              dd: span Rubber and Plastic
+              
+              dt: span Номер изделия
+              dd: span 600-4-ТК-200-2-5-2
+
+              dt: span Вид производства
+              dd: span Промышленное - общая транспортировка
+              
+              dt: span Тип
+              dd: span 2.2 - для средних и тяжелых условий эксплуатации
+              
+              dt: span Дополнительное использование
+              dd: span Транспортировка кирпича, смесей, щебня
+              
+              dt: span Линии использования
+              dd: span Основная, подача, упаковка, сортировка
+              
+              dt: span Производитель
+              dd: span Rubber and Plastic
+
+              dt: span Номер изделия
+              dd: span 600-4-ТК-200-2-5-2
+
+              dt: span Вид производства
+              dd: span Промышленное - общая транспортировка
+
+              dt: span Тип
+              dd: span 2.2 - для средних и тяжелых условий эксплуатации
+
+              dt: span Дополнительное использование
+              dd: span Транспортировка кирпича, смесей, щебня
+
+              dt: span Линии использования
+              dd: span Основная, подача, упаковка, сортировка
+              
+              
+            ul.b-product__category-controls
+              li.phone_vis._prev: a.gl-link(href='#')
+                span.i-chevron_left
+              li.phone_hidden: span 1
+              li.phone_hidden: a.gl-link(href='#') 2
+              li.phone_hidden: a.gl-link(href='#') 3
+              li.phone_hidden: a.gl-link(href='#') 4
+              li.phone_hidden: a.gl-link(href='#') ...
+              li._next: a.gl-link(href='#') 
+                span.i-chevron_right
+              li._more
+                a.butt.butt-gray_2.butt_v3(href='#') Показать еще
+              
+  .section.section__title._title-red._similar
+    .section__inner
+      .section__title-text Похожие товары
+
+  .section
+    .section__inner
+      .b-product__range-w._similar
+        .b-product__range._wide
+          ul.b-product__range-list
+            +loop_while(2)
+              li
+                .b-product__range-item
+                  a.b-product__range-img(href='#')
+                    img(src='images/range_1.png')
+                  .b-product__range-info
+                    .b-product__range-name 
+                      span Лента конвейерная GR
+                      span.phone_vis <br>ЕР250/2 3/1.0 С15 GR
+                    .b-product__category-item-price
+                      span 3 196 
+                      span._rub &#x443;
+                    .b-product__category-item-controls.clearfix
+                      .fl.b-product__category-counter
+                        .b-product__counter.f-input__w.valCell
+                          input.f-input.input__v3(value='0' data-min='0' data-max='1000' data-step='1' data-inputmask="'alias': 'numeric', 'rightAlign': false, 'allowMinus': false, 'allowPlus': false, 'autoGroup': false, 'groupSeparator': '', 'autoUnmask': true, 'digits': 0, 'placeholder': '0', 'digitsOptional': false" )
+                          span.f-input_label шт
+                          span.butt.butt-white.counter_butt._minus.valMinus.i-minus
+                          span.butt.butt-white.counter_butt._plus.valPlus.i-plus
+                      .fr.b-product__category-footer
+                        a.butt.cart_butt.butt-red(href='#') В корзину
+                      
+            +loop_while(2)
+              li.phone_hidden
+                .b-product__range-item
+                  a.b-product__range-img(href='#')
+                    img(src='images/range_1.png')
+                  .b-product__range-info
+                    .b-product__range-name
+                      span Лента конвейерная GR
+                      span.phone_vis <br>ЕР250/2 3/1.0 С15 GR
+                    .b-product__category-item-price
+                      span 3 196 
+                      span._rub &#x443;
+                    .b-product__category-item-controls.clearfix
+                      .fl.b-product__category-counter
+                        .b-product__counter.f-input__w.valCell
+                          input.f-input.input__v3(value='0' data-min='0' data-max='1000' data-step='1' data-inputmask="'alias': 'numeric', 'rightAlign': false, 'allowMinus': false, 'allowPlus': false, 'autoGroup': false, 'groupSeparator': '', 'autoUnmask': true, 'digits': 0, 'placeholder': '0', 'digitsOptional': false" )
+                          span.f-input_label шт
+                          span.butt.butt-white.counter_butt._minus.valMinus.i-minus
+                          span.butt.butt-white.counter_butt._plus.valPlus.i-plus
+                      .fr.b-product__category-footer
+                        a.butt.cart_butt.butt-red(href='#') В корзину
+                      
+            +loop_while(2)
+              li.phone_hidden.dt_vis
+                .b-product__range-item
+                  a.b-product__range-img(href='#')
+                    img(src='images/range_1.png')
+                  .b-product__range-info
+                    .b-product__range-name
+                      span Лента конвейерная GR
+                      span.phone_vis <br>ЕР250/2 3/1.0 С15 GR
+                    .b-product__category-item-price
+                      span 3 196 
+                      span._rub &#x443;
+                    .b-product__category-item-controls.clearfix
+                      .fl.b-product__category-counter
+                        .b-product__counter.f-input__w.valCell
+                          input.f-input.input__v3(value='0' data-min='0' data-max='1000' data-step='1' data-inputmask="'alias': 'numeric', 'rightAlign': false, 'allowMinus': false, 'allowPlus': false, 'autoGroup': false, 'groupSeparator': '', 'autoUnmask': true, 'digits': 0, 'placeholder': '0', 'digitsOptional': false" )
+                          span.f-input_label шт
+                          span.butt.butt-white.counter_butt._minus.valMinus.i-minus
+                          span.butt.butt-white.counter_butt._plus.valPlus.i-plus
+                      .fr.b-product__category-footer
+                        a.butt.cart_butt.butt-red(href='#') В корзину
+                      
+      .b-product__range-w._similar
+        .section__caption
+          span С этим товаром
+          span.phone_vis <br> часто 
+          span  покупают
+        
+        .b-product__range._wide
+          ul.b-product__range-list
+            +loop_while(2)
+              li
+                .b-product__range-item
+                  a.b-product__range-img(href='#')
+                    img(src='images/range_1.png')
+                  .b-product__range-info
+                    .b-product__range-name
+                      span Лента конвейерная GR
+                      span.phone_vis <br>ЕР250/2 3/1.0 С15 GR
+                    .b-product__category-item-price
+                      span 3 196 
+                      span._rub &#x443;
+                    .b-product__category-item-controls.clearfix
+                      .fl.b-product__category-counter
+                        .b-product__counter.f-input__w.valCell
+                          input.f-input.input__v3(value='0' data-min='0' data-max='1000' data-step='1' data-inputmask="'alias': 'numeric', 'rightAlign': false, 'allowMinus': false, 'allowPlus': false, 'autoGroup': false, 'groupSeparator': '', 'autoUnmask': true, 'digits': 0, 'placeholder': '0', 'digitsOptional': false" )
+                          span.f-input_label шт
+                          span.butt.butt-white.counter_butt._minus.valMinus.i-minus
+                          span.butt.butt-white.counter_butt._plus.valPlus.i-plus
+                      .fr.b-product__category-footer
+                        a.butt.cart_butt.butt-red(href='#') В корзину
+
+            +loop_while(2)
+              li.phone_hidden
+                .b-product__range-item
+                  a.b-product__range-img(href='#')
+                    img(src='images/range_1.png')
+                  .b-product__range-info
+                    .b-product__range-name
+                      span Лента конвейерная GR
+                      span.phone_vis <br>ЕР250/2 3/1.0 С15 GR
+                    .b-product__category-item-price
+                      span 3 196 
+                      span._rub &#x443;
+                    .b-product__category-item-controls.clearfix
+                      .fl.b-product__category-counter
+                        .b-product__counter.f-input__w.valCell
+                          input.f-input.input__v3(value='0' data-min='0' data-max='1000' data-step='1' data-inputmask="'alias': 'numeric', 'rightAlign': false, 'allowMinus': false, 'allowPlus': false, 'autoGroup': false, 'groupSeparator': '', 'autoUnmask': true, 'digits': 0, 'placeholder': '0', 'digitsOptional': false" )
+                          span.f-input_label шт
+                          span.butt.butt-white.counter_butt._minus.valMinus.i-minus
+                          span.butt.butt-white.counter_butt._plus.valPlus.i-plus
+                      .fr.b-product__category-footer
+                        a.butt.cart_butt.butt-red(href='#') В корзину
+
+            +loop_while(2)
+              li.phone_hidden.dt_vis
+                .b-product__range-item
+                  a.b-product__range-img(href='#')
+                    img(src='images/range_1.png')
+                  .b-product__range-info
+                    .b-product__range-name
+                      span Лента конвейерная GR
+                      span.phone_vis <br>ЕР250/2 3/1.0 С15 GR
+                    .b-product__category-item-price
+                      span 3 196 
+                      span._rub &#x443;
+                    .b-product__category-item-controls.clearfix
+                      .fl.b-product__category-counter
+                        .b-product__counter.f-input__w.valCell
+                          input.f-input.input__v3(value='0' data-min='0' data-max='1000' data-step='1' data-inputmask="'alias': 'numeric', 'rightAlign': false, 'allowMinus': false, 'allowPlus': false, 'autoGroup': false, 'groupSeparator': '', 'autoUnmask': true, 'digits': 0, 'placeholder': '0', 'digitsOptional': false" )
+                          span.f-input_label шт
+                          span.butt.butt-white.counter_butt._minus.valMinus.i-minus
+                          span.butt.butt-white.counter_butt._plus.valPlus.i-plus
+                      .fr.b-product__category-footer
+                        a.butt.cart_butt.butt-red(href='#') В корзину
+
+  .section
+    .section__inner
+      .b-product__description-w._mod-1
+        .b-product__description
+          .b-article._mod-1
+            h2 
+              span Конвейерная лента - 
+              span.tab_hidden <br>
+              span Практичное приспособление для транспортировки грузов
+            p Компания «Хольцер» специализируется на производстве и продаже качественных РТИ изделий в Москве и по всей России. Такие комплектующие отличаются высокой прочностью и имеют длительный срок эксплуатации. Особое место в товарном ассортименте завода занимают неформовые РТИ, которые нашли широкое применение и востребованы в различных сферах промышленности и хозяйственной деятельности. На нашем сайте представлена продукция производителей РТИ с мировым именем, таких как Holzer Flexo, Rubber and Plastic и Gates Corporation по доступным ценам. А так же резиновые изделия под заказ собственного производства.
+        .b-product__review
+          .b-article__video-holder
+            .b-article__video
+              img(src='images/video.png')
+            .b-article__video-btn Включите
+              
+  +client_section()
+  
+  +delivery_section()
+  
