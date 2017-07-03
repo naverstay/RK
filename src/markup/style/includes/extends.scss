@@ -66,6 +66,10 @@
   @include flex_block(row nowrap, flex-end, center);
 }
 
+%global_flex_block_row_nowrap_flex_start_stretch {
+  @include flex_block(row nowrap, flex-start, stretch);
+}
+
 %global_flex_block_row_nowrap_flex_end_stretch {
   @include flex_block(row nowrap, flex-end, stretch);
 }

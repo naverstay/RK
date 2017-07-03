@@ -133,6 +133,10 @@ body {
       &._card {
         padding: 25px 0 17px;
       }
+
+      &._news {
+        padding: 25px 0 42px;
+      }
     }
   }
 
@@ -165,6 +169,18 @@ body {
 
     @include phone() {
       padding: 0 $padding-m;
+    }
+  }
+  
+  &._contacts_section {
+    margin-bottom: 80px;
+
+    @include small-desktop() {
+      margin-bottom: 70px;
+    }
+
+    @include phone() {
+      margin-bottom: 80px;
     }
   }
 }
@@ -259,4 +275,8 @@ body {
 
 ._rub {
   font-family: $PTRoubleSans;
+}
+
+._t-c {
+  text-align: center;
 }

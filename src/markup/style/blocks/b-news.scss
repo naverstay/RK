@@ -1,0 +1,571 @@
+.b-news {
+
+  &__list {
+    @extend %global_flex_block_row_wrap_center_stretch;
+    margin: -62px 0 100px;
+
+    &._contacts {
+      margin-bottom: 0;
+    }
+
+    @include wide-desktop() {
+      margin-bottom: 90px;
+    }
+
+    @include small-desktop() {
+      margin-bottom: 100px;
+    }
+
+    @include tablet() {
+      margin-top: -70px;
+
+      &._contacts {
+        margin-top: -60px;
+      }
+    }
+
+    @include phone() {
+      margin-top: -75px;
+      margin-bottom: 115px;
+
+      &._contacts {
+        margin-top: -75px;
+      }
+    }
+
+    @include respond-to-max(480px) {
+      display: block;
+    }
+
+    li {
+      flex: 0 0 25%;
+      padding: 0 15px;
+      margin-bottom: 30px;
+      max-width: 25%;
+      
+      @include wide-desktop() {
+
+      }
+
+      @include small-desktop() {
+        flex: 0 0 33.33%;
+        max-width: 33.33%;
+      }
+
+      @include tablet() {
+        flex: 0 0 50%;
+        max-width: 50%;
+        padding: 0 8px;
+        margin-bottom: 15px;
+      }
+
+      @include respond-to-max(480px) {
+        flex: 0 0 100%;
+        max-width: 100%;
+      }
+
+      &._wide {
+        .b-news__info p {
+          height: 3em * 1.5;
+        }
+
+        @include phone-min() {
+          flex: 0 0 50%;
+          max-width: 50%;
+        }
+
+        @include tablet-min() {
+          .b-news__info p {
+            height: 2em * 1.45;
+          }
+        }
+      }
+
+      &._main {
+        flex: 1 0 100%;
+        max-width: 100%;
+
+        @include small-desktop() {
+          margin-bottom: 20px;
+        }
+
+        @include tablet() {
+          margin-bottom: 17px;
+        }
+      }
+
+      &._contacts {
+        @include small-desktop() {
+          margin-bottom: 30px;
+        }
+
+        @include tablet() {
+          margin-bottom: 17px;
+        }
+      }
+    }
+
+    &-w {
+      margin: 0 -15px;
+
+      @include tablet() {
+        margin: 0 -8px;
+      }
+    }
+  }
+
+  &__item {
+    @extend %clearfix;
+    overflow: hidden;
+    border-radius: 5px;
+    position: relative;
+    background: #fff;
+
+    &-img {
+      display: block;
+      height: 218px;
+      overflow: hidden;
+
+      &-w {
+        position: relative;
+        margin: 0 -200px;
+        text-align: center;
+      }
+
+      img {
+        display: inline-block;
+        vertical-align: top;
+        //min-width: 100%;
+        
+        @include small-desktop-min() {
+          min-width: 650px;
+        }
+        
+        @include wide-desktop-min() {
+          //min-width: 744px;
+        }
+      }
+    }
+
+    ._main & {
+      @extend %global_flex_block_row_nowrap_flex_start_stretch;
+
+      @include phone() {
+        display: block;
+      }
+
+      &-img {
+        height: 500px;
+        overflow: hidden;
+        flex: 1 0 (100% * 740 / 1240);
+        max-width: (100% * 740 / 1240);
+        
+        + .b-news__info {
+          flex: 1 0 (100% * 500 / 1240);
+          max-width: (100% * 500 / 1240);
+        }
+
+        @include wide-desktop() {
+          flex: 1 0 (100% * 620 / 1120);
+          max-width: (100% * 620 / 1120);
+          
+          + .b-news__info {
+            flex: 1 0 (100% * 500 / 1120);
+            max-width: (100% * 500 / 1120);
+          }
+        }
+
+        @include small-desktop() {
+          height: 440px;
+          flex: 1 0 (100% * 440 / 910);
+          max-width: (100% * 440 / 910);
+
+          + .b-news__info {
+            flex: 1 0 (100% * 470 / 910);
+            max-width: (100% * 470 / 910);
+          }
+        }
+
+        @include tablet() {
+          height: 370px;
+          flex: 1 0 50%;
+          max-width: 50%;
+
+          + .b-news__info {
+            flex: 1 0 50%;
+            max-width: 50%;
+          }
+        }
+
+        @include phone() {
+          height: 218px;
+          flex: 1 0 100%;
+          max-width: 100%;
+
+          + .b-news__info {
+            flex: 1 0 100%;
+            max-width: 100%;
+          }
+        }
+      }
+    }
+
+    ._contacts & {
+      font-family: $OpenSans;
+
+      &-img {
+        height: 450px;
+
+        @include tablet() {
+          height: 390px;
+        }
+
+        @include phone() {
+          height: 290px;
+
+          img {
+            //max-height: 290px;
+          }
+        }
+      }
+    }
+  }
+
+  &__map {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    &-holder {
+      position: relative;
+      height: 290px;
+
+      @include phone-min() {
+        height: 330px;
+      }
+    }
+  }
+
+  &__office {
+    margin-top: 22px;
+
+    ._contacts & {
+      @include tablet() {
+        margin-top: 5px;
+      }
+
+      @include phone() {
+        margin-top: 20px;
+      }
+    }
+
+    &-link {
+      color: #da231b;
+      text-decoration: none;
+      letter-spacing: -.02em;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+
+    &-phone {
+      font-size: 22px;
+      margin-bottom: 8px;
+
+      @include phone-min() {
+        font-size: 30px;
+        margin-bottom: 5px;
+      }
+    }
+
+    &-city {
+
+      @include phone-min() {
+        font-size: 16px;
+      }
+
+      + .b-news__office-city {
+        margin-top: 12px;
+      }
+    }
+
+    + .b-news__office {
+      margin-top: 40px;
+
+      @include phone() {
+        margin-top: 30px;
+      }
+    }
+
+    ._main & {
+      margin-top: 22px;
+
+      @include phone() {
+        + .b-news__office {
+          margin-top: 30px;
+        }
+      }
+
+      @include phone-min() {
+        margin-top: 43px;
+      }
+
+      @include tablet-min() {
+        margin-top: 40px;
+      }
+    }
+
+    ._main._contacts & {
+
+      @include tablet() {
+        margin-top: 40px;
+      }
+
+      @include phone() {
+        margin-top: 25px;
+      }
+    }
+
+    @include tablet-min() {
+      margin-top: 30px;
+    }
+
+    @include small-desktop-min() {
+      margin-top: 33px;
+    }
+  }
+
+  &__info {
+    padding: 20px;
+
+    p {
+      font: 18px/1.45 $Georgia;
+      overflow: hidden;
+      height: 4em * 1.45;
+
+      @include tablet() {
+        font-size: 14px;
+        line-height: 1.5;
+        height: 3em * 1.5;
+      }
+
+      ._contacts & {
+        font-family: $OpenSans;
+        opacity: .6;
+        height: auto;
+      }
+
+      ._callback-form._contacts & {
+        letter-spacing: -.02em;
+
+        @include phone-min() {
+          font-size: 16px;
+        }
+      }
+    }
+
+    &-date {
+      color: $gl_gray_light;
+      font-size: 15px;
+      margin-bottom: 10px;
+
+      ._main & {
+        @include tablet() {
+          margin-bottom: 22px;
+        }
+      }
+    }
+
+    &-name {
+      font: 24px $Georgia;
+      margin-bottom: 7px;
+      text-decoration: none;
+
+      ._callback-form._contacts & {
+        @include tablet() {
+          margin-bottom: 0;
+        }
+      }
+    }
+
+    &-footer {
+      @extend %clearfix;
+      padding: 18px 0;
+
+      .butt.cart_butt {
+        padding: 0 23px;
+      }
+
+      @include tablet() {
+        padding: 10px 0 14px;
+      }
+
+      @include phone() {
+        padding: 12px 0 3px;
+      }
+    }
+
+    ._main & {
+
+      @include tablet-min() {
+        padding: 40px 40px 20px;
+
+        &-date {
+          margin-bottom: 22px;
+        }
+      }
+
+      &-name {
+        font-size: 40px;
+
+        @include phone-min() {
+          margin-bottom: 20px;
+        }
+
+        @include tablet() {
+          font-size: 30px;
+        }
+
+        @include phone() {
+          font-size: 24px;
+        }
+      }
+
+      &-footer {
+        padding-top: 35px;
+
+        @include tablet() {
+          padding-top: 18px;
+        }
+
+        @include phone() {
+          padding: 12px 0 3px;
+        }
+      }
+
+      p {
+        line-height: 1.4;
+        height: 5em * 1.4;
+
+        @include tablet() {
+          height: 5em * 1.6;
+          line-height: 1.6;
+        }
+
+        @include phone() {
+          height: 3em * 1.5;
+          line-height: 1.5;
+        }
+      }
+    }
+
+    ._contacts & {
+      padding: 22px 15px 20px;
+
+      .b-news__info-name {
+        font: 30px $OpenSans;
+
+        @include phone() {
+          font-size: 22px;
+          margin-bottom: 5px;
+        }
+
+        @include tablet-min() {
+          font-size: 40px;
+        }
+      }
+
+      p {
+        letter-spacing: -.065em;
+
+        &.b-news__info-requisites {
+          font-size: 16px;
+
+          @include tablet() {
+            margin: -10px 0 -5px;
+          }
+
+          @include phone() {
+            line-height: 1.3;
+            margin: 0 0 5px;
+          }
+        }
+
+        @include phone() {
+          height: auto !important;
+        }
+      }
+
+      @include phone-min() {
+        padding: 15px 15px 35px;
+      }
+
+      @include tablet-min() {
+        padding: 30px 40px 45px;
+
+        p {
+          line-height: 1.3;
+        }
+      }
+    }
+
+    ._callback-form & {
+      padding-bottom: 35px;
+
+      @include tablet() {
+        padding-top: 23px;
+        padding-bottom: 15px;
+      }
+
+      @include phone() {
+        padding-top: 14px;
+        padding-bottom: 10px;
+      }
+    }
+
+    .b-form__block & {
+
+      @include phone() {
+        padding-top: 14px;
+        padding-bottom: 10px;
+      }
+    }
+
+    ._contacts._main & {
+      padding: 20px 15px;
+
+      @include phone-min() {
+        padding: 45px 15px 15px;
+      }
+
+      .b-news__info-name {
+        margin-bottom: 5px;
+        letter-spacing: -.01em;
+
+        @include phone-min() {
+          margin-bottom: 14px;
+        }
+
+        @include tablet-min() {
+          margin: 5px 0;
+        }
+      }
+
+      p {
+        height: auto;
+        letter-spacing: -.065em;
+      }
+
+      @include tablet-min() {
+        padding: 30px 40px 45px;
+
+        p {
+          line-height: 1.3;
+        }
+      }
+    }
+  }
+}

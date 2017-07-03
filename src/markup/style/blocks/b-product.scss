@@ -124,8 +124,8 @@
       @include phone() {
         flex: 0 0 100%;
         max-width: 420px;
-        margin-left: auto;
-        margin-right: auto;
+        //margin-left: auto;
+        //margin-right: auto;
       }
     }
   }
@@ -554,17 +554,62 @@
 
       &._mod-1 {
         margin-top: -60px;
+        position: relative;
 
         @include small-desktop() {
           margin-top: -56px;
+
+          &._cart-holder {
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-orient: vertical;
+            -webkit-box-direction: normal;
+            -ms-flex-flow: column nowrap;
+            flex-flow: column nowrap;
+            -ms-flex-pack: center;
+            justify-content: center;
+            -ms-flex-align: stretch;
+            align-items: stretch;
+            -webkit-box-pack: center;
+            -webkit-box-align: stretch;
+            margin-top: -62px;
+
+            .b-cart__checkout {
+              order: 1;
+              padding-left: 340px;
+              padding-bottom: 10px;
+              margin-bottom: 105px;
+            }
+
+            .b-cart__list {
+            }
+          }
         }
 
         @include tablet() {
           margin-top: -60px;
+
+          &._cart-holder {
+            margin-top: -50px;
+
+            .b-cart__checkout {
+              margin-bottom: 72px;
+            }
+          }
         }
 
         @include phone() {
           margin-top: -70px;
+
+          &._cart-holder {
+            margin-top: -68px;
+
+            .b-cart__checkout {
+              padding-left: 0;
+              margin-bottom: 90px;
+            }
+          }
         }
       }
 

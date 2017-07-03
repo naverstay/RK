@@ -1,0 +1,71 @@
+extends _layout.pug
+include _mixins.pug
+
+block variables
+  - var page_title = 'RK контакты';
+  - var map_active = 0;
+  - var nav_active = 0;
+  - var dropdown_active = 0;
+  - var scripts = ['//api-maps.yandex.ru/2.0-stable/?load=package.standard&lang=ru-RU']
+
+block content
+  .section.section__title._title-red._news
+    .section__inner
+      .b-pagination
+        ul.b-pagination__list
+          li: a.b-pagination__link(href='index.html') Главная
+          li: span.b-pagination__link Контакты
+  
+      .section__title-text Контакты
+        
+  .section
+    .section__inner
+      .b-news__list-w
+        ul.b-news__list._contacts
+          li._main._contacts
+            +contacts_item('images/contacts.png')
+
+          +loop_while(2)
+            li._wide._contacts
+              +contacts_item(true)
+              
+  .section._contacts_section
+    .section__inner
+      .b-form__block._callback-form._contacts
+        .b-news__info
+          .b-news__info-name Свяжитесь с нами
+        
+          p.phone_vis Оставьте Ваши данные и напишите сообщение/вопрос/предложение
+          p.phone_hidden Просто оставьте Ваши данные и напишите<br>сообщение/вопрос/предложение
+            
+          form.validateMe(action='#')
+            .f-row
+              .f-row__col
+                .f-input__w
+                  input.f-input.input__v1(placeholder='Введите Ваше имя' class='validate[required]')
+                .f-input__w
+                  input.f-input.input__v1(placeholder='Введите Ваш телефон' data-inputmask="'mask': '[+7] (999)-999-99-99', 'clearIncomplete' : true" class='validate[required]')
+                .f-input__w
+                  input.f-input.input__v1(placeholder='Введите Ваш email' class='validate[required]')
+                  
+              .f-row__col
+                .f-input__w
+                  textarea.f-input.input__v1(placeholder='Введите Ваш текст' class='validate[required]')
+               
+                .f-input__w
+                  button.butt.butt-red.butt_v1
+                    span.dm Связаться с нами
+                    
+      .b-form__block._contacts
+        .b-news__info
+          .b-news__info-name Юридическая информация
+
+          p.b-news__info-requisites 
+            span OOO&nbsp;«Хольцер» 
+            span.phone_hidden &nbsp;&nbsp; | &nbsp;&nbsp; 
+            span.phone_vis <br> 
+            | ИНН&nbsp;5036110380 
+            span.phone_hidden &nbsp;&nbsp; | &nbsp;&nbsp; 
+            span.phone_vis <br> 
+            | ОГРН&nbsp;1105074010788
+          

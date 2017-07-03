@@ -1,0 +1,41 @@
+extends _layout.pug
+include _mixins.pug
+
+block variables
+  - var page_title = 'RK новости';
+  - var map_active = 0;
+  - var nav_active = 0;
+  - var dropdown_active = 0;
+
+block content
+  .section.section__title._title-red._news
+    .section__inner
+      .b-pagination
+        ul.b-pagination__list
+          li: a.b-pagination__link(href='index.html') Главная
+          li: span.b-pagination__link Новости
+  
+      .section__title-text Новости
+        
+  .section
+    .section__inner
+      .b-news__list-w
+        ul.b-news__list
+          li._main
+            +news_item(true, 'images/news_1.png')
+
+          li
+            +news_item(true)
+            
+          li.phone_hidden
+            +news_item(true)
+
+          li.dt_hidden
+            +news_item(true)
+
+          li.tab_hidden
+            +news_item(true)
+
+          +loop_while(2)
+            li._wide
+              +news_item()

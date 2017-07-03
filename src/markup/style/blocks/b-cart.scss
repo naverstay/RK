@@ -1,0 +1,325 @@
+.b-cart {
+
+  &__checkout {
+    box-shadow: 0 16px 26px rgba(225, 225, 225, .2);
+
+    @include small-desktop() {
+      background: #fff;
+      overflow: hidden;
+      border-radius: 5px;
+      position: relative;
+    }
+
+    &-head {
+      background: #000;
+      color: #fff;
+      padding: 25px 15px 32px;
+      text-align: center;
+
+      @include small-desktop() {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        width: 340px;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-flow: column nowrap;
+        flex-flow: column nowrap;
+        -ms-flex-pack: center;
+        justify-content: center;
+        -ms-flex-align: stretch;
+        align-items: stretch;
+        -webkit-box-pack: center;
+        -webkit-box-align: stretch;
+      }
+
+      @include phone() {
+        width: auto;
+        position: relative;
+        padding: 30px 15px 45px;
+      }
+
+    }
+
+    &-body {
+      background: #fff;
+      padding: 28px 38px 17px;
+
+      @include wide-desktop() {
+        padding-bottom: 12px;
+      }
+
+      @include small-desktop() {
+
+      }
+
+      @include tablet {
+        padding-top: 30px;
+        padding-left: 28px;
+      }
+
+      @include phone() {
+        padding: 28px 12px 1px;
+      }
+
+      .butt_v2 {
+        text-align: center;
+      }
+    }
+
+    &-total {
+      opacity: .5;
+      letter-spacing: .07em;
+      color: #fff;
+      margin-bottom: 1px;
+
+      @include phone() {
+        margin-bottom: 12px;
+      }
+    }
+
+    &-price {
+      font: 40px $ClearSansBold;
+
+      @include small-desktop-min() {
+        margin-bottom: 10px;
+      }
+
+      @include phone() {
+        font-size: 30px;
+      }
+    }
+
+    &-phone {
+      text-align: center;
+      display: none;
+
+      p {
+        font-size: 16px;
+        margin-bottom: 20px;
+        line-height: 1.4;
+        letter-spacing: .025em;
+      }
+
+      .f-input__w {
+        margin-bottom: 18px;
+      }
+    }
+
+    &-list {
+      overflow: hidden;
+      opacity: .6;
+      margin-bottom: 25px;
+      letter-spacing: .04em;
+
+      dt {
+        float: left;
+        clear: both;
+        max-width: 60%;
+        padding: 0 2px 0;
+        position: relative;
+        margin-bottom: 15px;
+
+        &:after {
+          content: '…………………………………………………………………………………………………………………………………………………………………………';
+          position: absolute;
+          bottom: 0;
+          left: 100%;
+          letter-spacing: 0;
+        }
+      }
+
+      dd {
+        float: right;
+        max-width: 40%;
+        background: #fff;
+        z-index: 1;
+        padding: 0 2px 0;
+        margin-bottom: 15px;
+        position: relative;
+      }
+
+      @include wide-desktop() {
+        margin-bottom: 18px;
+      }
+
+      @include small-desktop() {
+        margin-bottom: 23px;
+      }
+
+      @include tablet() {
+        margin-bottom: 18px;
+      }
+    }
+
+    &-controls {
+
+      @include small-desktop-min() {
+        text-align: center;
+      }
+
+      @include small-desktop() {
+        margin-left: -29px;
+
+        .butt {
+          text-align: center;
+          width: 100%;
+          display: block;
+          height: 50px;
+          border-radius: 34px;
+          padding: 0 5px;
+          font: 16px/46px $ClearSansMedium;
+        }
+      }
+
+      li {
+        margin-bottom: 25px;
+        padding: 0 7px;
+
+        @include small-desktop() {
+          float: left;
+          width: 50%;
+          padding: 0 0 0 29px;
+
+          &.b-cart__checkout-phone {
+            float: none;
+            width: auto;
+            text-align: left;
+            margin-left: -29px;
+
+            &:before,
+            &:after {
+              content: " ";
+              display: table;
+            }
+            &:after {
+              clear: both;
+            }
+
+            .f-input__w,
+            p {
+              float: left;
+              width: 50%;
+              padding-left: 29px;
+              margin-bottom: 0;
+            }
+
+            .gl-link {
+              font-size: 14px;
+            }
+          }
+        }
+
+        @include tablet() {
+          &.b-cart__checkout-phone {
+            .f-input__w,
+            p {
+              float: none;
+              width: auto;
+              margin-bottom: 11px;
+            }
+          }
+        }
+
+        @include phone() {
+          width: auto;
+          float: none;
+          text-align: center;
+          
+          .butt.butt_v1 {
+            height: 45px;
+            padding: 0 22px;
+            width: auto;
+            display: inline-block;
+          }
+        }
+      }
+
+      .butt.butt_v1 {
+        padding: 0 22px;
+      }
+
+    }
+
+    @include small-desktop-min() {
+      float: right;
+      width: 340px;
+      box-shadow: 0 -24px 86px rgba(0, 0, 0, .27);
+
+      &-head {
+        border-radius: 5px 5px 0 0;
+      }
+
+      &-body {
+        border-radius: 0 0 5px 5px;
+      }
+    }
+  }
+
+  &__list {
+
+    .b-product__category-results {
+      padding-bottom: 20px;
+    }
+
+    .butt.cart_butt {
+      min-width: 110px;
+    }
+
+    .b-product__category {
+      padding-top: 8px;
+      padding-bottom: 1px;
+
+      @include wide-desktop() {
+        padding-top: 16px;
+
+        .b-product__category-results {
+          padding-bottom: 15px;
+        }
+      }
+
+      @include small-desktop() {
+        padding-top: 20px;
+        margin-bottom: 30px;
+
+        .b-product__category-results {
+          padding-bottom: 8px;
+        }
+      }
+
+      @include tablet() {
+        padding-top: 33px;
+        margin-bottom: 15px;
+
+        .b-product__category-results {
+          padding-bottom: 22px;
+        }
+      }
+
+      @include phone() {
+        padding-top: 10px;
+        overflow: hidden;
+
+        .b-product__category-results {
+          margin-bottom: -45px;
+        }
+      }
+    }
+
+    @include small-desktop-min() {
+      margin-right: 372px;
+      padding-bottom: 50px;
+    }
+
+    @include wide-desktop-min() {
+      padding-bottom: 75px;
+    }
+  }
+}
+
+
+

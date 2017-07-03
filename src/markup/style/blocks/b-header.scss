@@ -457,6 +457,7 @@
         @include phone() {
           padding-left: 0;
           display: block;
+          width: 100%;
         }
 
         @include phone-min() {

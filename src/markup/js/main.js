@@ -8,6 +8,11 @@ $(function () {
   body = $('body');
 
   body
+    .delegate('.openPhoneBlock', 'click', function () {
+      //$(this).parent().hide();
+      $('.phoneBlock').show();
+      return false;
+    })
     .delegate('.valPlus', 'click', function () {
       var valCell = $(this).closest('.valCell'),
         inp = valCell.find('input'),
@@ -111,7 +116,25 @@ $(function () {
 
   initMask();
 
+  initMap();
+
 });
+
+function init() {
+
+  $('.map').each(function (ind) {
+    var myMap = new ymaps.Map($(this).attr('id'), {
+      center: [55.76, 37.64],
+      zoom: 9
+    });
+  });
+}
+
+function initMap() {
+  if ($('.map').length) {
+    ymaps.ready(init);
+  }
+}
 
 function initMask(el) {
 

@@ -1,4 +1,4 @@
-mixin dev_head(page_title)
+mixin dev_head(page_title, scripts)
   head
     title=page_title
     | <!-- saved from url=(0014)about:internet -->
@@ -9,6 +9,10 @@ mixin dev_head(page_title)
     meta(name="format-detection", content="telephone=no")
     link(rel='stylesheet', href='css/style.css', media='all')
     <link href="https://fonts.googleapis.com/css?family=Open+Sans&amp;subset=cyrillic" rel="stylesheet"> 
+
+    - if (scripts && scripts.length)
+      for script in scripts
+        script(src= script)
 
     script(src='js/_vendor.js')
     script(src='js/_main.js')
@@ -58,7 +62,7 @@ mixin header(nav_active, panel_active)
               span.b-header__user-icon.i-user._clr-gray_light
               span.b-header__user-text.dm Личный кабинет<br>и статус заказа
           li.dm
-            a.b-header__user-link(href='#')
+            a.b-header__user-link(href='cart.html')
               span.b-header__user-icon.i-cart._clr-red
               span.b-header__user-text.dm В корзине<br>нет товаров
               
@@ -251,6 +255,53 @@ mixin footer()
 
           .b-footer__copyright © 2017 www.rk-rti.ru. Все права защищены
             
+mixin news_item(has_br, img)
+  .b-news__item
+    a.b-news__item-img(href='#')
+      .b-news__item-img-w
+        img(src= img ? img : 'images/cristina-gottardi-259243.png')
+    .b-news__info
+      .b-news__info-date 22 мая 2017
+      .b-news__info-name 
+        span Заголовок 
+        - if (has_br)
+          span.phone_hidden <br>
+        span  новости, статьи
+
+      p Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+
+      .b-news__info-footer
+        .fl: a.butt.cart_butt.butt-red(href='#') Читать статью
+                    
+mixin contacts_item(map)
+  .b-news__item
+    - if (map == true)
+      .b-news__map-holder
+        .b-news__map.map(id= 'map_' + Math.ceil(Math.random() * 100))
+    - else
+      .b-news__item-img
+        .b-news__item-img-w
+          img(src= map)
+          
+    .b-news__info
+      .b-news__info-name 
+        span ООО «Хольцер»
+        
+      p - главный офис. Отдел по работе<br>с заявками клиентов
+      
+      .b-news__office
+        .b-news__office-city Москва
+        .b-news__office-phone +7 (495) 505 65 43
+        .b-news__office-city
+          a.b-news__office-link(href='mailto:5056543@mail.ru') 5056543@mail.ru
+        
+      .b-news__office
+        .b-news__office-city Пн, Вт, Ср, Чт, Пт с 9:00 до 18:00
+        .b-news__office-city
+          | Skype &nbsp;
+          a.b-news__office-link(href='#') www.rk-rti.ru
+        
+        
 mixin popups(index)
   #callback_popup.popup.popup_v1(style='display:none;')
     .calc_info
