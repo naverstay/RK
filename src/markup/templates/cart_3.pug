@@ -1,0 +1,94 @@
+extends _layout.pug
+include _mixins.pug
+
+block variables
+  - var page_title = 'RK Завершение заказа';
+  - var map_active = 0;
+  - var nav_active = 0;
+  - var dropdown_active = 0;
+
+block content
+  .section.section__title._title-red._mod-1
+    .section__inner
+      .b-pagination
+        ul.b-pagination__list
+          li: a.b-pagination__link(href='index.html') Главная
+          li: span.b-pagination__link Корзина
+  
+      .section__title-text Завершение заказа
+        
+  .section
+    .section__inner
+      form.validateMe._checkout-form(action='#')
+        .b-product__range-w._mod-1._cart-holder
+          .b-cart__checkout
+            .b-cart__checkout-head
+              .b-cart__checkout-total Итого:
+              .b-cart__checkout-price
+                span 150 000.00
+                span._rub  &#x443;
+  
+            .b-cart__checkout-body._mod-1
+              ul.b-cart__checkout-controls
+                
+                li
+                  a.butt.butt-red.butt_v2.butt-checkout(href='#') 
+                    span Оформить заказ
+                li
+                  a.butt.butt_v1.butt-gray_2(href='#')
+                    span Отменить заказ
+  
+                li.phoneBlock.b-cart__checkout-phone-2(style='display:block')
+                  p Позвоните для получения <br>помощи по оформлению заказа
+                  ._fw-bold.b-cart__title 8 (495) 505-65-43
+                    
+          .b-cart__list
+            .b-product__category._checkout-mod: ._col-holder
+              .b-cart__list-col
+                .b-cart__title 
+                  span Информация  
+                  span.b-cart__title-br <br>
+                  span о&nbsp;покупателе
+                .b-cart__text Введите Ваши контактные данные
+                  
+                .f-row
+                  .f-input__w
+                    input.f-input.input__v1(placeholder='Введите Ваше имя' class='validate[required]')
+                  .f-input__w
+                    input.f-input.input__v1(placeholder='Введите Ваш телефон' data-inputmask="'mask': '[+7] (999)-999-99-99', 'clearIncomplete' : true" class='validate[required]')
+                  .f-input__w
+                    input.f-input.input__v1(placeholder='Введите Ваш email' class='validate[required]')
+                  
+                  .f-input__w._select-v2.skipOverlayClosing
+                    select.select2(data-placeholder='Ваше местоположение')
+                      option(disabled selected)
+                      option Ваше местоположение 1
+                      option Ваше местоположение 2
+                      option Ваше местоположение 3
+                      
+                  .f-input__w
+                    input.f-input.input__v1(placeholder='Почтовый индекс')
+
+                  .f-input__w
+                    textarea.f-input.input__v1(placeholder='Комментарий к заказу')
+  
+              .b-cart__list-col
+                .b-cart__title 
+                  span Способ  
+                  span.b-cart__title-br <br> 
+                  span  оплаты
+                .b-cart__text Выберите, какой вариант Вам удобнее
+                .f-row
+                  .f-input__w._check-holder
+                    label.f-check._check-v1
+                      input(type='radio' name='pay_method' checked)
+                      span.f-check-text Наличный расчет<br>в офисе компании
+                      
+                    p Удобно и быстро. Вы можете составить заказ, оплатить и получить товар на месте.
+                  
+                  .f-input__w._check-holder
+                    label.f-check._check-v1
+                      input(type='radio' name='pay_method')
+                      span.f-check-text Безналичный расчет —<br>юридические лица
+                      
+                    p Для юридических лиц, ИП и физических лиц, имеющих расчетные счета в банках. Срок прихода денежных средств на расчетный счет от 1 до 2 рабочих дней.

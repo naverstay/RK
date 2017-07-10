@@ -49,8 +49,8 @@ mixin header(nav_active, panel_active)
       .section__inner
         .b-header__logo-w
           a.b-header__logo-link(href='index.html'): img(src='images/logo.png')
-        .b-header__location.select__v1
-          select
+        .b-header__location.select__v1._select-v1.skipOverlayClosing
+          select.select2()
             option Пермь
             option Москва
             option СПб
@@ -99,7 +99,7 @@ mixin header(nav_active, panel_active)
                     +link_or_span((dropdown_active == 12), 'catalog.html' , 'Конвейерная лента GR', 'b-header__link', '')
                     +link_or_span((dropdown_active == 12), 'category.html' , 'Лента резинотканевая Сибирь', 'b-header__link', '')
                     +link_or_span((dropdown_active == 12), 'product.html' , 'Шевронная лента GR', 'b-header__link', '')
-                    +link_or_span((dropdown_active == 12), 'stripe_2.html' , 'Лента теплостойкая GR', 'b-header__link', '')
+                    +link_or_span((dropdown_active == 12), 'tv.html' , 'Лента теплостойкая GR', 'b-header__link', '')
                     +link_or_span((dropdown_active == 12), 'stripe_2.html' , 'Лента морозостойкая GR', 'b-header__link', '')
                     +link_or_span((dropdown_active == 12), 'stripe_2.html' , 'Плоские ремни из полиамида', 'b-header__link', '')
                     +link_or_span((dropdown_active == 12), 'stripe_2.html' , 'Электроизоляция GR', 'b-header__link', '')
@@ -172,6 +172,22 @@ mixin delivery_section()
               h2 Продажа РТИ в Москве, Люберцах, Подольске и по всей России
               p Компания «Хольцер» специализируется на производстве и продаже качественных РТИ изделий в Москве и по всей России. Такие комплектующие отличаются высокой прочностью и имеют длительный срок эксплуатации. Особое место в товарном ассортименте завода занимают неформовые РТИ, которые нашли широкое применение и востребованы в различных сферах промышленности и хозяйственной деятельности. На нашем сайте представлена продукция производителей РТИ с мировым именем, таких как Holzer Flexo, Rubber and Plastic и Gates Corporation по доступным ценам. А так же резиновые изделия под заказ собственного производства.
 
+mixin manufactures_select()
+  .b-product__range-label
+    .selectTrigger.b-product__range-trigger(data-trigger-for='#manufactures')
+      span Производители
+      //-span.i-chevron_down 
+    ._select-v2._multiselect-v2.skipOverlayClosing
+      select#manufactures.select2(data-placeholder='Производители' multiple data-keep-open='true')
+        option Все производители
+        option Amma
+        option Anatomico
+        option Gess
+        option Casada
+        option Ceragem
+        option Docstor
+        option Ego
+              
 mixin footer()
   footer.b-footer
     .section__inner
@@ -255,11 +271,14 @@ mixin footer()
 
           .b-footer__copyright © 2017 www.rk-rti.ru. Все права защищены
             
-mixin news_item(has_br, img)
+mixin news_item(has_br, img, video_btn)
   .b-news__item
     a.b-news__item-img(href='#')
       .b-news__item-img-w
         img(src= img ? img : 'images/cristina-gottardi-259243.png')
+        - if (video_btn)
+          .b-article__video-btn Включите
+
     .b-news__info
       .b-news__info-date 22 мая 2017
       .b-news__info-name 
@@ -272,6 +291,26 @@ mixin news_item(has_br, img)
 
       .b-news__info-footer
         .fl: a.butt.cart_butt.butt-red(href='#') Читать статью
+                                
+mixin tv_item(tv_caption, img, tv_text)
+  .b-news__item
+    a.b-news__item-img(href='#')
+      .b-news__item-img-w
+        img(src= img ? img : 'images/tv_1.png')
+        .b-article__video-btn Включите
+
+    .b-news__info
+      .b-news__info-date 22 мая 2017
+      .b-news__info-name 
+        span!= tv_caption
+
+      -if (tv_text)
+        p Не знаете как правильно соединить круглые полиуретановые ремни? Посмотрите обучающее видео от компании Хольцер, возможно оно будет полезно Вам. Основные этапы сварки ремней… 
+      - else 
+        p Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+
+      .b-news__info-footer
+        .fl: a.butt.cart_butt.butt-red(href='#') Смотреть видео
                     
 mixin contacts_item(map)
   .b-news__item

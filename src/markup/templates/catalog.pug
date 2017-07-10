@@ -26,20 +26,8 @@ block content
           //- tag FORM could be replaced with DIV, BUT it's class should be still b-product__range-form
           form(action='#' class='b-product__range-form')
             .b-product__range-group
-              .b-product__range-label.dt_hidden
-                span Производители
-                span.i-chevron_down 
-              .b-product__range-select.select__v2
-                select
-                  option(disabled selected) Производители
-                  option Amma 
-                  option Anatomico 
-                  option Gess 
-                  option Casada 
-                  option Ceragem 
-                  option Docstor 
-                  option Ego
-              
+              +manufactures_select()
+
             .b-product__range-group._group-price
               .b-product__range-label Стоимость
                 

@@ -1,0 +1,74 @@
+extends _layout.pug
+include _mixins.pug
+
+block variables
+  - var page_title = 'RK корзина';
+  - var map_active = 0;
+  - var nav_active = 0;
+  - var dropdown_active = 0;
+
+block content
+  .section.section__title._title-red._mod-1
+    .section__inner
+      .b-pagination
+        ul.b-pagination__list
+          li: a.b-pagination__link(href='index.html') Главная
+          li: span.b-pagination__link Корзина
+  
+      .section__title-text Корзина
+        
+  .section
+    .section__inner
+      .b-product__range-w._mod-1._cart-holder
+        .b-cart__checkout
+          .b-cart__checkout-head
+            .b-cart__checkout-total Итого:
+            .b-cart__checkout-price
+              span 150 000.00
+              span._rub  &#x443;
+
+          .b-cart__checkout-body._mod-1
+            ul.b-cart__checkout-controls
+              
+              li
+                a.butt.butt-red.butt_v2.butt-checkout(href='#') 
+                  span Оплатить заказ сейчас
+              li
+                a.butt.butt_v1.butt-gray_2(href='#')
+                  span Отменить заказ
+
+              li.phoneBlock.b-cart__checkout-phone-2(style='display:block')
+                p Позвоните для получения <br>помощи по оформлению заказа
+                ._fw-bold.b-cart__title 8 (495) 505-65-43
+                  
+        .b-cart__list
+          .b-product__category._checkout-mod
+            .b-cart__title Отлично! Осталось немного!
+              
+            .b-cart__text Заказанный товар зарезервирован. Нам нужно еще немного информации, чтобы закончить оформление. 
+              span._fw-bold Как Вам будет удобнее:
+            
+            ul.b-cart__checkout-steps
+              li
+                .b-cart__checkout-caption Завершить оформление самостоятельно
+                .b-cart__text Если Вы желаете сами прямо сейчас указать информацию об адресе и условиях доставки, а также оплатить заказ онлайн, выберите этот вариант
+                ul.b-cart__checkout-options
+                  li
+                    a.butt.butt-red.butt_v2.butt-checkout(href='#')
+                      span Завершить оформление
+                  
+              li
+                .b-cart__checkout-caption Получить помощь менеджера
+                .b-cart__text Выберите этот вариант, если желаете, чтобы Вам позвонил менеджер и задал Вам вопросы, необходимые для завершения оформления. 
+                  span._fw-bold Это бесплатно.
+                ul.b-cart__checkout-options
+                  li
+                    a.butt.butt-red.butt_v2.butt-checkout(href='#')
+                      span Звонок менеджера сейчас
+                  li 
+                    a.gl-link._clr-red._fz-16(href='#')
+                      span.gl-link__text Или выбрать время звонка
+                      span  >
+              li
+                .b-cart__checkout-caption Закрыть эту вкладку
+                .b-cart__text Вы также можете просто закрыть окно браузера, если не хотите разбираться с вариантами. Наш менеджер в любом случае свяжется с Вами с ближайшее время

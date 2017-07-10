@@ -110,6 +110,7 @@
     }
 
     &-btn {
+      @include transition_all(text-shadow .3s);
       @extend %icon_pseudo;
       cursor: pointer;
       position: absolute;
@@ -133,8 +134,10 @@
         left: 0;
         font-size: 50px;
       }
+
+      &:hover {
+        text-shadow: 0 0 9px #fff;
+      }
     }
   }
 }
-
-

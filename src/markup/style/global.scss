@@ -171,7 +171,7 @@ body {
       padding: 0 $padding-m;
     }
   }
-  
+
   &._contacts_section {
     margin-bottom: 80px;
 
@@ -257,10 +257,10 @@ body {
 
 .gl-overlay {
   position: fixed;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
+  top: -200px;
+  bottom: -200px;
+  left: -200px;
+  right: -200px;
   background: transparentize($gl_black, .6);
   z-index: 18;
 
@@ -280,3 +280,35 @@ body {
 ._t-c {
   text-align: center;
 }
+
+._fw-bold {
+  font-family: $ClearSansBold;
+}
+
+._fz-16 {
+  font-size: 16px;
+}
+
+@-webkit-keyframes loadingAnim {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes loadingAnim {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+} 

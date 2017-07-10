@@ -30,7 +30,7 @@
     border-radius: 20px;
     padding: 0 17px;
     text-align: center;
-    font: 16px/38px $ClearSansRegular;
+    font: 16px/40px $ClearSansRegular;
   }
 
   &.butt__search {
@@ -66,7 +66,7 @@
     height: 45px;
     border-radius: 34px;
     padding: 0 32px;
-    font: 16px/40px $ClearSansMedium;
+    font: 16px/44px $ClearSansMedium;
   }
 
   &.butt_v2 {
@@ -75,11 +75,13 @@
     height: 50px;
     border-radius: 34px;
     padding: 0 35px;
-    font: 16px/46px $ClearSansMedium;
+    font: 16px/50px $ClearSansMedium;
 
     &.butt-checkout {
-      display: block;
+      max-width: 250px;
       width: 100%;
+      text-align: center;
+      padding: 0 15px;
     }
   }
 
@@ -93,13 +95,37 @@
   }
 
   &-red_white {
-    @include transition_all(background .3s, color .3s);
+    @include transition_all(background .3s, color .3s, border-color .3s);
     background: #fff;
     color: $gl_red;
     border: 2px solid $gl_red;
 
+    &.cart_butt {
+      line-height: 46px !important;
+    }
+    
+    &.butt_v1 {
+      line-height: 36px !important;
+    }
+    
+    &.butt_v2 {
+      line-height: 46px !important;
+    }
+    
+    &.butt_v3 {
+      line-height: 36px !important;
+    }
+
     &:hover {
-      background: $gl_red;
+      background: #fd2949;
+      border-color: #fd2949;
+      color: #fff;
+    }
+
+    &._loading,
+    &:active {
+      background: #bc0622;
+      border-color: #bc0622;
       color: #fff;
     }
   }
@@ -110,7 +136,12 @@
     color: #fff;
 
     &:hover {
-      background: darken($gl_red, 5%);
+      background: #fd2949;
+    }
+
+    &._loading,
+    &:active {
+      background: #bc0622;
     }
   }
 
@@ -119,20 +150,52 @@
   }
 
   &-gray_2 {
-    background: $gl_gray_light;
+    @include transition_all(background .3s);
+    background: transparentize($gl_gray_light, .7);
     color: #fff;
 
     &:hover {
-      background: darken($gl_gray_light, 5%);
+      background: transparentize($gl_gray_light, .5);
+    }
+
+    &._loading,
+    &:active {
+      background: $gl_gray_light;
     }
   }
 
   &-white {
+    @include transition_all(background .3s, color .3s);
     color: $gl_black;
     background: #fff;
     box-shadow: 0 3px 8px #c6c8ce;
+
+    &:hover {
+      background: $gl_red;
+      color: #fff;
+    }
+
+    &._loading,
+    &:active {
+      background: #bc0622;
+      color: #fff;
+    }
   }
 
+  &._loading {
+    color: transparent !important;
+    position: relative;
+
+    &:before {
+      @extend %hor_vert_centr;
+      content: attr(data-loader);
+      position: absolute;
+      color: #fff;
+      animation-fill-mode: both;
+      -webkit-animation: loadingAnim 2s infinite;
+      animation: loadingAnim 2s infinite;
+    }
+  }
 }
 
 button.butt.butt_v1 {

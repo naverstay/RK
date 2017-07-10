@@ -1,0 +1,125 @@
+extends _layout.pug
+include _mixins.pug
+
+block variables
+  - var page_title = 'RK корзина';
+  - var map_active = 0;
+  - var nav_active = 0;
+  - var dropdown_active = 0;
+
+block content
+  .section.section__title._title-red._mod-1
+    .section__inner
+      .b-pagination
+        ul.b-pagination__list
+          li: a.b-pagination__link(href='index.html') Главная
+          li: span.b-pagination__link Корзина
+  
+      .section__title-text Корзина
+        
+  .section
+    .section__inner
+      .b-product__range-w._mod-1._cart-holder
+        .b-cart__checkout
+          .b-cart__checkout-head
+            .b-cart__checkout-total Итого:
+            .b-cart__checkout-price
+              span 150 000.00
+              span._rub  &#x443;
+
+          .b-cart__checkout-body
+            dl.b-cart__checkout-list
+              dt НДС
+              dd
+                span 10 000.00 
+                span._rub  &#x443;
+
+              dt НДС
+              dd
+                span 10 000.00 
+                span._rub  &#x443;
+
+            ul.b-cart__checkout-controls
+              li.phoneBlock.b-cart__checkout-phone
+                form(action='#')
+                  p Для начала достаточно<br>просто ввести свой телефон
+                  
+                  .f-input__w
+                    input.f-input.input__v1._t-c(placeholder='Введите Ваш телефон' data-inputmask="'mask': '[+7] (999)-999-99-99', 'clearIncomplete' : true")
+
+                  p 
+                    a.gl-link._clr-red(href='#') 
+                      span.gl-link__text Или введите email
+                    
+                  //-button.butt.butt-red.butt_v2.butt-checkout
+                    span Оформить заказ
+              li
+                a.butt.butt-red.butt_v2.butt-checkout.openPhoneBlock(href='#') 
+                  span Оформить заказ
+              li
+                a.butt.butt_v1.butt-gray_2(href='#')
+                  span Очистить корзину
+
+        .b-cart__list
+          .b-product__category._cart-mod
+            ul.b-product__category-results
+              +loop_while(3)
+                li
+                  .b-product__category-item
+                    .b-product__category-item-name: a.b-product__category-item-link(href='#') 
+                      span Лента шевронная 500 
+                      span._br <br>
+                      span ЕР250/2 3/1.0 С15 GR
+                    .b-product__category-item-price 
+                      span 3 196 
+                      span._rub &#x443;
+                    .b-product__category-item-controls
+                      .fl.b-product__category-counter
+                        .b-product__counter.f-input__w.valCell
+                          input.f-input.input__v3(value='0' data-min='0' data-max='1000' data-step='1' data-inputmask="'alias': 'numeric', 'rightAlign': false, 'allowMinus': false, 'allowPlus': false, 'autoGroup': false, 'groupSeparator': '', 'autoUnmask': true, 'digits': 0, 'placeholder': '0', 'digitsOptional': false" )
+                          span.f-input_label шт
+                          span.butt.butt-white.counter_butt._minus.valMinus.i-minus
+                          span.butt.butt-white.counter_butt._plus.valPlus.i-plus
+                      .fr.b-product__category-footer
+                        a.butt.cart_butt.butt-red(href='#') Удалить
+                        
+              +loop_while(4)
+                li.tab_hidden
+                  .b-product__category-item
+                    .b-product__category-item-name: a.b-product__category-item-link(href='#') 
+                      span Лента шевронная 500 
+                      span._br <br>
+                      span ЕР250/2 3/1.0 С15 GR
+                    .b-product__category-item-price
+                      span 3 196 
+                      span._rub &#x443;
+                    .b-product__category-item-controls
+                      .fl.b-product__category-counter
+                        .b-product__counter.f-input__w.valCell
+                          input.f-input.input__v3(value='0' data-min='0' data-max='1000' data-step='1' data-inputmask="'alias': 'numeric', 'rightAlign': false, 'allowMinus': false, 'allowPlus': false, 'autoGroup': false, 'groupSeparator': '', 'autoUnmask': true, 'digits': 0, 'placeholder': '0', 'digitsOptional': false" )
+                          span.f-input_label шт
+                          span.butt.butt-white.counter_butt._minus.valMinus.i-minus
+                          span.butt.butt-white.counter_butt._plus.valPlus.i-plus
+                      .fr.b-product__category-footer
+                        a.butt.cart_butt.butt-red(href='#') Удалить
+                        
+              +loop_while(2)
+                li.dt_hidden
+                  .b-product__category-item
+                    .b-product__category-item-name: a.b-product__category-item-link(href='#') 
+                      span Лента шевронная 500 
+                      span._br <br>
+                      span ЕР250/2 3/1.0 С15 GR
+                    .b-product__category-item-price
+                      span 3 196 
+                      span._rub &#x443;
+                    .b-product__category-item-controls
+                      .fl.b-product__category-counter
+                        .b-product__counter.f-input__w.valCell
+                          input.f-input.input__v3(value='0' data-min='0' data-max='1000' data-step='1' data-inputmask="'alias': 'numeric', 'rightAlign': false, 'allowMinus': false, 'allowPlus': false, 'autoGroup': false, 'groupSeparator': '', 'autoUnmask': true, 'digits': 0, 'placeholder': '0', 'digitsOptional': false" )
+                          span.f-input_label шт
+                          span.butt.butt-white.counter_butt._minus.valMinus.i-minus
+                          span.butt.butt-white.counter_butt._plus.valPlus.i-plus
+                      .fr.b-product__category-footer
+                        a.butt.cart_butt.butt-red(href='#') Удалить
+                        

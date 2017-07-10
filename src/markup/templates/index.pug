@@ -71,19 +71,7 @@ block content
           //- tag FORM could be replaced with DIV, BUT it's class should be still b-product__range-form
           form(action='#' class='b-product__range-form')
             .b-product__range-group
-              .b-product__range-label.dt_hidden
-                span Производители
-                span.i-chevron_down 
-              .b-product__range-select.select__v2
-                select()
-                  option(disabled selected) Производители
-                  option Amma 
-                  option Anatomico 
-                  option Gess 
-                  option Casada 
-                  option Ceragem 
-                  option Docstor 
-                  option Ego
+              +manufactures_select()
               
             .b-product__range-group._group-price
               .b-product__range-label Стоимость
@@ -95,15 +83,16 @@ block content
                   input.f-input.t-center.input__v2
               
             .b-product__range-group
-              .b-product__range-label.dt_hidden
-                span Наличие товара
-                span.i-chevron_down
-              .b-product__range-select.select__v2
-                select
-                  option(disabled selected) Наличие товара
-                  option Все товары 
-                  option Только в наличии
-                  
+              .b-product__range-label
+                .selectTrigger.b-product__range-trigger._mod-simulator_(data-trigger-for='#availability')
+                  span Наличие товара
+                .b-product__range-select._select-v3._keep-open.skipOverlayClosing
+                  select#availability.select2(data-placeholder='Наличие товара' data-doubling='#availability_doubling' data-keep-open='true' data-close-on-select='true')
+                    option(selected) Все товары 
+                    option Только в наличии
+                    
+                #availability_doubling.b-product__range-double.dt_vis
+
           button.butt.butt-red_white.butt_v2.dt_hidden
             span Показать товары
           

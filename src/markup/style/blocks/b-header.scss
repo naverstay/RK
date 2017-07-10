@@ -211,7 +211,6 @@
         letter-spacing: .022em;
 
         &:hover {
-          text-decoration: underline;
           color: $gl_red;
         }
 
@@ -355,7 +354,7 @@
       @include small-desktop() {
         padding-left: 15px;
       }
-      
+
       @include tablet() {
         padding-left: 38px;
       }
@@ -410,15 +409,46 @@
           height: 60px;
           text-align: center;
           letter-spacing: .07em;
+          overflow: hidden;
 
-          &._active {
-            cursor: default;
+          span {
+            position: relative;
+
+            &:after {
+              @include transition_all(opacity .3s);
+              position: absolute;
+              right: 0;
+              left: 0;
+              top: 100%;
+              margin-top: 14px;
+              height: 500px;
+              opacity: 0;
+              background: $gl_red;
+
+              @include phone-min() {
+                content: '';
+              }
+            }
           }
 
-          &._active,
-          &:hover {
-            @include phone-min() {
-              background: $gl_red;
+          @include phone-min() {
+            &:hover {
+
+              span {
+                &:after {
+                  opacity: .5;
+                }
+              }
+            }
+
+            &._active {
+              cursor: default;
+
+              span {
+                &:after {
+                  opacity: 1;
+                }
+              }
             }
           }
 

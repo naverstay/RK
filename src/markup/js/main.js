@@ -81,7 +81,8 @@ $(function () {
     });
 
   $(document).click(function (e) {
-    if ($(e.target).parents().filter('.opened').length != 1) {
+
+    if (!$(e.target).parents('.skipOverlayClosing').length && $(e.target).parents().filter('.opened').length != 1) {
       hideDropDowns();
     }
   });
@@ -104,19 +105,24 @@ $(function () {
       close: function () {
         toggleOverlay('.headerSearch', false);
       }
-    })
+    });
 
   });
 
-  $('select').styler();
+  //$('select').styler();
+
 
   initHeroSlider();
 
   initMenuSlider();
 
+  initSelect2();
+
   initMask();
 
   initMap();
+
+  initValidation();
 
 });
 
@@ -134,6 +140,127 @@ function initMap() {
   if ($('.map').length) {
     ymaps.ready(init);
   }
+}
+
+
+function initSelect2() {
+  var resize_timer;
+
+  $('body').delegate('.selectTrigger', 'click', function () {
+    var firedEl = $(this), target = $(firedEl.attr('data-trigger-for'));
+
+    if (target.length) {
+      if (firedEl.hasClass('opened')) {
+        firedEl.removeClass('opened');
+        target.select2('close');
+        target.parent().removeClass('opened');
+
+        toggleOverlay(firedEl.parent(), false);
+      } else {
+        firedEl.addClass('opened');
+        target.select2('open');
+        target.parent().addClass('opened');
+
+        toggleOverlay(firedEl.parent(), true, 'dt_vis');
+      }
+    }
+
+    return false;
+  });
+
+  $('.select2').each(function (ind) {
+    var slct = $(this),
+      close_on_select = $(window).width() <= 1200 && (slct.attr('data-close-on-select') == 'true'),
+      keep_open = $(window).width() >= 992 && slct.attr('data-keep-open') == 'true';
+
+    slct
+      .on("select2:closing", function (evt) {
+        var slct = $(this),
+          close_on_select = $(window).width() <= 1200 && (slct.attr('data-close-on-select') == 'true'),
+          keep_open = slct.attr('data-keep-open') == 'true';
+
+
+        if (close_on_select) {
+
+        } else {
+          keep_open && evt.preventDefault();
+        }
+
+      })
+      .on("select2:closed", function (evt) {
+        var slct = $(this),
+          close_on_select = $(window).width() <= 1200 && (slct.attr('data-close-on-select') == 'true'),
+          keep_open = slct.attr('data-keep-open') == 'true';
+
+        (close_on_select || keep_open) && $(evt.currentTarget).select2("open");
+      })
+      .on('select2:close', function (evt) {
+        var slct = $(this),
+          close_on_select = $(window).width() <= 1200 && (slct.attr('data-close-on-select') == 'true'),
+          keep_open = slct.attr('data-keep-open') == 'true';
+
+
+        (!close_on_select || keep_open) && toggleOverlay(slct.nextAll('.select2'), false);
+
+        var target = $('*[data-trigger-for="#' + slct.attr('id') + '"]');
+
+        if (target && target.length) {
+          target.removeClass('opened');
+        }
+      })
+      .on('select2:open', function (evt) {
+        var slct = $(this),
+          close_on_select = $(window).width() <= 1200 && (slct.attr('data-close-on-select') == 'true'),
+          keep_open = slct.attr('data-keep-open') == 'true';
+
+        !(close_on_select || keep_open) && toggleOverlay(slct.nextAll('.select2'), true);
+      })
+      .on('change', function (evt) {
+        var slct = $(this),
+          close_on_select = $(window).width() <= 1200 && (slct.attr('data-close-on-select') == 'true'),
+          data_doubling = $(slct.attr('data-doubling'));
+
+
+        if (data_doubling && data_doubling.length) {
+          data_doubling.text(slct.val());
+        }
+      })
+      .select2({
+        minimumResultsForSearch: -1,
+        dropdownParent: slct.parent(),
+        closeOnSelect: close_on_select || !keep_open,
+        width: '100%',
+        templateResult: function (d) {
+          var multi = $(d.element).closest('select').attr('multiple');
+
+          return $('<span class="option-item"/>').html(d.text).addClass(multi ? '_remove-item' : '');
+        }
+      });
+
+    var data_doubling = $(slct.attr('data-doubling'));
+
+    if (data_doubling && data_doubling.length) {
+      data_doubling.text(slct.val());
+    }
+
+
+    keep_open && slct.select2("open");
+
+  });
+
+  $(window).resize(function () {
+
+    clearTimeout(resize_timer);
+
+    resize_timer = setTimeout(function () {
+      $('.select2').filter(function () {
+        var slct = $(this);
+
+
+        return slct.attr('data-close-on-select') == 'true' || slct.attr('data-keep-open') == 'true';
+      }).select2('open');
+    }, 1);
+  });
 }
 
 function initMask(el) {
@@ -167,12 +294,12 @@ function initMask(el) {
   });
 }
 
-function toggleOverlay(target, show) {
+function toggleOverlay(target, show, cls) {
   var ov = $('<div class="gl-overlay glOverlay"></div>');
 
   if (show) {
     if (!$(target).prev('.glOverlay').length) {
-      $(target).addClass('hasOverlay').css('z-index', 20).before(ov);
+      $(target).addClass('hasOverlay').css('z-index', 20).before(ov.addClass(cls || ''));
     }
   } else {
     clearOverlay();
@@ -217,3 +344,30 @@ function hideDropDowns() {
   clearOverlay();
 }
 
+
+function initValidation() {
+  $('.validateMe').each(function (ind) {
+    var f = $(this);
+
+    f.validationEngine({
+      //binded: false,
+      scroll: false,
+      showPrompts: false,
+      showArrow: false,
+      addSuccessCssClassToField: 'success',
+      addFailureCssClassToField: 'error',
+      parentFieldClass: '.formCell',
+      // parentFormClass: '.order_block',
+      promptPosition: "centerRight",
+      //doNotShowAllErrosOnSubmit: true,
+      //focusFirstField          : false,
+      autoHidePrompt: false,
+      autoHideDelay: 2000,
+      autoPositionUpdate: false,
+      prettySelect: true,
+      //useSuffix                : "_VE_field",
+      addPromptClass: 'relative_mode one_msg',
+      showOneMessage: false
+    });
+  });
+}

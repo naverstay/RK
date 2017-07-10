@@ -1,0 +1,14 @@
+.b-gui {
+
+  &__list {
+    @extend %clearfix;
+    padding: 30px 0;
+
+    > li {
+      position: relative;
+      float: left;
+      margin: 0 20px 20px;
+    }
+  }
+
+}
