@@ -1,0 +1,46 @@
+extends _layout.pug
+include _mixins.pug
+
+block variables
+  - var page_title = 'RK Личный кабинет';
+  - var map_active = 0;
+  - var nav_active = 0;
+  - var dropdown_active = 0;
+
+block content
+  .section.section__title._title-red._mod-1
+    .section__inner
+      .b-pagination
+        ul.b-pagination__list
+          li: a.b-pagination__link(href='index.html') Главная
+          li: span.b-pagination__link Личный кабинет
+  
+      .section__title-text Личный кабинет
+        
+  .section
+    .section__inner
+      ._checkout-form
+        .b-product__range-w._mod-1._cart-holder._user-data
+          +b-cart__checkout()
+            
+          .b-cart__list
+            .b-product__category._checkout-mod: ._col-holder
+              .b-cart__list-col
+                .b-cart__title
+                  span Моя корзина
+                .b-cart__text Ваша корзина пуста
+                  
+                ul.b-cart__checkout-options
+                  li
+                    a.butt.butt-red.butt_v2.butt-checkout(href='#')
+                      span Перейти в каталог
+                      
+              .b-cart__list-col
+                .b-cart__title
+                  span Мои заказы
+                .b-cart__text У Вас нет текущих заказов
+                  
+                ul.b-cart__checkout-options
+                  li
+                    a.butt.butt-red.butt_v2.butt-checkout(href='history.html')
+                      span История заказов

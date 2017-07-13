@@ -1,0 +1,13 @@
+.b-popup {
+  display: none;
+  position: relative;
+
+  &__inner {
+    background: #fff;
+    border-radius: 20px;
+    padding: 55px 40px;
+    box-shadow: 0 23px 86px rgba(0, 0, 0, .16);
+  }
+
+}
+

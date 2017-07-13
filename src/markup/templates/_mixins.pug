@@ -8,7 +8,7 @@ mixin dev_head(page_title, scripts)
     meta(name="apple-mobile-web-app-capable", content="yes")
     meta(name="format-detection", content="telephone=no")
     link(rel='stylesheet', href='css/style.css', media='all')
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans&amp;subset=cyrillic" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700&amp;subset=cyrillic" rel="stylesheet"> 
 
     - if (scripts && scripts.length)
       for script in scripts
@@ -58,7 +58,7 @@ mixin header(nav_active, panel_active)
 
         ul.b-header__user
           li.dm
-            a.b-header__user-link(href='#')
+            a.b-header__user-link(href='lk.html')
               span.b-header__user-icon.i-user._clr-gray_light
               span.b-header__user-text.dm Личный кабинет<br>и статус заказа
           li.dm
@@ -100,7 +100,7 @@ mixin header(nav_active, panel_active)
                     +link_or_span((dropdown_active == 12), 'category.html' , 'Лента резинотканевая Сибирь', 'b-header__link', '')
                     +link_or_span((dropdown_active == 12), 'product.html' , 'Шевронная лента GR', 'b-header__link', '')
                     +link_or_span((dropdown_active == 12), 'tv.html' , 'Лента теплостойкая GR', 'b-header__link', '')
-                    +link_or_span((dropdown_active == 12), 'stripe_2.html' , 'Лента морозостойкая GR', 'b-header__link', '')
+                    +link_or_span((dropdown_active == 12), 'history.html' , 'Лента морозостойкая GR', 'b-header__link', '')
                     +link_or_span((dropdown_active == 12), 'stripe_2.html' , 'Плоские ремни из полиамида', 'b-header__link', '')
                     +link_or_span((dropdown_active == 12), 'stripe_2.html' , 'Электроизоляция GR', 'b-header__link', '')
                     +link_or_span((dropdown_active == 12), 'stripe_2.html' , 'Полимерная продукция GR', 'b-header__link', '')
@@ -137,6 +137,52 @@ mixin header(nav_active, panel_active)
             span.i-phone.dm
             span.b-header__nav-text.dm 8 800 707 22 63
             
+mixin popup_order_info()
+  #popup_order_info.b-popup(title='Подробнее о заказе №GR1654')
+    .b-popup__inner
+      
+      
+      
+mixin b-cart__checkout()
+  .b-cart__checkout
+    .b-cart__checkout-head
+      .b-cart__user-control
+        span._label Мои данные
+        span#edit_btn_1.b-cart__user-edit.editBtn(data-target='edit_1')
+
+      .b-cart__user-name.f-edit__style-1
+        span.editMe(data-blur='cancel' data-trigger='#edit_btn_1' data-edit='textarea' data-control='edit_1') Иван Иванович Александров
+
+      ul.b-cart__edit-controls
+        li.editStartBlock
+          a.butt.butt_v1.butt-gray_2.editStart(href='#' data-target='edit_2')
+            span Редактировать данные
+        li.editFinishBlock(style='display:none;')
+          a.butt.butt_v1.butt-red.editFinish(href='#')
+            span Сохранить изменения
+
+    .b-cart__checkout-body
+      dl.b-cart__user-data.f-edit__style-2
+        dt Телефон
+        dd
+          span.editMe(data-control='edit_2' data-blur='ignore' data-edit='masked') +7 (999) 111 - 11- 11
+
+        dt Email
+        dd
+          span.editMe(data-control='edit_2' data-blur='ignore' data-edit='textarea') info@email.ru
+
+        dt Город
+        dd
+          span.editMe(data-control='edit_2' data-blur='ignore' data-edit='textarea') Екатеринбург
+
+        dt Страна
+        dd
+          span.editMe(data-control='edit_2' data-blur='ignore' data-edit='textarea') Россия
+
+        dt Адрес
+        dd
+          span.editMe(data-control='edit_2' data-blur='ignore' data-edit='textarea') ул. Мира, д.8 стр. 2, офис 213
+
 mixin client_section()
   .section.section__title._title-black
     .section__inner

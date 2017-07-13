@@ -83,6 +83,11 @@
       text-align: center;
       padding: 0 15px;
     }
+
+    &.butt-order {
+      text-align: center;
+      padding: 0 27px;
+    }
   }
 
   &.butt_v3 {
@@ -103,15 +108,15 @@
     &.cart_butt {
       line-height: 46px !important;
     }
-    
+
     &.butt_v1 {
       line-height: 36px !important;
     }
-    
+
     &.butt_v2 {
       line-height: 46px !important;
     }
-    
+
     &.butt_v3 {
       line-height: 36px !important;
     }
@@ -131,17 +136,35 @@
   }
 
   &-red {
-    @include transition_all(background .3s);
-    background: $gl_red;
-    color: #fff;
 
-    &:hover {
-      background: #fd2949;
+    @at-root button#{&} {
+      @include transition_all(background .3s);
+      background: $gl_red;
+      color: #fff;
+
+      &:hover {
+        background: #fd2949;
+      }
+
+      &._loading,
+      &:active {
+        background: #bc0622;
+      }
     }
 
-    &._loading,
-    &:active {
-      background: #bc0622;
+    @at-root a#{&} {
+      @include transition_all(background .3s);
+      background: $gl_red;
+      color: #fff;
+
+      &:hover {
+        background: #fd2949;
+      }
+
+      &._loading,
+      &:active {
+        background: #bc0622;
+      }
     }
   }
 
@@ -150,17 +173,36 @@
   }
 
   &-gray_2 {
-    @include transition_all(background .3s);
-    background: transparentize($gl_gray_light, .7);
-    color: #fff;
+    @at-root a#{&} {
 
-    &:hover {
-      background: transparentize($gl_gray_light, .5);
+      @include transition_all(background .3s);
+      background: transparentize($gl_gray_light, .7);
+      color: #fff;
+
+      &:hover {
+        background: transparentize($gl_gray_light, .5);
+      }
+
+      &._loading,
+      &:active {
+        background: $gl_gray_light;
+      }
     }
+    
+    @at-root button#{&} {
 
-    &._loading,
-    &:active {
-      background: $gl_gray_light;
+      @include transition_all(background .3s);
+      background: transparentize($gl_gray_light, .7);
+      color: #fff;
+
+      &:hover {
+        background: transparentize($gl_gray_light, .5);
+      }
+
+      &._loading,
+      &:active {
+        background: $gl_gray_light;
+      }
     }
   }
 

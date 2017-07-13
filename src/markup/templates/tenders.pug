@@ -1,0 +1,244 @@
+extends _layout.pug
+include _mixins.pug
+
+block variables
+  - var page_title = 'RK Тендеры';
+  - var map_active = 0;
+  - var nav_active = 5;
+  - var dropdown_active = 0;
+
+block content
+  .section.section__title._title-red._mod-1
+    .section__inner
+      .b-pagination
+        ul.b-pagination__list
+          li: a.b-pagination__link(href='index.html') Главная
+          li: span.b-pagination__link Личный кабинет
+  
+      .section__title-text Тендеры
+        
+  .section
+    .section__inner
+      ._checkout-form
+        .b-product__range-w._mod-1._cart-holder._user-data
+          +b-cart__checkout()
+            
+          .b-cart__list
+            .b-product__category._tender-mod 
+              .b-cart__title История моих заявок
+              ul#product_switcher.b-cart__history-tabs
+                  li: a.b-cart__history-link(href='#tender_tab_1'): span Действующие
+                  li: a.b-cart__history-link(href='#tender_tab_2'): span Планируемые
+                  li: a.b-cart__history-link(href='#tender_tab_3'): span Архив
+                  li: a.b-cart__history-link(href='#tender_tab_4'): span История моих заявок
+                  
+              .b-cart__history-panels.tabBlock(data-tab-context='#product_switcher')
+                #tender_tab_1.b-cart__history-panel
+                  .tab-content
+                    .b-cart__history-unit
+                      .b-cart__history-caption
+                        .fl
+                          span Заявка
+                          span.phone_vis <br>
+                          span  №14234
+                        .fr
+                          .b-cart__status._approved Действующий
+
+                      .b-cart__history-date от 04.07.2017
+
+                      dl.b-cart__history-info
+                        dt: span Группа ТМЦ:
+                        dd: span Значение
+                      dl.b-cart__history-info
+                        dt: span Дата начала приема предложений:
+                        dd: span 10.12.2017 
+                      dl.b-cart__history-info
+                        dt: span Дата завершения приема предложений:
+                        dd: span 10.12.2017 
+
+                      .b-cart__history-description
+                        p: b Описание
+                        p Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+
+                    .b-cart__history-unit
+                      .b-cart__history-caption
+                        .fl
+                          span Заявка
+                          span.phone_vis <br>
+                          span  №14234
+                        .fr
+                          .b-cart__status._approved Действующий
+
+                      .b-cart__history-date от 04.07.2017
+
+                      dl.b-cart__history-info
+                        dt: span Группа ТМЦ:
+                        dd: span Значение
+                      dl.b-cart__history-info
+                        dt: span Дата начала приема предложений:
+                        dd: span 10.12.2017 
+                      dl.b-cart__history-info
+                        dt: span Дата завершения приема предложений:
+                        dd: span 10.12.2017 
+
+                      .b-cart__history-description
+                        p: b Описание
+                        p Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                        
+                #tender_tab_2.b-cart__history-panel
+                  .tab-content
+                    .b-cart__history-unit
+                      .b-cart__history-caption
+                        .fl
+                          span Заявка
+                          span.phone_vis <br>
+                          span  №14000
+                        .fr
+                          .b-cart__status._approved Действующий
+
+                      .b-cart__history-date от 04.07.2017
+
+                      dl.b-cart__history-info
+                        dt: span Группа ТМЦ:
+                        dd: span Значение
+                      dl.b-cart__history-info
+                        dt: span Дата начала приема предложений:
+                        dd: span 10.12.2017 
+                      dl.b-cart__history-info
+                        dt: span Дата завершения приема предложений:
+                        dd: span 10.12.2017 
+
+                      .b-cart__history-description
+                        p: b Описание
+                        p Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+
+                    .b-cart__history-unit
+                      .b-cart__history-caption
+                        .fl
+                          span Заявка
+                          span.phone_vis <br>
+                          span  №141111
+                        .fr
+                          .b-cart__status._approved Действующий
+
+                      .b-cart__history-date от 04.07.2017
+
+                      dl.b-cart__history-info
+                        dt: span Группа ТМЦ:
+                        dd: span Значение
+                      dl.b-cart__history-info
+                        dt: span Дата начала приема предложений:
+                        dd: span 10.12.2017 
+                      dl.b-cart__history-info
+                        dt: span Дата завершения приема предложений:
+                        dd: span 10.12.2017 
+
+                      .b-cart__history-description
+                        p: b Описание
+                        p Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+
+                #tender_tab_3.b-cart__history-panel
+                  .tab-content
+                    .b-cart__history-unit
+                      .b-cart__history-caption
+                        .fl
+                          span Заявка
+                          span.phone_vis <br>
+                          span  №15555
+                        .fr
+                          .b-cart__status._approved Действующий
+
+                      .b-cart__history-date от 04.07.2017
+
+                      dl.b-cart__history-info
+                        dt: span Группа ТМЦ:
+                        dd: span Значение
+                      dl.b-cart__history-info
+                        dt: span Дата начала приема предложений:
+                        dd: span 10.12.2017 
+                      dl.b-cart__history-info
+                        dt: span Дата завершения приема предложений:
+                        dd: span 10.12.2017 
+
+                      .b-cart__history-description
+                        p: b Описание
+                        p Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+
+                    .b-cart__history-unit
+                      .b-cart__history-caption
+                        .fl
+                          span Заявка
+                          span.phone_vis <br>
+                          span  №16666
+                        .fr
+                          .b-cart__status._approved Действующий
+
+                      .b-cart__history-date от 04.07.2017
+
+                      dl.b-cart__history-info
+                        dt: span Группа ТМЦ:
+                        dd: span Значение
+                      dl.b-cart__history-info
+                        dt: span Дата начала приема предложений:
+                        dd: span 10.12.2017 
+                      dl.b-cart__history-info
+                        dt: span Дата завершения приема предложений:
+                        dd: span 10.12.2017 
+
+                      .b-cart__history-description
+                        p: b Описание
+                        p Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+
+                #tender_tab_4.b-cart__history-panel
+                  .tab-content
+                    .b-cart__history-unit
+                      .b-cart__history-caption 
+                        .fl
+                          span Заявка
+                          span.phone_vis <br>
+                          span  №18888
+                        .fr
+                          .b-cart__status._declined Отклонена
+                            
+                      .b-cart__history-date от 04.07.2017
+                        
+                      dl.b-cart__history-info
+                        dt: span Группа ТМЦ:
+                        dd: span Значение
+                      dl.b-cart__history-info
+                        dt: span Дата начала приема предложений:
+                        dd: span 10.12.2017 
+                      dl.b-cart__history-info
+                        dt: span Дата завершения приема предложений:
+                        dd: span 10.12.2017 
+                        
+                      .b-cart__history-description
+                        p: b Описание
+                        p Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                    
+                    .b-cart__history-unit
+                      .b-cart__history-caption 
+                        .fl
+                          span Заявка
+                          span.phone_vis <br>
+                          span  №14234
+                        .fr
+                          .b-cart__status._approved Принята
+                            
+                      .b-cart__history-date от 04.07.2017
+                        
+                      dl.b-cart__history-info
+                        dt: span Группа ТМЦ:
+                        dd: span Значение
+                      dl.b-cart__history-info
+                        dt: span Дата начала приема предложений:
+                        dd: span 10.12.2017 
+                      dl.b-cart__history-info
+                        dt: span Дата завершения приема предложений:
+                        dd: span 10.12.2017 
+                        
+                      .b-cart__history-description
+                        p: b Описание
+                        p Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                    
+                    

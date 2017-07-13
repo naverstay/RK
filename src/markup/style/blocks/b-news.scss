@@ -211,6 +211,7 @@
         overflow: hidden;
         flex: 1 0 (100% * 740 / 1240);
         max-width: (100% * 740 / 1240);
+        margin-left: -1px;
 
         + .b-news__info {
           flex: 1 0 (100% * 500 / 1240);

@@ -1,0 +1,56 @@
+extends _layout.pug
+include _mixins.pug
+
+block variables
+  - var page_title = 'RK RubberTV';
+  - var map_active = 0;
+  - var nav_active = 0;
+  - var dropdown_active = 0;
+
+block content
+  .section.section__title._title-red._news
+    .section__inner
+      .b-pagination
+        ul.b-pagination__list
+          li: a.b-pagination__link(href='index.html') Главная
+          li: span.b-pagination__link RubberTV
+  
+      .section__title-text RubberTV
+        
+  .section
+    .section__inner
+      .b-news__list-w
+        ul.b-news__list._tv
+          li._main
+            +tv_item('Круглые полиуретановые ремни. Склейка.', 'images/tv.png', 'Не знаете как правильно соединить круглые полиуретановые ремни? Посмотрите обучающее видео от компании Хольцер, возможно оно будет полезно Вам. Основные этапы сварки ремней… ')
+
+          li
+            +tv_item('Ремни клиновые <span class="tab_hidden"><br></span>Delta Gates')
+            
+          li.phone_hidden
+            +tv_item('Ремни клиновые <span class="tab_hidden"><br></span>Delta Gates')
+
+          li.dt_hidden
+            +tv_item('Ремни клиновые <span class="tab_hidden"><br></span>Delta Gates')
+
+          li.tab_hidden
+            +tv_item('Ремни клиновые <span class="tab_hidden"><br></span>Delta Gates')
+
+          +loop_while(2)
+            li._wide
+              +tv_item('Ремни клиновые Delta&nbsp;Gates')
+              
+      .b-news__list-pagination
+        ul.b-product__category-controls
+          li.phone_vis._prev: a.gl-link(href='#')
+            span.i-chevron_left
+          li.phone_hidden: span 1
+          li.phone_hidden: a.gl-link(href='#') 2
+          li.phone_hidden: a.gl-link(href='#') 3
+          li.phone_hidden: a.gl-link(href='#') 4
+          li.phone_hidden: a.gl-link(href='#') ...
+          li._next: a.gl-link(href='#')
+            span.i-chevron_right
+          li._more
+            a.butt.butt-gray_2.butt_v3(href='#') Показать еще
+          

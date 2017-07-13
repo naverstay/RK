@@ -1,7 +1,7 @@
 /*результат генерации bower Js*/
 /* //= libs/_vendor.js    - если не хочетс подключать 2 файла, можно всё объединить */
 
-var body, heroSwiper, menuSlider;
+var body, heroSwiper, menuSlider, popup_order_info;
 
 $(function () {
 
@@ -124,7 +124,123 @@ $(function () {
 
   initValidation();
 
+  initEdit();
+
+  initTabs();
+
+  initOrderInfoPopup();
+
 });
+
+function initTabs() {
+  var tabBlock = $('.tabBlock');
+
+  tabBlock.each(function () {
+    var tab = $(this);
+
+    tab.tabs({
+      active: 0,
+      tabContext: tabBlock.data('tab-context'),
+      activate: function (e, u) {
+
+      },
+      create: function (e, u) {
+
+
+      }
+    });
+  });
+}
+
+function initEdit() {
+
+  $.editable.addInputType('masked', {
+    /* Create input element. */
+    element: function (settings, original) {
+      /* Create an input. Mask it using masked input plugin. Settings */
+      /* for mask were passed with jEditable settings hash. Remember  */
+      /* to return the created input!                                 */
+      var input = $('<input>').mask(settings.mask);
+      $(this).append(input);
+      return (input);
+    }
+  });
+
+  $('.editBtn').on('click', function () {
+    var target = $(this).attr('data-target');
+
+    var edit = $('.editMe').filter(function () {
+      return $(this).attr('data-control') == target;
+    });
+
+    if (edit.find('form').length) {
+      edit.find('form').submit();
+      $(this).removeClass('_edit-mode');
+    } else {
+      edit.click();
+    }
+
+    return false;
+  });
+
+  $('.editFinish').on('click', function () {
+
+    $('.editFinishBlock').hide();
+    $('.editStartBlock').show();
+
+    $('.editMe form').submit();
+
+    return false;
+  });
+
+  $('.editStart').on('click', function () {
+    var target = $(this).attr('data-target');
+
+    $('.editStartBlock').hide();
+    $('.editFinishBlock').show();
+
+    $('.editMe').filter(function () {
+      return $(this).attr('data-control') == target;
+    }).click();
+
+    return false;
+  });
+
+  $('.editMe').each(function (ind) {
+    var el = $(this), el_edit = el.attr('data-edit');
+
+    el.on('click', function () {
+      var firedEl = $(this), el_control = $(firedEl.attr('data-trigger'));
+
+      if (!firedEl.find('form').length && el_control.length) {
+        el_control.toggleClass('_edit-mode');
+      }
+    });
+
+    el.editable('php/save.php', {
+      onblur: el.attr('data-blur') || 'cancel',
+      blurcallback: function (e, i) {
+        var trigger = $($(e).attr('data-trigger'));
+
+        if (trigger && trigger.length) {
+          trigger.removeClass('_edit-mode');
+        }
+      },
+      type: 'textarea',
+      tooltip: '',
+      autoheight: true,
+      style: 'inherit',
+      height: el.outerHeight() + 'px',
+      width: '100%',
+      cssclass: 'f-edit__form',
+      submitdata: function (q, w) {
+        console.log(q, w);
+
+        el.text(q);
+      }
+    });
+  });
+}
 
 function init() {
 
@@ -369,5 +485,53 @@ function initValidation() {
       addPromptClass: 'relative_mode one_msg',
       showOneMessage: false
     });
+  });
+}
+
+function initOrderInfoPopup() {
+
+  if ($('#popup_order_info').length) {
+    popup_order_info = $('#popup_order_info').dialog({
+      autoOpen: false,
+      modal: true,
+      closeOnEscape: true,
+      closeText: '',
+      dialogClass: 'dialog_g_size_1',
+      //appendTo: '.wrapper',
+      width: 800,
+      draggable: true,
+      collision: "fit",
+      //position: {my: "top center", at: "top center", of: window},
+      open: function (event, ui) {
+        body.addClass('modal_opened overlay_v1');
+
+        console.log(event, ui);
+        
+      },
+      close: function (event, ui) {
+        body.removeClass('modal_opened overlay_v1');
+      }
+    });
+
+    $('.orderInfoBtn').on('click', function () {
+
+      popup_order_info.dialog('open');
+
+      return false;
+    });
+  }
+
+}
+
+function all_dialog_close() {
+  body.on('click', '.ui-widget-overlay, .popupClose', all_dialog_close_gl);
+}
+
+function all_dialog_close_gl() {
+  $(".ui-dialog-content").each(function () {
+    var $this = $(this);
+    if (!$this.parent().hasClass('always_open')) {
+      $this.dialog("close");
+    }
   });
 }

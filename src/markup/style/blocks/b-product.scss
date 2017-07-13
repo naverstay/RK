@@ -895,7 +895,6 @@
     @include small-desktop() {
       padding-bottom: 35px;
       margin-bottom: 40px;
-
     }
 
     @include phone() {
@@ -1372,7 +1371,7 @@
 
       &-link {
         color: $gl_black;
-        
+
         &:hover {
           text-decoration: underline;
         }
@@ -1635,6 +1634,40 @@
         > span {
           color: $gl_gray_light;
         }
+      }
+    }
+
+    &._tender-mod {
+      margin-bottom: 85px;
+
+      @include wide-desktop() {
+        margin-bottom: 70px;
+      }
+
+      @include small-desktop() {
+        margin-bottom: 30px;
+      }
+
+      @include phone() {
+        padding: 15px;
+        margin-bottom: 15px;
+      }
+    }
+
+    &._history-mod {
+      margin-bottom: 65px;
+
+      @include wide-desktop() {
+        margin-bottom: 60px;
+      }
+
+      @include small-desktop() {
+        margin-bottom: 30px;
+      }
+
+      @include phone() {
+        padding: 15px;
+        margin-bottom: 15px;
       }
     }
   }

@@ -1162,6 +1162,42 @@ textarea.f-input.input__v1 {
   }
 }
 
+.f-edit__style-1 {
+
+  form {
+    display: block !important;
+    max-height: 62px;
+  }
+
+  input,
+  textarea {
+    color: #fff;
+    padding: 0 8px;
+    margin: 0 -8px;
+    font: 24px/1.3 $ClearSansBold;
+    background: rgba(255, 255, 255, .05);
+  }
+}
+
+.f-edit__style-2 {
+
+  form {
+    display: block !important;
+    margin: -7px -11px -7px 0;
+  }
+
+  input,
+  textarea {
+    min-height: 30px;
+    text-align: right;
+    display: block;
+    padding: 6px 11px;
+    color: $gl_black;
+    font: 14px/18px $ClearSansBold;
+    background: transparentize($gl_gray_light, .92);
+  }
+}
+
 .im-caret {
   -webkit-animation: 1s blink step-end infinite;
   -moz-animation: 1s blink step-end infinite;

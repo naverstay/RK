@@ -1,10 +1,10 @@
 @font-face {
   font-family: 'rk_icons';
-  src:  url('fonts/rk_icons.eot?8awdon');
-  src:  url('fonts/rk_icons.eot?8awdon#iefix') format('embedded-opentype'),
-    url('fonts/rk_icons.ttf?8awdon') format('truetype'),
-    url('fonts/rk_icons.woff?8awdon') format('woff'),
-    url('fonts/rk_icons.svg?8awdon#rk_icons') format('svg');
+  src:  url('fonts/rk_icons.eot?ti4v97');
+  src:  url('fonts/rk_icons.eot?ti4v97#iefix') format('embedded-opentype'),
+    url('fonts/rk_icons.ttf?ti4v97') format('truetype'),
+    url('fonts/rk_icons.woff?ti4v97') format('woff'),
+    url('fonts/rk_icons.svg?ti4v97#rk_icons') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -29,6 +29,9 @@
 }
 .i-plus:before {
   content: "\e90f";
+}
+.i-pen:before {
+  content: "\e910";
 }
 .i-phone2:before {
   content: "\e90b";
@@ -71,4 +74,7 @@
 }
 .i-phone:before {
   content: "\e901";
+}
+.i-check:before {
+  content: "\e911";
 }

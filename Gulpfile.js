@@ -31,6 +31,7 @@ var path = {
     img: 'build/markup/img/',
     images: 'build/markup/images/',
     fonts: 'build/markup/fonts/',
+    php: 'build/markup/php/',
     resources: 'build/markup/resources/'
 
   },
@@ -44,6 +45,7 @@ var path = {
     img: 'src/markup/img/**/*.*',
     images: 'src/markup/images/**/*.*',
     fonts: 'src/markup/fonts/**/*.*',
+    php: 'src/markup/php/**/*.*',
     resources: 'src/markup/resources/**/*.*',
     sprite: 'src/markup/sprites/*.png' //откуда брать картинки для спрайтов
   },
@@ -99,6 +101,11 @@ gulp.task('fonts', function () {
     .pipe(gulp.dest(path.build.fonts))
 });
 
+// копирование php
+gulp.task('php', function () {
+  gulp.src(path.src.php)
+    .pipe(gulp.dest(path.build.php))
+});
 
 //таска, которая собирает прочие ресурсы
 gulp.task('resources', function () {
@@ -227,6 +234,7 @@ gulp.task('build', [
   'styles',
   'pug',
   'fonts',
+  'php',
   'resources',
   'images'
 ]);

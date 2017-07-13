@@ -1,0 +1,93 @@
+extends _layout.pug
+include _mixins.pug
+
+block variables
+  - var page_title = 'RK GUI';
+  - var map_active = 0;
+  - var nav_active = 0;
+  - var dropdown_active = 0;
+
+block content
+  .section
+    .section__inner
+      
+      ul.b-gui__list
+        
+        li
+          .fl
+            a.butt.butt_v2.butt-red(href='#') Подробнее
+        li
+          .fl
+            a.butt.butt_v2.butt-red_white(href='#') Подробнее
+        li
+          .fl
+            a.butt.butt_v2.butt-gray_2(href='#') Подробнее
+                          
+        li
+          .fl
+            a.butt.butt_v2.butt-red._loading(data-loader='Загрузка…' href='#') Подробнее
+        li
+          .fl
+            a.butt.butt_v2.butt-red_white._loading(data-loader='Загрузка…' href='#') Подробнее
+        li
+          .fl
+            a.butt.butt_v2.butt-gray_2._loading(data-loader='Загрузка…' href='#') Подробнее
+                          
+        li
+          ul.b-product__category-controls
+            li.phone_vis._prev: a.gl-link(href='#')
+              span.i-chevron_left
+            li.phone_hidden: span 1
+            li.phone_hidden: a.gl-link(href='#') 2
+            li.phone_hidden: a.gl-link(href='#') 3
+            li.phone_hidden: a.gl-link(href='#') 4
+            li.phone_hidden: a.gl-link(href='#') ...
+            li._next: a.gl-link(href='#') 
+              span.i-chevron_right
+        
+        li
+          .f-row._half
+            .f-cell
+              input.f-input.t-center.input__v2
+            .f-cell
+              input.f-input.t-center.input__v2
+              
+        li
+          .fl
+            .b-product__counter.f-input__w.valCell
+              input.f-input.input__v3(value='0' data-min='0' data-max='1000' data-step='1' data-inputmask="'alias': 'numeric', 'rightAlign': false, 'allowMinus': false, 'allowPlus': false, 'autoGroup': false, 'groupSeparator': '', 'autoUnmask': true, 'digits': 0, 'placeholder': '0', 'digitsOptional': false" )
+              span.f-input_label шт
+              span.butt.butt-white.counter_butt._minus.valMinus.i-minus
+              span.butt.butt-white.counter_butt._plus.valPlus.i-plus
+              
+      //- tag FORM could be replaced with DIV, BUT it's class should be still b-product__range-form
+      div(class='b-product__range-form')
+        .b-product__range-group
+          +manufactures_select()
+
+        .b-product__range-group
+          .b-product__range-label
+            //-.dt_hidden.selectTrigger.b-product__range-trigger
+              span Наличие товара
+              span.i-chevron_down
+            .b-product__range-select._select-v3.skipOverlayClosing
+              select.select2(data-placeholder='Наличие товара')
+                option(disabled selected)
+                option Все товары 
+                option Только в наличии
+
+      .b-product__description-w
+        .b-product__description
+          .b-article._mod-1
+            h2
+              span Конвейерная лента - 
+              span.tab_hidden <br>
+              span Практичное приспособление для транспортировки грузов
+            p Компания «Хольцер» специализируется на производстве и продаже качественных РТИ изделий в Москве и по всей России. Такие комплектующие отличаются высокой прочностью и имеют длительный срок эксплуатации. Особое место в товарном ассортименте завода занимают неформовые РТИ, которые нашли широкое применение и востребованы в различных сферах промышленности и хозяйственной деятельности. На нашем сайте представлена продукция производителей РТИ с мировым именем, таких как Holzer Flexo, Rubber and Plastic и Gates Corporation по доступным ценам. А так же резиновые изделия под заказ собственного производства.
+        .b-product__review
+          .b-article__video-holder
+            .b-article__video
+              img(src='images/video.png')
+            .b-article__video-btn Включите
+                  
+              

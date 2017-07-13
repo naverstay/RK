@@ -1,0 +1,267 @@
+extends _layout.pug
+include _mixins.pug
+
+block variables
+  - var page_title = 'RK История заказов';
+  - var map_active = 0;
+  - var nav_active = 5;
+  - var dropdown_active = 0;
+
+block content
+  .section.section__title._title-red._mod-1
+    .section__inner
+      .b-pagination
+        ul.b-pagination__list
+          li: a.b-pagination__link(href='index.html') Главная
+          li: span.b-pagination__link Личный кабинет
+  
+      .section__title-text История заказов
+        
+  .section
+    .section__inner
+      ._checkout-form
+        .b-product__range-w._mod-1._cart-holder._user-data
+          +b-cart__checkout()
+                    
+          .b-cart__list
+            .b-product__category._history-mod
+              .b-cart__title История заказов
+              ul#product_switcher.b-cart__history-tabs
+                  li: a.b-cart__history-link(href='#history_tab_1'): span Мои заказы
+                  li: a.b-cart__history-link(href='#history_tab_2'): span Все заказы
+                  
+              .b-cart__history-panels.tabBlock(data-tab-context='#product_switcher')
+                #history_tab_1.b-cart__history-panel
+                  .tab-content._col-holder
+                    +loop_while(1)
+                      .b-cart__history-col
+                        .b-cart__history-unit
+                          .b-cart__history-caption
+                            .fl
+                              span Заказ №GR1656
+                            .fr
+                              .b-cart__status._approved Принят
+    
+                          .b-cart__history-date от 04.07.2017
+    
+                          dl.b-cart__history-info
+                            dt: span Сумма к оплате: 
+                            dd: span 750.00 Р-
+                          dl.b-cart__history-info
+                            dt: span Оплачен:
+                            dd: span Нет
+                          dl.b-cart__history-info
+                            dt: span Способ оплаты:
+                            dd: span Безналичный расчет
+                          dl.b-cart__history-info
+                            dt: span Доставка:
+                            dd: span Без доставки
+                            
+                          ul.b-cart__checkout-options
+                            li
+                              a.butt.butt-red.butt_v2.butt-order.orderInfoBtn(href='#')
+                                span Состав заказа
+                            li
+                              a.butt.butt_v2.butt-order.butt-gray_2(href='#')
+                                span Отменить заказ
+  
+                        .b-cart__history-unit
+                          .b-cart__history-caption
+                            .fl
+                              span Заказ №GR1656
+                            .fr
+                              .b-cart__status._completed Выполнен
+    
+                          .b-cart__history-date от 04.07.2017
+    
+                          dl.b-cart__history-info
+                            dt: span Сумма к оплате: 
+                            dd: span 750.00 Р-
+                          dl.b-cart__history-info
+                            dt: span Оплачен:
+                            dd: span Нет
+                          dl.b-cart__history-info
+                            dt: span Способ оплаты:
+                            dd: span Безналичный расчет
+                          dl.b-cart__history-info
+                            dt: span Доставка:
+                            dd: span Без доставки
+                            
+                          ul.b-cart__checkout-options
+                            li
+                              a.butt.butt-red.butt_v2.butt-order.orderInfoBtn(href='#')
+                                span Состав заказа
+                          
+                      .b-cart__history-col._magic-col
+                        .b-cart__history-unit
+                          .b-cart__history-caption
+                            .fl
+                              span Заказ №GR1656
+                            .fr
+                              .b-cart__status._completed Выполнен
+    
+                          .b-cart__history-date от 04.07.2017
+    
+                          dl.b-cart__history-info
+                            dt: span Сумма к оплате: 
+                            dd: span 750.00 Р-
+                          dl.b-cart__history-info
+                            dt: span Оплачен:
+                            dd: span Нет
+                          dl.b-cart__history-info
+                            dt: span Способ оплаты:
+                            dd: span Безналичный расчет
+                          dl.b-cart__history-info
+                            dt: span Доставка:
+                            dd: span Без доставки
+                            
+                          ul.b-cart__checkout-options
+                            li
+                              a.butt.butt-red.butt_v2.butt-order.orderInfoBtn(href='#')
+                                span Состав заказа
+  
+                        .b-cart__history-unit.tab_hidden
+                          .b-cart__history-caption
+                            .fl
+                              span Заказ №GR1656
+                            .fr
+                              .b-cart__status._completed Выполнен
+    
+                          .b-cart__history-date от 04.07.2017
+    
+                          dl.b-cart__history-info
+                            dt: span Сумма к оплате: 
+                            dd: span 750.00 Р-
+                          dl.b-cart__history-info
+                            dt: span Оплачен:
+                            dd: span Нет
+                          dl.b-cart__history-info
+                            dt: span Способ оплаты:
+                            dd: span Безналичный расчет
+                          dl.b-cart__history-info
+                            dt: span Доставка:
+                            dd: span Без доставки
+                            
+                          ul.b-cart__checkout-options
+                            li
+                              a.butt.butt-red.butt_v2.butt-order.orderInfoBtn(href='#')
+                                span Состав заказа
+                          
+                #history_tab_2.b-cart__history-panel
+                  .tab-content._col-holder
+                    +loop_while(1)
+                      .b-cart__history-col
+                        .b-cart__history-unit
+                          .b-cart__history-caption
+                            .fl
+                              span Заказ №GR3553
+                            .fr
+                              .b-cart__status._approved Принят
+
+                          .b-cart__history-date от 04.07.2017
+
+                          dl.b-cart__history-info
+                            dt: span Сумма к оплате: 
+                            dd: span 750.00 Р-
+                          dl.b-cart__history-info
+                            dt: span Оплачен:
+                            dd: span Нет
+                          dl.b-cart__history-info
+                            dt: span Способ оплаты:
+                            dd: span Безналичный расчет
+                          dl.b-cart__history-info
+                            dt: span Доставка:
+                            dd: span Без доставки
+
+                          ul.b-cart__checkout-options
+                            li
+                              a.butt.butt-red.butt_v2.butt-order.orderInfoBtn(href='#')
+                                span Состав заказа
+                            li
+                              a.butt.butt_v2.butt-order.butt-gray_2(href='#')
+                                span Отменить заказ
+
+                        .b-cart__history-unit
+                          .b-cart__history-caption
+                            .fl
+                              span Заказ №GR1656
+                            .fr
+                              .b-cart__status._completed Выполнен
+
+                          .b-cart__history-date от 04.07.2017
+
+                          dl.b-cart__history-info
+                            dt: span Сумма к оплате: 
+                            dd: span 750.00 Р-
+                          dl.b-cart__history-info
+                            dt: span Оплачен:
+                            dd: span Нет
+                          dl.b-cart__history-info
+                            dt: span Способ оплаты:
+                            dd: span Безналичный расчет
+                          dl.b-cart__history-info
+                            dt: span Доставка:
+                            dd: span Без доставки
+
+                          ul.b-cart__checkout-options
+                            li
+                              a.butt.butt-red.butt_v2.butt-order.orderInfoBtn(href='#')
+                                span Состав заказа
+
+                      .b-cart__history-col._magic-col
+                        .b-cart__history-unit
+                          .b-cart__history-caption
+                            .fl
+                              span Заказ №GR78787
+                            .fr
+                              .b-cart__status._completed Выполнен
+
+                          .b-cart__history-date от 04.07.2017
+
+                          dl.b-cart__history-info
+                            dt: span Сумма к оплате: 
+                            dd: span 750.00 Р-
+                          dl.b-cart__history-info
+                            dt: span Оплачен:
+                            dd: span Нет
+                          dl.b-cart__history-info
+                            dt: span Способ оплаты:
+                            dd: span Безналичный расчет
+                          dl.b-cart__history-info
+                            dt: span Доставка:
+                            dd: span Без доставки
+
+                          ul.b-cart__checkout-options
+                            li
+                              a.butt.butt-red.butt_v2.butt-order.orderInfoBtn(href='#')
+                                span Состав заказа
+
+                        .b-cart__history-unit.tab_hidden
+                          .b-cart__history-caption
+                            .fl
+                              span Заказ №GR1656
+                            .fr
+                              .b-cart__status._completed Выполнен
+
+                          .b-cart__history-date от 04.07.2017
+
+                          dl.b-cart__history-info
+                            dt: span Сумма к оплате: 
+                            dd: span 750.00 Р-
+                          dl.b-cart__history-info
+                            dt: span Оплачен:
+                            dd: span Нет
+                          dl.b-cart__history-info
+                            dt: span Способ оплаты:
+                            dd: span Безналичный расчет
+                          dl.b-cart__history-info
+                            dt: span Доставка:
+                            dd: span Без доставки
+
+                          ul.b-cart__checkout-options
+                            li
+                              a.butt.butt-red.butt_v2.butt-order.orderInfoBtn(href='#')
+                                span Состав заказа
+                                
+  +popup_order_info()
+    
