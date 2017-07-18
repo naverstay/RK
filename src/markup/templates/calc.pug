@@ -1,0 +1,63 @@
+extends _layout.pug
+include _mixins.pug
+
+block variables
+  - var page_title = 'RK Стыковка конвейерной ленты';
+  - var map_active = 0;
+  - var nav_active = 0;
+  - var dropdown_active = 0;
+
+block content
+  .section.section__title._title-red._news
+    .section__inner
+      .b-pagination
+        ul.b-pagination__list
+          li: a.b-pagination__link(href='index.html') Главная
+          li: a.b-pagination__link(href='calc.html') Калькуляторы
+          li: span.b-pagination__link Стыковка конвейерной ленты
+  
+      .section__title-text Стыковка конвейерной ленты
+        
+  .section._calc_section
+    .section__inner
+      .b-product__range-w._mod-3
+        .b-form__block._callback-form._contacts
+          .b-news__info
+            form.validateMe(action='#')
+              .f-row__caption Выберите нужный вариант
+                
+              .f-row._calc-switcher
+                .f-row__cell
+                  .f-input__w._check-holder
+                    label.f-check._check-v1
+                      input(type='radio' name='calc_type' checked)
+                      span.f-check-text Стыковка ленты
+                .f-row__cell
+                  .f-input__w._check-holder
+                    label.f-check._check-v1
+                      input(type='radio' name='calc_type')
+                      span.f-check-text Стыковка с приобретением<br>конвейерной ленты
+                .f-row__cell
+                  .f-input__w._check-holder
+                    label.f-check._check-v1
+                      input(type='radio' name='calc_type')
+                      span.f-check-text Выездная стыковка
+                .f-row__cell
+                  .f-input__w._check-holder
+                    label.f-check._check-v1
+                      input(type='radio' name='calc_type')
+                      span.f-check-text Выездная стыковка<br>без приобретения ленты
+
+              .f-row._mod-1
+                .f-row__col
+                  label.f-label.f-label__v1(for='product_width') Ширина готового изделия, мм
+                  .f-input__w
+                    input#product_width.f-input.input__v1(placeholder='Ширина готового изделия, мм')
+                    
+              .b-news__info-name Данные о заказчике
+            
+              p.phone_vis Оставьте Ваши данные и напишите сообщение/вопрос/предложение
+              p.phone_hidden Просто оставьте Ваши данные и напишите<br>сообщение/вопрос/предложение
+              
+              +calc_form()
+              

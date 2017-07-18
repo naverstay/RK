@@ -130,6 +130,8 @@ $(function () {
 
   initOrderInfoPopup();
 
+  initCallbackPopup();
+
 });
 
 function initTabs() {
@@ -140,7 +142,7 @@ function initTabs() {
 
     tab.tabs({
       active: 0,
-      tabContext: tabBlock.data('tab-context'),
+      //tabContext: tabBlock.data('tab-context'),
       activate: function (e, u) {
 
       },
@@ -160,7 +162,8 @@ function initEdit() {
       /* Create an input. Mask it using masked input plugin. Settings */
       /* for mask were passed with jEditable settings hash. Remember  */
       /* to return the created input!                                 */
-      var input = $('<input>').mask(settings.mask);
+
+      var input = $('<input>').attr('data-inputmask', settings.mask).inputmask();
       $(this).append(input);
       return (input);
     }
@@ -177,18 +180,21 @@ function initEdit() {
       edit.find('form').submit();
       $(this).removeClass('_edit-mode');
     } else {
-      edit.click();
+      edit.addClass('_edit-mode').click();
     }
 
     return false;
   });
 
   $('.editFinish').on('click', function () {
+    var target = $(this).attr('data-target');
 
     $('.editFinishBlock').hide();
     $('.editStartBlock').show();
 
-    $('.editMe form').submit();
+    $('.editMe').filter(function () {
+      return $(this).attr('data-control') == target;
+    }).find('form').submit();
 
     return false;
   });
@@ -199,7 +205,7 @@ function initEdit() {
     $('.editStartBlock').hide();
     $('.editFinishBlock').show();
 
-    $('.editMe').filter(function () {
+    $('.editMe').addClass('_edit-mode').filter(function () {
       return $(this).attr('data-control') == target;
     }).click();
 
@@ -207,7 +213,7 @@ function initEdit() {
   });
 
   $('.editMe').each(function (ind) {
-    var el = $(this), el_edit = el.attr('data-edit');
+    var el = $(this), el_edit = el.attr('data-edit'), el_mask = el.attr('data-inputmask');
 
     el.on('click', function () {
       var firedEl = $(this), el_control = $(firedEl.attr('data-trigger'));
@@ -218,7 +224,7 @@ function initEdit() {
     });
 
     el.editable('php/save.php', {
-      onblur: el.attr('data-blur') || 'cancel',
+      onblur: el.attr('data-blur') || 'ignore',
       blurcallback: function (e, i) {
         var trigger = $($(e).attr('data-trigger'));
 
@@ -226,7 +232,8 @@ function initEdit() {
           trigger.removeClass('_edit-mode');
         }
       },
-      type: 'textarea',
+      type: el_edit,
+      mask: el_mask,
       tooltip: '',
       autoheight: true,
       style: 'inherit',
@@ -234,9 +241,7 @@ function initEdit() {
       width: '100%',
       cssclass: 'f-edit__form',
       submitdata: function (q, w) {
-        console.log(q, w);
-
-        el.text(q);
+        el.removeClass('_edit-mode').text(q);
       }
     });
   });
@@ -258,12 +263,13 @@ function initMap() {
   }
 }
 
-
 function initSelect2() {
   var resize_timer;
 
   $('body').delegate('.selectTrigger', 'click', function () {
-    var firedEl = $(this), target = $(firedEl.attr('data-trigger-for'));
+    var firedEl = $(this), target = $(firedEl.attr('data-trigger-for')), need_overlay = !(firedEl.attr('data-no-overlay') == 'true');
+
+    console.log(firedEl.hasClass('opened'));
 
     if (target.length) {
       if (firedEl.hasClass('opened')) {
@@ -277,7 +283,7 @@ function initSelect2() {
         target.select2('open');
         target.parent().addClass('opened');
 
-        toggleOverlay(firedEl.parent(), true, 'dt_vis');
+        need_overlay && toggleOverlay(firedEl.parent(), true, 'dt_vis');
       }
     }
 
@@ -327,18 +333,18 @@ function initSelect2() {
       .on('select2:open', function (evt) {
         var slct = $(this),
           close_on_select = $(window).width() <= 1200 && (slct.attr('data-close-on-select') == 'true'),
+          need_overlay = !(slct.attr('data-no-overlay') == 'true'),
           keep_open = slct.attr('data-keep-open') == 'true';
 
-        !(close_on_select || keep_open) && toggleOverlay(slct.nextAll('.select2'), true);
+        !(close_on_select || keep_open) && toggleOverlay(slct.nextAll('.select2'), need_overlay);
       })
       .on('change', function (evt) {
         var slct = $(this),
           close_on_select = $(window).width() <= 1200 && (slct.attr('data-close-on-select') == 'true'),
           data_doubling = $(slct.attr('data-doubling'));
 
-
         if (data_doubling && data_doubling.length) {
-          data_doubling.text(slct.val());
+          data_doubling.html(slct.val() && slct.val().length ? slct.val() : '&nbsp;');
         }
       })
       .select2({
@@ -356,9 +362,8 @@ function initSelect2() {
     var data_doubling = $(slct.attr('data-doubling'));
 
     if (data_doubling && data_doubling.length) {
-      data_doubling.text(slct.val());
+      data_doubling.html(slct.val() && slct.val().length ? slct.val() : '&nbsp;');
     }
-
 
     keep_open && slct.select2("open");
 
@@ -490,37 +495,59 @@ function initValidation() {
 
 function initOrderInfoPopup() {
 
-  if ($('#popup_order_info').length) {
-    popup_order_info = $('#popup_order_info').dialog({
-      autoOpen: false,
+  $('.js-fancy-ajax').fancybox({
+    baseClass: 'b-popup__quick-view',
+    infobar: false,
+    buttons: false,
+    thumbs: false,
+    keyboard: false,
+    modal: true,
+    margin: 15,
+    touch: {
+      vertical: false
+    },
+    animationEffect: false,
+    transitionEffect: "slide",
+    transitionDuration: 500,
+      baseTpl: '<div class="fancybox-container" role="dialog">' + '<div class="quick-view-content">' + '<div class="quick-view-carousel">' + '<div class="fancybox-stage"></div>' + '</div>' + '<div class="quick-view-aside"></div>' + '</div>' + '</div>',
+    onInit: function (instance) {
+
+    },
+    beforeShow: function (instance) {
+
+    }
+  });
+
+}
+
+function initCallbackPopup() {
+
+  if ($('#callback_info').length) {
+
+    $('.js-fancy').fancybox({
+      baseClass: 'b-popup__quick-view',
+      infobar: false,
+      buttons: false,
+      thumbs: false,
+      keyboard: false,
       modal: true,
-      closeOnEscape: true,
-      closeText: '',
-      dialogClass: 'dialog_g_size_1',
-      //appendTo: '.wrapper',
-      width: 800,
-      draggable: true,
-      collision: "fit",
-      //position: {my: "top center", at: "top center", of: window},
-      open: function (event, ui) {
-        body.addClass('modal_opened overlay_v1');
-
-        console.log(event, ui);
-        
+      margin: 15,
+      touch: {
+        vertical: false
       },
-      close: function (event, ui) {
-        body.removeClass('modal_opened overlay_v1');
+      animationEffect: false,
+      transitionEffect: "slide",
+      transitionDuration: 500,
+      baseTpl: '<div class="fancybox-container" role="dialog">' + '<div class="quick-view-content">' + '<div class="quick-view-carousel">' + '<div class="fancybox-stage"></div>' + '</div>' + '<div class="quick-view-aside"></div>' + '</div>' + '</div>',
+      onInit: function (instance) {
+
+      },
+      beforeShow: function (instance) {
+
       }
-    });
 
-    $('.orderInfoBtn').on('click', function () {
-
-      popup_order_info.dialog('open');
-
-      return false;
     });
   }
-
 }
 
 function all_dialog_close() {

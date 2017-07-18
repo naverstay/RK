@@ -188,7 +188,7 @@
         background: $gl_gray_light;
       }
     }
-    
+
     @at-root button#{&} {
 
       @include transition_all(background .3s);
@@ -237,6 +237,10 @@
       -webkit-animation: loadingAnim 2s infinite;
       animation: loadingAnim 2s infinite;
     }
+  }
+
+  &._w-180 {
+    min-width: 180px;
   }
 }
 

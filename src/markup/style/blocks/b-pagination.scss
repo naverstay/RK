@@ -60,9 +60,24 @@
 
   + .section__title-text {
     margin-bottom: 45px;
-    
+
+    &._questionnaire {
+      @include phone-min() {
+        margin-bottom: 40px;
+      }
+
+      @include tablet-min() {
+        margin-bottom: 45px;
+      }
+    }
+
     @include phone() {
       margin-bottom: 70px;
+
+      &._questionnaire {
+        letter-spacing: .01em;
+        margin-bottom: 50px;
+      }
     }
   }
 }

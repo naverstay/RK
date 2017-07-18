@@ -1,6 +1,76 @@
 .b-cart {
 
+  &__callback {
+    text-align: center;
+
+    > li {
+      display: inline-block;
+      vertical-align: top;
+      padding: 0 25px;
+      margin-bottom: 35px;
+      text-align: left;
+    }
+  }
+
   &__history {
+
+    &-table {
+      margin: 0 -10px;
+
+      &__head {
+        @extend %clearfix;
+        font: 16px $ClearSansMedium;
+        letter-spacing: .01em;
+
+        .b-cart__history-table__cell {
+          background: $dirty_white;
+        }
+      }
+
+      &__row {
+        @extend %clearfix;
+
+        @include phone() {
+          margin-bottom: 12px;
+        }
+
+        @include phone-min() {
+
+          &:nth-child(2n - 1) {
+            background: $dirty_white;
+          }
+        }
+      }
+
+      &__cell {
+        padding: 9px 10px;
+
+        @include phone-min() {
+          float: left;
+          width: 50%;
+          padding: 15px 10px;
+          font-size: 16px;
+
+          .b-cart__history-table__head & {
+            background: $gl_gray;
+            color: #fff;
+            font-size: 20px;
+            padding: 12px 10px;
+          }
+        }
+
+        @include phone() {
+          line-height: 1.4;
+          letter-spacing: .03em;
+
+          &:first-child {
+            background: $dirty_white;
+            font: 16px $ClearSansMedium;
+            letter-spacing: .01em;
+          }
+        }
+      }
+    }
 
     &-col {
       float: left;
@@ -55,42 +125,44 @@
     }
 
     &-tabs {
-      @extend %clearfix;
-      margin: -8px 0 12px -28px;
-      display: inline-block;
-      vertical-align: top;
-      width: 100%;
-      border: none;
-      background: none;
-      letter-spacing: .025em;
-
-      li {
-        padding-left: 28px;
-        margin-bottom: 12px;
-        float: left;
-        border: none !important;
-        background: none !important;
-      }
-
-      @include wide-desktop() {
-        margin-top: -4px;
-      }
-
-      @include small-desktop() {
-        margin-top: -8px;
-      }
-
-      @include phone-min() {
-        font-size: 18px;
-      }
-
-      @include phone() {
-        margin-top: 14px;
-        margin-left: -22px;
-        margin-bottom: 15px;
+      .section & {
+        @extend %clearfix;
+        margin: -8px 0 12px -28px;
+        display: inline-block;
+        vertical-align: top;
+        width: 100%;
+        border: none;
+        background: none;
+        letter-spacing: .025em;
 
         li {
-          padding-left: 22px;
+          float: left;
+          padding: 0 0 0 28px !important;
+          margin: 0 0 12px !important;
+          border: none !important;
+          background: none !important;
+        }
+
+        @include wide-desktop() {
+          margin-top: -4px;
+        }
+
+        @include small-desktop() {
+          margin-top: -8px;
+        }
+
+        @include phone-min() {
+          font-size: 18px;
+        }
+
+        @include phone() {
+          margin-top: 14px;
+          margin-left: -22px;
+          margin-bottom: 15px;
+
+          li {
+            padding: 0 0 0 22px !important;
+          }
         }
       }
     }
@@ -144,6 +216,7 @@
 
     &-link {
       .b-cart__history-tabs & {
+        padding: 0 !important;
 
         span {
           @include transition_all(border-bottom-color .3s, color .3s);
@@ -427,6 +500,7 @@
         vertical-align: middle;
         line-height: 1.2;
         padding: 7px 0;
+        width: 100%;
       }
 
       dt {
@@ -606,6 +680,7 @@
           li {
             padding-left: 10px;
             line-height: 40px;
+            max-width: 50%;
           }
 
           .butt.butt-order {
@@ -1217,6 +1292,9 @@
 }
 
 ._user-data .b-cart__list .b-product__category._history-mod ._col-holder {
+  //background: darken(#060080, 10%);
+  //background: #060080;
+
   @include tablet() {
     margin-bottom: 10px;
   }

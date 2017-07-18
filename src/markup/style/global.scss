@@ -183,6 +183,30 @@ body {
       margin-bottom: 80px;
     }
   }
+
+  &._calc_section {
+    margin-bottom: 100px;
+
+    @include phone() {
+      margin-bottom: 80px;
+    }
+  }
+
+  &._questionnaire_section {
+    margin-bottom: 100px;
+
+    @include wide-desktop() {
+      margin-bottom: 80px;
+    }
+    
+    @include small-desktop() {
+      margin-bottom: 75px;
+    }
+    
+    @include tablet() {
+      margin-bottom: 65px;
+    }
+  }
 }
 
 .dt_hidden {

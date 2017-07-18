@@ -24,7 +24,7 @@ block content
           +b-cart__checkout()
             
           .b-cart__list
-            .b-product__category._tender-mod 
+            .b-product__category._tender-mod.tabBlock(data-tab-context='#product_switcher') 
               .b-cart__title История моих заявок
               ul#product_switcher.b-cart__history-tabs
                   li: a.b-cart__history-link(href='#tender_tab_1'): span Действующие
@@ -32,7 +32,7 @@ block content
                   li: a.b-cart__history-link(href='#tender_tab_3'): span Архив
                   li: a.b-cart__history-link(href='#tender_tab_4'): span История моих заявок
                   
-              .b-cart__history-panels.tabBlock(data-tab-context='#product_switcher')
+              .b-cart__history-panels
                 #tender_tab_1.b-cart__history-panel
                   .tab-content
                     .b-cart__history-unit

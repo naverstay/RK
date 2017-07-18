@@ -633,6 +633,43 @@
           margin-top: -50px;
         }
       }
+
+      &._mod-3 {
+        margin-top: -60px;
+        position: relative;
+
+        @include small-desktop() {
+          margin-top: -45px;
+        }
+
+        @include tablet() {
+          margin-top: -60px;
+        }
+
+        @include phone() {
+          margin-top: -70px;
+        }
+      }
+
+      &._mod-4 {
+        margin-top: -60px;
+
+        @include small-desktop() {
+          margin-top: -63px;
+        }
+
+        @include tablet() {
+          margin-top: -52px;
+
+          .b-product__category {
+            margin-bottom: 25px;
+          }
+        }
+
+        @include phone() {
+          margin-top: -50px;
+        }
+      }
     }
 
     &-form {
@@ -689,6 +726,7 @@
       vertical-align: top;
       color: $gl_gray_light;
       margin-bottom: 15px;
+      cursor: pointer;
 
       &:before {
         @include transition_all(transform .3s, color .3s);
@@ -713,13 +751,13 @@
           right: -30px;
           z-index: 1;
         }
+      }
 
-        &.opened {
-          color: $gl_red;
+      &.opened {
+        color: $gl_red;
 
-          &:before {
-            @include transform_rotate(180);
-          }
+        &:before {
+          @include transform_rotate(180);
         }
       }
 

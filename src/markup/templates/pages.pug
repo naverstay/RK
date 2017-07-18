@@ -1,0 +1,42 @@
+extends _layout.pug
+include _mixins.pug
+
+block variables
+  - var page_title = 'RK Стыковка конвейерной ленты';
+  - var map_active = 0;
+  - var nav_active = 0;
+  - var dropdown_active = 0;
+
+
+block content
+  .section.section__title._title-red._news
+    .section__inner
+      .b-pagination
+        ul.b-pagination__list
+          li: a.b-pagination__link(href='index.html') Главная
+          li: a.b-pagination__link(href='calc.html') Калькуляторы
+          li: span.b-pagination__link Стыковка конвейерной ленты
+  
+      .section__title-text Стыковка конвейерной ленты
+        
+  .section._calc_section
+    .section__inner
+      .b-product__range-w._mod-3
+        .b-form__block._callback-form._contacts
+          ul 
+            li: a(href='calc_2.html') calc_2.html
+            li: a(href='calc.html') calc.html
+            li: a(href='cart_2.html') cart_2.html
+            li: a(href='cart_3.html') cart_3.html
+            li: a(href='cart.html') cart.html
+            li: a(href='catalog.html') catalog.html
+            li: a(href='category.html') category.html
+            li: a(href='contacts.html') contacts.html
+            li: a(href='gui.html') gui.html
+            li: a(href='history.html') history.html
+            li: a(href='index.html') index.html
+            li: a(href='lk.html') lk.html
+            li: a(href='news.html') news.html
+            li: a(href='product.html') product.html
+            li: a(href='tenders.html') tenders.html
+            li: a(href='tv.html') tv.html

@@ -1,6 +1,31 @@
+.f-label {
+  display: inline-block;
+  vertical-align: top;
+  font-family: $ClearSansMedium;
+
+  &__v1 {
+    margin-bottom: 10px;
+  }
+}
+
 .f-row {
   @extend %clearfix;
   margin-left: -10px;
+
+  &__caption {
+    font: 30px $ClearSansMedium;
+    margin: 8px 0 45px;
+
+    @include tablet() {
+      margin: -10px 0 28px;
+    }
+
+    @include phone() {
+      margin: 10px 0 40px;
+      font-size: 22px;
+      line-height: 1.2;
+    }
+  }
 
   &._half {
     .f-cell {
@@ -11,6 +36,106 @@
 
       @include tablet() {
         max-width: 84px;
+      }
+    }
+  }
+
+  &._mod-1 {
+    margin-bottom: 35px;
+
+    .f-row__col {
+      padding-top: 30px;
+    }
+
+    @include small-desktop() {
+      margin-bottom: 30px;
+
+      .f-row__col {
+        padding-top: 0;
+        margin-top: -10px;
+      }
+    }
+
+    @include tablet() {
+      margin-bottom: 50px;
+
+      .f-row__col {
+        margin-top: 0;
+      }
+    }
+
+    @include phone() {
+      margin-bottom: 30px;
+    }
+
+  }
+
+  &._calc-switcher {
+    @extend %global_flex_block_row_wrap_space_between;
+
+    &:after,
+    &:before {
+      display: none;
+    }
+
+    .f-row__cell {
+      padding-left: 10px;
+    }
+
+    @include wide-desktop-min() {
+      padding-right: 25px;
+    }
+
+    @include small-desktop-min() {
+      .f-input__w._check-holder {
+        padding-bottom: 0;
+      }
+    }
+
+    @include phone-min() {
+      ._check-v1 .f-check-text {
+        font-size: 18px;
+        padding-top: 5px;
+      }
+    }
+
+    @include small-desktop() {
+      justify-content: flex-start;
+
+      .f-row__cell {
+        min-width: 30%;
+
+        &:nth-child(2n) {
+          min-width: 50%;
+        }
+      }
+    }
+
+    @include tablet() {
+      margin-bottom: 10px;
+
+      .f-input__w._check-holder {
+        padding-bottom: 25px;
+      }
+
+      .f-row__cell {
+        min-width: 35%;
+
+        &:nth-child(2n) {
+          min-width: 50%;
+        }
+      }
+    }
+
+    @include phone() {
+      margin-bottom: -10px;
+
+      .f-input__w._check-holder {
+        padding-bottom: 5px;
+      }
+
+      .f-row__cell {
+        min-width: 100%;
       }
     }
   }
@@ -107,6 +232,43 @@
     @include transition_all(color .3s, box-shadow .3s, border .3s);
     height: 50px;
     padding: 12px 20px;
+    border: 3px solid transparent;
+    font: 16px/20px $ClearSansRegular;
+    border-radius: 6px;
+    background: $dirty_white;
+    color: $gl_gray_light;
+
+    &:hover {
+      box-shadow: 0 13px 26px rgba(0, 0, 0, .16);
+    }
+
+    &:focus {
+      color: $gl_black;
+      box-shadow: none;
+      border-color: #dcdfed;
+    }
+
+    &.error {
+      color: $gl_red;
+      box-shadow: none;
+      border-color: $gl_red;
+    }
+
+    @include phone() {
+      &::-webkit-input-placeholder {
+        letter-spacing: -.02em;
+      }
+
+      &::-moz-placeholder {
+        letter-spacing: -.02em;
+      }
+    }
+  }
+
+  &.input__v4 {
+    @include transition_all(color .3s, box-shadow .3s, border .3s);
+    height: 40px;
+    padding: 7px 10px;
     border: 3px solid transparent;
     font: 16px/20px $ClearSansRegular;
     border-radius: 6px;
@@ -273,12 +435,12 @@ textarea.f-input.input__v1 {
       cursor: pointer;
       padding: 7px 20px;
       font-size: 16px;
-      color: $gl_gray_light;
+      color: $gl_gray_light !important;
       background: none !important;
 
       &.select2-results__option[aria-selected=true] {
         cursor: default;
-        color: $gl_red;
+        color: $gl_red !important;
       }
 
       &:hover {
@@ -622,7 +784,26 @@ textarea.f-input.input__v1 {
       display: none;
     }
   }
+}
 
+._no_select {
+  height: 0;
+
+  .select2-dropdown {
+    //margin-left: 0;
+  }
+
+  .select2-container {
+    top: 26px !important;
+
+    @include tablet() {
+      top: 20px !important;
+    }
+  }
+
+  .select2-selection--single {
+    display: none !important;
+  }
 }
 
 ._multiselect-v2 {
@@ -954,6 +1135,26 @@ textarea.f-input.input__v1 {
       }
     }
   }
+
+  &._mod-abs {
+    .select2-container {
+      position: absolute !important;
+      left: -10px !important;
+      z-index: 1;
+      padding: 0;
+
+      .select2-dropdown {
+        background: #fff;
+        box-shadow: 0 13px 46px rgba(0, 0, 0, 0.16);
+      }
+
+    }
+
+    .select2-results > .select2-results__options li {
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+  }
 }
 
 .jq-selectbox {
@@ -1191,6 +1392,7 @@ textarea.f-input.input__v1 {
     min-height: 30px;
     text-align: right;
     display: block;
+    width: 100%;
     padding: 6px 11px;
     color: $gl_black;
     font: 14px/18px $ClearSansBold;
@@ -1253,4 +1455,15 @@ textarea.f-input.input__v1 {
 
 .im-static {
   color: red;
+}
+
+.editMe {
+
+  &._no-edit {
+    pointer-events: none;
+  }
+
+  &._edit-mode {
+    pointer-events: all;
+  }
 }

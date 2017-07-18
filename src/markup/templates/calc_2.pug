@@ -1,0 +1,60 @@
+extends _layout.pug
+include _mixins.pug
+
+block variables
+  - var page_title = 'RK Опросный лист на поставку конвейерных роликов';
+  - var map_active = 0;
+  - var nav_active = 0;
+  - var dropdown_active = 0;
+  - var sizes = ['L', 'L1', 'D', 'd', 'd1', 'l', 'l2', 'l3', 'b']
+
+block content
+  .section.section__title._title-red._news
+    .section__inner
+      .b-pagination
+        ul.b-pagination__list
+          li: a.b-pagination__link(href='index.html') Главная
+          li: a.b-pagination__link(href='calc.html') Калькуляторы
+          li: span.b-pagination__link Ролики конвейерные
+  
+      .section__title-text._questionnaire Опросный лист на поставку конвейерных роликов
+        
+  .section._questionnaire_section
+    .section__inner
+      .b-product__range-w._mod-4
+        -i=0;
+        while i < 5
+          -i++;
+          .b-calc__questionnaire-w(class= i > 2 ? 'phone_hidden' : '')
+            .b-calc__questionnaire-row
+              .b-calc__questionnaire-cell
+                label.f-label.f-label__v1(for='var_number_' + i) № Варианта
+                input.f-input.input__v4(id= 'var_number_' + i)
+                
+              .b-calc__questionnaire-group._wide
+                for s, ind in sizes
+                  - var id = 'var_' + (s).toLowerCase() + '_' + i + '_' + (ind + 1)
+                  .b-calc__questionnaire-cell
+                    label.f-label.f-label__v1(for= id)= s
+                    .f-input__w
+                      input.f-input.input__v4(id= id)
+                
+              .b-calc__questionnaire-group._small
+                .b-calc__questionnaire-cell
+                  label.f-label.f-label__v1(for= 'var_name_' + i) Подшипник
+                  .f-input__w
+                    input.f-input.input__v4(id= 'var_name_' + i)
+                .b-calc__questionnaire-cell
+                  label.f-label.f-label__v1(for= 'var_counter_' + i) Кол-во
+                  .f-input__w
+                    input.f-input.input__v4(id= 'var_counter_' + i)
+          
+      .b-form__block._callback-form._contacts
+        .b-news__info
+          .b-news__info-name Данные о заказчике
+
+          p.phone_vis Оставьте Ваши данные и напишите сообщение/вопрос/предложение
+          p.phone_hidden Просто оставьте Ваши данные и напишите<br>сообщение/вопрос/предложение
+
+          form.validateMe(action='#')
+            +calc_form()

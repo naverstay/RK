@@ -2,12 +2,96 @@
   display: none;
   position: relative;
 
-  &__inner {
+  .fancybox-slide & {
+    display: inline-block;
+  }
+  
+  &__v1 {
+    width: 800px;
+    max-width: 90%;
+    overflow: visible;
     background: #fff;
     border-radius: 20px;
-    padding: 55px 40px;
+    padding: 50px;
     box-shadow: 0 23px 86px rgba(0, 0, 0, .16);
+
+    @include phone() {
+      padding: 40px 15px 1px;
+    }
   }
 
-}
+  &__v2 {
+    width: 510px;
+    max-width: 90%;
+    overflow: visible;
+    background: #fff;
+    border-radius: 20px;
+    padding: 50px 50px 60px;
+    box-shadow: 0 23px 86px rgba(0, 0, 0, .16);
 
+    @include phone() {
+      padding: 40px 15px 30px;
+    }
+  }
+
+  &__inner {
+
+  }
+
+  &__caption {
+    font: 24px $ClearSansMedium;
+    margin-bottom: 20px;
+
+    &._mod-1 {
+      margin-top: 60px;
+
+      @include tablet() {
+        margin-top: 40px;
+      }
+    }
+
+    @include phone() {
+      font-size: 16px;
+      margin-bottom: 15px;
+    }
+  }
+
+  &__quick-view {
+    overflow-x: hidden;
+    background: transparentize($gl_black, .4);
+
+    p {
+      overflow: hidden;
+      max-width: 400px;
+      line-height: 1.5;
+      max-height: 1.5 * 3em;
+      margin-bottom: 18px;
+      letter-spacing: .015em;
+
+      @include phone-min() {
+        margin-bottom: 35px;
+        font-size: 18px;
+        line-height: 1.4;
+        max-height: 1.4 * 3em;
+      }
+    }
+
+    .fancybox-close-small {
+      background: none;
+      top: -30px;
+      right: -20px;
+
+      &:after {
+        color: #fff;
+        background: none;
+        font-size: 50px;
+      }
+
+      @include tablet() {
+        right: -15px;
+        top: -38px;
+      }
+
+    }
+  }
+}

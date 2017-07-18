@@ -151,37 +151,37 @@ mixin b-cart__checkout()
         span#edit_btn_1.b-cart__user-edit.editBtn(data-target='edit_1')
 
       .b-cart__user-name.f-edit__style-1
-        span.editMe(data-blur='cancel' data-trigger='#edit_btn_1' data-edit='textarea' data-control='edit_1') Иван Иванович Александров
+        span.editMe._no-edit(data-blur='ignore' data-trigger='#edit_btn_1' data-edit='textarea' data-control='edit_1') Иван Иванович Александров
 
       ul.b-cart__edit-controls
         li.editStartBlock
           a.butt.butt_v1.butt-gray_2.editStart(href='#' data-target='edit_2')
             span Редактировать данные
         li.editFinishBlock(style='display:none;')
-          a.butt.butt_v1.butt-red.editFinish(href='#')
+          a.butt.butt_v1.butt-red.editFinish(href='#' data-target='edit_2')
             span Сохранить изменения
 
     .b-cart__checkout-body
       dl.b-cart__user-data.f-edit__style-2
         dt Телефон
         dd
-          span.editMe(data-control='edit_2' data-blur='ignore' data-edit='masked') +7 (999) 111 - 11- 11
+          span.editMe._no-edit(data-control='edit_2' data-blur='ignore' data-edit='masked' data-inputmask="'mask': '[+7] (999)-999-99-99', 'clearIncomplete' : true") +7 (999) 111 - 11- 11
 
         dt Email
         dd
-          span.editMe(data-control='edit_2' data-blur='ignore' data-edit='textarea') info@email.ru
+          span.editMe._no-edit(data-control='edit_2' data-blur='ignore' data-edit='textarea') info@email.ru
 
         dt Город
         dd
-          span.editMe(data-control='edit_2' data-blur='ignore' data-edit='textarea') Екатеринбург
+          span.editMe._no-edit(data-control='edit_2' data-blur='ignore' data-edit='textarea') Екатеринбург
 
         dt Страна
         dd
-          span.editMe(data-control='edit_2' data-blur='ignore' data-edit='textarea') Россия
+          span.editMe._no-edit(data-control='edit_2' data-blur='ignore' data-edit='textarea') Россия
 
         dt Адрес
         dd
-          span.editMe(data-control='edit_2' data-blur='ignore' data-edit='textarea') ул. Мира, д.8 стр. 2, офис 213
+          span.editMe._no-edit(data-control='edit_2' data-blur='ignore' data-edit='textarea') ул. Мира, д.8 стр. 2, офис 213
 
 mixin client_section()
   .section.section__title._title-black
@@ -193,6 +193,24 @@ mixin client_section()
           li
             .b-client__item
               img(src='images/client_1.png')
+
+mixin calc_form()
+  .f-row
+    .f-row__col
+      .f-input__w
+        input.f-input.input__v1(placeholder='Вид производства (пищевое или промышленное)' class='validate[required]')
+      .f-input__w
+        input.f-input.input__v1(placeholder='Контактное лицо'  class='validate[required]')
+      .f-input__w
+        input.f-input.input__v1(placeholder='Контакты для связи (e-mail, телефон)' class='validate[required]')
+
+    .f-row__col
+      .f-input__w
+        textarea.f-input.input__v1(placeholder='Наименование компании/комментарий')
+
+      .f-input__w
+        button.butt.butt-red.butt_v1._w-180
+          span.dm Отправить
 
 mixin delivery_section()
   .section
@@ -386,23 +404,144 @@ mixin contacts_item(map)
           | Skype &nbsp;
           a.b-news__office-link(href='#') www.rk-rti.ru
         
+mixin popups(history, cart_2)
+  - if (cart_2)
+    #callback_info.b-popup.b-popup__v2
+      <span data-fancybox-close="" class="fancybox-close-small"></span>
+      input(type='hidden' autofocus)
+      .b-popup__inner._t-c
+        .b-popup__caption Назначьте время звонка менеджера
+    
+        p Выберите, когда Вам будет удобно получить звонок нашего менеджера для завершения заказа
+    
+        ul.b-cart__callback
+          li
+            .b-product__range-label
+              .selectTrigger.b-product__range-trigger._mod-simulator_(data-no-overlay='true' data-trigger-for='#callback_day_select')
+                span День
+                
+              .b-product__range-select.select__v1._select-v1.skipOverlayClosing._no_select
+                select#callback_day_select.select2(data-doubling='#callback_day' data-keep-placeholder='true' data-placeholder='День')
+                  option(selected disabled)
+                  option Сегодня
+                  option Завтра
+                  
+              //-.b-product__range-select._select-v3._keep-open._mod-abs.skipOverlayClosing
+                select#callback_day_select.select2(data-placeholder='День' data-doubling='#callback_day' data-no-overlay='true')
+                  option(selected disabled) 
+                  option Сегодня
+                  option Завтра
+
+              #callback_day.b-product__range-double &nbsp;
+              
+          li
+            .b-product__range-label
+              .selectTrigger.b-product__range-trigger._mod-simulator_(data-no-overlay='true' data-trigger-for='#callback_time_select')
+                span Время
+                
+              .b-product__range-select.select__v1._select-v1.skipOverlayClosing._no_select
+                select#callback_time_select.select2(data-doubling='#callback_time' data-keep-placeholder='true' data-placeholder='Время')
+                  option(selected disabled)
+                  option 14:30
+                  option 15:30
+                  option 16:30
+                  option 17:30
+                    
+              //-.b-product__range-select._select-v3._keep-open._mod-abs.skipOverlayClosing
+                select#callback_time_select.select2(data-placeholder='Время' data-doubling='#callback_time' data-no-overlay='true')
+                  option(selected disabled) 
+                  option 14:30
+                  option 15:30
+                  option 16:30
+                  option 17:30
+
+              #callback_time.b-product__range-double &nbsp;
+    
+        div
+          a.butt.butt-red.butt_v2.butt-checkout(href='#')
+            span Назначить время звонка
+    
+    
+  - if (history)
+    #order_info.b-popup.b-popup__v1
+      .b-popup__inner
+        .b-popup__caption 
+          span Подробнее о заказе  
+          span.phone_vis <br> 
+          span №GR1654
+        p Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
         
-mixin popups(index)
-  #callback_popup.popup.popup_v1(style='display:none;')
-    .calc_info
-      .caption_v1 Обратный звонок
-      form.validateMe(action='#')
-        input(type='hidden' autofocus='autofocus')
-        .form_cell.cell_v3
-          input.f_input.f_input_v1(placeholder='Как к Вам обращаться?' class='validate[required]')
+        .b-cart__history-table
+          .b-cart__history-table__head.phone_hidden
+            .b-cart__history-table__cell Заголовок колонки
+            .b-cart__history-table__cell Заголовок колонки
+          
+          .b-cart__history-table__row
+            .b-cart__history-table__cell 
+              span Заголовок параметра
+            .b-cart__history-table__cell 
+              span Значение 
+              span.phone_vis На мобильном устройстве шапка таблицы с названием колонок не показывается. Ячеки заполняют всю ширину друг за другом, где верхняя строка - бывшая левая ячейка, нижняя - бывшая правая.  
+           
+          .b-cart__history-table__row
+            .b-cart__history-table__cell 
+              span Заголовок параметра
+            .b-cart__history-table__cell 
+              span Значение 
+              span.phone_vis На мобильном устройстве шапка таблицы с названием колонок не показывается. Ячеки заполняют всю ширину друг за другом, где верхняя строка - бывшая левая ячейка, нижняя - бывшая правая.
+  
+          .b-cart__history-table__row.phone_hidden
+            .b-cart__history-table__cell 
+              span Заголовок параметра
+            .b-cart__history-table__cell 
+              span Значение 
+              span.phone_vis На мобильном устройстве шапка таблицы с названием колонок не показывается. Ячеки заполняют всю ширину друг за другом, где верхняя строка - бывшая левая ячейка, нижняя - бывшая правая.  
+           
+          .b-cart__history-table__row
+            .b-cart__history-table__cell 
+              span Заголовок параметра
+            .b-cart__history-table__cell 
+              span Значение 
+              span.phone_vis На мобильном устройстве шапка таблицы с названием колонок не показывается. Ячеки заполняют всю ширину друг за другом, где верхняя строка - бывшая левая ячейка, нижняя - бывшая правая.  
+        
+        .phone_hidden
+          .b-popup__caption._mod-1 Дополнительный заголовок
+          p Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor 
+          
+          .b-cart__history-table
+            .b-cart__history-table__head.phone_hidden
+              .b-cart__history-table__cell Заголовок колонки
+              .b-cart__history-table__cell Заголовок колонки
+    
+            .b-cart__history-table__row
+              .b-cart__history-table__cell
+                span Заголовок параметра
+              .b-cart__history-table__cell
+                span Значение 
+                span.phone_vis На мобильном устройстве шапка таблицы с названием колонок не показывается. Ячеки заполняют всю ширину друг за другом, где верхняя строка - бывшая левая ячейка, нижняя - бывшая правая.  
+    
+            .b-cart__history-table__row
+              .b-cart__history-table__cell
+                span Заголовок параметра
+              .b-cart__history-table__cell
+                span Значение 
+                span.phone_vis На мобильном устройстве шапка таблицы с названием колонок не показывается. Ячеки заполняют всю ширину друг за другом, где верхняя строка - бывшая левая ячейка, нижняя - бывшая правая.
+    
+            .b-cart__history-table__row.phone_hidden
+              .b-cart__history-table__cell
+                span Заголовок параметра
+              .b-cart__history-table__cell
+                span Значение 
+                span.phone_vis На мобильном устройстве шапка таблицы с названием колонок не показывается. Ячеки заполняют всю ширину друг за другом, где верхняя строка - бывшая левая ячейка, нижняя - бывшая правая.  
+    
+            .b-cart__history-table__row
+              .b-cart__history-table__cell
+                span Заголовок параметра
+              .b-cart__history-table__cell
+                span Значение 
+                span.phone_vis На мобильном устройстве шапка таблицы с названием колонок не показывается. Ячеки заполняют всю ширину друг за другом, где верхняя строка - бывшая левая ячейка, нижняя - бывшая правая.
+                
 
-        .form_cell.cell_v3
-          input.f_input.f_input_v1(placeholder='Телефон' data-inputmask="'mask': '[+7] (999)-999-99-99', 'clearIncomplete' : true" class='validate[required]')
-
-        .form_cell.cell_v3
-          button.butt_green.calc_butt.callbackBtn
-            span.mb Отправить
-            
 mixin link_or_span(active, link, link_text, link_class, li_class)
   li(class= active ? 'active' : '' class= li_class || '')
     - if (active)

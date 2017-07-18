@@ -24,13 +24,13 @@ block content
           +b-cart__checkout()
                     
           .b-cart__list
-            .b-product__category._history-mod
+            .b-product__category._history-mod.tabBlock(data-tab-context='#product_switcher')
               .b-cart__title История заказов
               ul#product_switcher.b-cart__history-tabs
                   li: a.b-cart__history-link(href='#history_tab_1'): span Мои заказы
                   li: a.b-cart__history-link(href='#history_tab_2'): span Все заказы
                   
-              .b-cart__history-panels.tabBlock(data-tab-context='#product_switcher')
+              .b-cart__history-panels
                 #history_tab_1.b-cart__history-panel
                   .tab-content._col-holder
                     +loop_while(1)
@@ -46,7 +46,9 @@ block content
     
                           dl.b-cart__history-info
                             dt: span Сумма к оплате: 
-                            dd: span 750.00 Р-
+                            dd
+                              span 750.00 
+                              span._rub &#x443;
                           dl.b-cart__history-info
                             dt: span Оплачен:
                             dd: span Нет
@@ -59,7 +61,7 @@ block content
                             
                           ul.b-cart__checkout-options
                             li
-                              a.butt.butt-red.butt_v2.butt-order.orderInfoBtn(href='#')
+                              a.butt.butt-red.butt_v2.butt-order.js-fancy-ajax(data-type="ajax" href="javascript:;" data-src='popup_content.html?_ijt=mo3t6295iuk62o9m348dvuaa2s')
                                 span Состав заказа
                             li
                               a.butt.butt_v2.butt-order.butt-gray_2(href='#')
@@ -76,7 +78,9 @@ block content
     
                           dl.b-cart__history-info
                             dt: span Сумма к оплате: 
-                            dd: span 750.00 Р-
+                            dd
+                              span 750.00 
+                              span._rub &#x443;
                           dl.b-cart__history-info
                             dt: span Оплачен:
                             dd: span Нет
@@ -89,7 +93,7 @@ block content
                             
                           ul.b-cart__checkout-options
                             li
-                              a.butt.butt-red.butt_v2.butt-order.orderInfoBtn(href='#')
+                              a.butt.butt-red.butt_v2.butt-order.js-fancy-ajax(data-type="ajax" href="javascript:;" data-src='popup_content_2.html?_ijt=2nksac0l0fjr3biilqj790ovi8')
                                 span Состав заказа
                           
                       .b-cart__history-col._magic-col
@@ -104,7 +108,9 @@ block content
     
                           dl.b-cart__history-info
                             dt: span Сумма к оплате: 
-                            dd: span 750.00 Р-
+                            dd
+                              span 750.00 
+                              span._rub &#x443;
                           dl.b-cart__history-info
                             dt: span Оплачен:
                             dd: span Нет
@@ -117,7 +123,7 @@ block content
                             
                           ul.b-cart__checkout-options
                             li
-                              a.butt.butt-red.butt_v2.butt-order.orderInfoBtn(href='#')
+                              a.butt.butt-red.butt_v2.butt-order.js-fancy-ajax(data-type="ajax" href="javascript:;" data-src='popup_content_3.html?_ijt=2nksac0l0fjr3biilqj790ovi8')
                                 span Состав заказа
   
                         .b-cart__history-unit.tab_hidden
@@ -131,7 +137,9 @@ block content
     
                           dl.b-cart__history-info
                             dt: span Сумма к оплате: 
-                            dd: span 750.00 Р-
+                            dd
+                              span 750.00 
+                              span._rub &#x443;
                           dl.b-cart__history-info
                             dt: span Оплачен:
                             dd: span Нет
@@ -144,7 +152,7 @@ block content
                             
                           ul.b-cart__checkout-options
                             li
-                              a.butt.butt-red.butt_v2.butt-order.orderInfoBtn(href='#')
+                              a.butt.butt-red.butt_v2.butt-order.js-fancy-ajax(data-type="ajax" href="javascript:;" data-src='popup_content_4.html?_ijt=2nksac0l0fjr3biilqj790ovi8')
                                 span Состав заказа
                           
                 #history_tab_2.b-cart__history-panel
@@ -162,7 +170,9 @@ block content
 
                           dl.b-cart__history-info
                             dt: span Сумма к оплате: 
-                            dd: span 750.00 Р-
+                            dd
+                              span 750.00 
+                              span._rub &#x443;
                           dl.b-cart__history-info
                             dt: span Оплачен:
                             dd: span Нет
@@ -175,7 +185,7 @@ block content
 
                           ul.b-cart__checkout-options
                             li
-                              a.butt.butt-red.butt_v2.butt-order.orderInfoBtn(href='#')
+                              a.butt.butt-red.butt_v2.butt-order.js-fancy-ajax(data-type="ajax" href="javascript:;" data-src='popup_content.html?_ijt=mo3t6295iuk62o9m348dvuaa2s')
                                 span Состав заказа
                             li
                               a.butt.butt_v2.butt-order.butt-gray_2(href='#')
@@ -192,7 +202,9 @@ block content
 
                           dl.b-cart__history-info
                             dt: span Сумма к оплате: 
-                            dd: span 750.00 Р-
+                            dd
+                              span 750.00 
+                              span._rub &#x443;
                           dl.b-cart__history-info
                             dt: span Оплачен:
                             dd: span Нет
@@ -205,7 +217,7 @@ block content
 
                           ul.b-cart__checkout-options
                             li
-                              a.butt.butt-red.butt_v2.butt-order.orderInfoBtn(href='#')
+                              a.butt.butt-red.butt_v2.butt-order.js-fancy-ajax(data-type="ajax" href="javascript:;" data-src='popup_content_2.html?_ijt=2nksac0l0fjr3biilqj790ovi8')
                                 span Состав заказа
 
                       .b-cart__history-col._magic-col
@@ -220,7 +232,9 @@ block content
 
                           dl.b-cart__history-info
                             dt: span Сумма к оплате: 
-                            dd: span 750.00 Р-
+                            dd
+                              span 750.00 
+                              span._rub &#x443;
                           dl.b-cart__history-info
                             dt: span Оплачен:
                             dd: span Нет
@@ -233,7 +247,7 @@ block content
 
                           ul.b-cart__checkout-options
                             li
-                              a.butt.butt-red.butt_v2.butt-order.orderInfoBtn(href='#')
+                              a.butt.butt-red.butt_v2.butt-order.js-fancy-ajax(data-type="ajax" href="javascript:;" data-src='popup_content_3.html?_ijt=2nksac0l0fjr3biilqj790ovi8')
                                 span Состав заказа
 
                         .b-cart__history-unit.tab_hidden
@@ -247,7 +261,9 @@ block content
 
                           dl.b-cart__history-info
                             dt: span Сумма к оплате: 
-                            dd: span 750.00 Р-
+                            dd
+                              span 750.00 
+                              span._rub &#x443;
                           dl.b-cart__history-info
                             dt: span Оплачен:
                             dd: span Нет
@@ -260,8 +276,7 @@ block content
 
                           ul.b-cart__checkout-options
                             li
-                              a.butt.butt-red.butt_v2.butt-order.orderInfoBtn(href='#')
+                              a.butt.butt-red.butt_v2.butt-order.js-fancy-ajax(data-type="ajax" href="javascript:;" data-src='popup_content_4.html?_ijt=2nksac0l0fjr3biilqj790ovi8')
                                 span Состав заказа
-                                
-  +popup_order_info()
+                    
     

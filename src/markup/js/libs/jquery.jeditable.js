@@ -84,6 +84,7 @@ jQuery.fn.editable = function (target, options, callback) {
     loadtype: 'GET',
     loadtext: 'Loading...',
     loaddata: {},
+    mask: null,
     blurcallback: {},
     submitdata: {}
   };
@@ -226,10 +227,10 @@ jQuery.fn.editable = function (target, options, callback) {
 
     /* discard changes if pressing esc */
     jQuery(i).keydown(function (e) {
-      if (e.keyCode == 27) {
-        e.preventDefault();
-        reset();
-      }
+      //if (e.keyCode == 27) {
+      //  e.preventDefault();
+      //  reset();
+      //}
     });
 
     /* discard, submit or nothing with changes when clicking outside */
